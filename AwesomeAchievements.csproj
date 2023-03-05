@@ -20,7 +20,7 @@
         <DefineDebug>false</DefineDebug>
         <DefineTrace>false</DefineTrace>
         <WarningLevel>4</WarningLevel>
-        <LangVersion>latest</LangVersion>
+        <LangVersion>11.0</LangVersion>
     </PropertyGroup>
 
     <!-- Debug and Release assembly parameters -->
