@@ -1,6 +1,6 @@
 ﻿namespace AwesomeAchievements; 
 
-internal struct ModInfo {
+internal readonly struct ModInfo {
     public const string TITLE = "AwesomeAchievements",
         AUTHOR = "Flame",
         GUID = AUTHOR + "." + TITLE,
