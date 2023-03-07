@@ -1,7 +1,9 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using AwesomeAchievements;
 
+[assembly: InternalsVisibleTo("Tests")]
 [assembly: AssemblyTitle(ModInfo.TITLE)]
 [assembly: AssemblyProduct(ModInfo.TITLE)]
 [assembly: AssemblyCompany(ModInfo.AUTHOR)]
