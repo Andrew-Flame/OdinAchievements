@@ -15,22 +15,23 @@
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
         <Deterministic>true</Deterministic>
-        <DebugType>None</DebugType>
-        <DebugSymbols>false</DebugSymbols>
-        <DefineDebug>false</DefineDebug>
-        <DefineTrace>false</DefineTrace>
         <WarningLevel>4</WarningLevel>
         <LangVersion>11.0</LangVersion>
     </PropertyGroup>
 
     <!-- Debug and Release assembly parameters -->
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <Optimize>false</Optimize>
         <OutputPath>C:\SteamLibrary\steamapps\common\Valheim\BepInEx\plugins\AwesomeAchievements\</OutputPath>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>false</Optimize>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <Optimize>true</Optimize>
         <OutputPath>bin\</OutputPath>
+        <DebugType>None</DebugType>
+        <Optimize>true</Optimize>
+        <DefineDebug>false</DefineDebug>
+        <DefineTrace>false</DefineTrace>
+        <DebugSymbols>false</DebugSymbols>
     </PropertyGroup>
     
     <ItemGroup>
