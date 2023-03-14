@@ -6,8 +6,8 @@
     <PropertyGroup>
         <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <Platform>x86</Platform>
-        <ProcessorArchitecture>x86</ProcessorArchitecture>
+        <Platform>x64</Platform>
+        <ProcessorArchitecture>x64</ProcessorArchitecture>
         <OutputType>Library</OutputType>
         <RootNamespace>AwesomeAchievements</RootNamespace>
         <AssemblyName>AwesomeAchievements</AssemblyName>
