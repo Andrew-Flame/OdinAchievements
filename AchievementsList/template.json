@@ -15,9 +15,9 @@
         "",
         "Skip the night by falling asleep on the bed"
     ],
-    "BonFire": [
+    "Campfire": [
         "",
-        "Make a bonfire"
+        "Have a rest near the campfire"
     ],
     "CookMeat": [
         "",
@@ -45,11 +45,11 @@
     ],
     "FindVillage": [
         "",
-        "Find an abandoned village"
+        "Visit an abandoned village"
     ],
     "FindDraugrVillage": [
         "",
-        "Find a Draugrs' village"
+        "Visit a Draugrs' village"
     ],
     "KillDeerBow": [
         "",
