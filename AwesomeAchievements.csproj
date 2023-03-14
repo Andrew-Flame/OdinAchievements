@@ -70,5 +70,8 @@
     <ItemGroup>
       <None Include="libs\UnityEngine.CoreModule.dll" />
     </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="AchievementsList\template.json" />
+    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

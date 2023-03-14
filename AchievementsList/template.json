@@ -1,0 +1,86 @@
+﻿{
+    "UseVegvisir": [
+        "",
+        "Use vegvisir for the first time"
+    ],
+    "HitWithClub": [
+        "",
+        "Hit someone with a club"
+    ],
+    "StarterKit": [
+        "",
+        "Create a hammer, a stone axe, a club and a torch"
+    ],
+    "Sleep": [
+        "",
+        "Skip the night by falling asleep on the bed"
+    ],
+    "BonFire": [
+        "",
+        "Make a bonfire"
+    ],
+    "CookMeat": [
+        "",
+        "Cook a raw meat"
+    ],
+    "CookCoal": [
+        "",
+        "Turn a piece of meat into coal"
+    ],
+    "CollectRaspberries": [
+        "",
+        "Pick up 200 raspberries from bushes"
+    ],
+    "CollectMushrooms": [
+        "",
+        "Pick up 200 mushrooms from the ground"
+    ],
+    "CollectStones": [
+        "",
+        "Pick up 200 stones from the ground"
+    ],
+    "CutTrees": [
+        "",
+        "Cut down 500 trees with an axe"
+    ],
+    "FindVillage": [
+        "",
+        "Find an abandoned village"
+    ],
+    "FindDraugrVillage": [
+        "",
+        "Find a Draugrs' village"
+    ],
+    "KillDeerBow": [
+        "",
+        "Kill a deer using a bow"
+    ],
+    "KillDeerNoBow": [
+        "",
+        "Kill a deer without a bow"
+    ],
+    "TameBoar": [
+        "",
+        "Tame a boar"
+    ],
+    "KillBird": [
+        "",
+        "Kill a gull or a crow using a bow"
+    ],
+    "DefeatEikthyrArmy": [
+        "",
+        "Survive the attack of the Eikthyr army"
+    ],
+    "DefeatEikthyr": [
+        "",
+        "Defeat Eikthyr"
+    ],
+    "VikingGraveyard": [
+        "",
+        "Plunder a viking graveyard in the meadows"
+    ],
+    "CollectTrophies": [
+        "",
+        "Collect all the trophies available in the meadows"
+    ]
+}
