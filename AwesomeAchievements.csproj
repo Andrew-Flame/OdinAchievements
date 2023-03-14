@@ -40,10 +40,10 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
-      <None Include="libs\0Harmony.dll" />
-      <None Include="libs\assembly_valheim.dll" />
-      <None Include="libs\BepInEx.dll" />
-      <None Include="libs\UnityEngine.dll" />
+      <None Include="Libs\0Harmony.dll" />
+      <None Include="Libs\assembly_valheim.dll" />
+      <None Include="Libs\BepInEx.dll" />
+      <None Include="Libs\UnityEngine.dll" />
     </ItemGroup>
     <ItemGroup>
       <Reference Include="0Harmony">
@@ -68,7 +68,7 @@
       </Reference>
     </ItemGroup>
     <ItemGroup>
-      <None Include="libs\UnityEngine.CoreModule.dll" />
+      <None Include="Libs\UnityEngine.CoreModule.dll" />
     </ItemGroup>
     <ItemGroup>
       <EmbeddedResource Include="AchievementsList\template.json" />
