@@ -15,6 +15,10 @@
         "",
         "Die from a falling tree"
     ],
+    "FirstDeath": [
+        "",
+        "Die for the first time"
+    ],
     "Sleep": [
         "",
         "Skip the night by falling asleep on the bed"
