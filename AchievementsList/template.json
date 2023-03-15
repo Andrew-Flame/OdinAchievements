@@ -11,6 +11,10 @@
         "",
         "Create a hammer, a stone axe, a club and a torch"
     ],
+    "TreeDie": [
+        "",
+        "Die from a falling tree"
+    ],
     "Sleep": [
         "",
         "Skip the night by falling asleep on the bed"
