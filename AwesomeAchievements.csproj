@@ -35,6 +35,7 @@
     </PropertyGroup>
     
     <ItemGroup>
+        <Compile Include="AchievementsList\AchievementJSON.cs" />
         <Compile Include="ModInfo.cs" />
         <Compile Include="Master.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,7 +75,8 @@
       <EmbeddedResource Include="AchievementsList\template.json" />
     </ItemGroup>
     <ItemGroup>
-      <Content Include="AchievementsList\russian.json" />
+      <Content Include="AchievementsList\ru.json" />
+      <Content Include="Libs\Newtonsoft.Json.dll" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,124 +1,124 @@
 ﻿{
     "data": [
         {
-            "Id": "UseVegvisir",
-            "Name": "",
-            "Description": "Use vegvisir for the first time"
+            "id": "UseVegvisir",
+            "name": "",
+            "description": "Use vegvisir for the first time"
         },
         {
-            "Id": "HitWithClub",
-            "Name": "",
-            "Description": "Hit someone with a club"
+            "id": "HitWithClub",
+            "name": "",
+            "description": "Hit someone with a club"
         },
         {
-            "Id": "StarterKit",
-            "Name": "",
-            "Description": "Create a hammer, a stone axe, a club and a torch"
+            "id": "StarterKit",
+            "name": "",
+            "description": "Create a hammer, a stone axe, a club and a torch"
         },
         {
-            "Id": "TreeDie",
-            "Name": "",
-            "Description": "Die from a falling tree"
+            "id": "TreeDie",
+            "name": "",
+            "description": "Die from a falling tree"
         },
         {
-            "Id": "FirstDeath",
-            "Name": "",
-            "Description": "Die for the first time"
+            "id": "FirstDeath",
+            "name": "",
+            "description": "Die for the first time"
         },
         {
-            "Id": "Sleep",
-            "Name": "",
-            "Description": "Skip the night by falling asleep on the bed"
+            "id": "Sleep",
+            "name": "",
+            "description": "Skip the night by falling asleep on the bed"
         },
         {
-            "Id": "Campfire",
-            "Name": "",
-            "Description": "Have a rest near the campfire"
+            "id": "Campfire",
+            "name": "",
+            "description": "Have a rest near the campfire"
         },
         {
-            "Id": "CookMeat",
-            "Name": "",
-            "Description": "Cook a raw meat"
+            "id": "CookMeat",
+            "name": "",
+            "description": "Cook a raw meat"
         },
         {
-            "Id": "CookCoal",
-            "Name": "",
-            "Description": "Turn a piece of meat into coal"
+            "id": "CookCoal",
+            "name": "",
+            "description": "Turn a piece of meat into coal"
         },
         {
-            "Id": "CollectRaspberries",
-            "Name": "",
-            "Description": "Pick up 200 raspberries from bushes"
+            "id": "CollectRaspberries",
+            "name": "",
+            "description": "Pick up 200 raspberries from bushes"
         },
         {
-            "Id": "CollectMushrooms",
-            "Name": "",
-            "Description": "Pick up 200 mushrooms from the ground"
+            "id": "CollectMushrooms",
+            "name": "",
+            "description": "Pick up 200 mushrooms from the ground"
         },
         {
-            "Id": "CollectStones",
-            "Name": "",
-            "Description": "Pick up 200 stones from the ground"
+            "id": "CollectStones",
+            "name": "",
+            "description": "Pick up 200 stones from the ground"
         },
         {
-            "Id": "CutTrees",
-            "Name": "",
-            "Description": "Cut down 500 trees with an axe"
+            "id": "CutTrees",
+            "name": "",
+            "description": "Cut down 500 trees with an axe"
         },
         {
-            "Id": "FindVillage",
-            "Name": "",
-            "Description": "Visit an abandoned village"
+            "id": "FindVillage",
+            "name": "",
+            "description": "Visit an abandoned village"
         },
         {
-            "Id": "FindDraugrVillage",
-            "Name": "",
-            "Description": "Visit a Draugrs' village"
+            "id": "FindDraugrVillage",
+            "name": "",
+            "description": "Visit a Draugrs' village"
         },
         {
-            "Id": "KillDeerBow",
-            "Name": "",
-            "Description": "Kill a deer using a bow"
+            "id": "KillDeerBow",
+            "name": "",
+            "description": "Kill a deer using a bow"
         },
         {
-            "Id": "KillDeerNoBow",
-            "Name": "",
-            "Description": "Kill a deer without a bow"
+            "id": "KillDeerNoBow",
+            "name": "",
+            "description": "Kill a deer without a bow"
         },
         {
-            "Id": "TameBoar",
-            "Name": "",
-            "Description": "Tame a boar"
+            "id": "TameBoar",
+            "name": "",
+            "description": "Tame a boar"
         },
         {
-            "Id": "KillBird",
-            "Name": "",
-            "Description": "Kill a gull or a crow using a bow"
+            "id": "KillBird",
+            "name": "",
+            "description": "Kill a gull or a crow using a bow"
         },
         {
-            "Id": "DefeatEikthyrArmy",
-            "Name": "",
-            "Description": "Survive the attack of the Eikthyr army"
+            "id": "DefeatEikthyrArmy",
+            "name": "",
+            "description": "Survive the attack of the Eikthyr army"
         },
         {
-            "Id": "DefeatEikthyr",
-            "Name": "",
-            "Description": "Defeat Eikthyr"
+            "id": "DefeatEikthyr",
+            "name": "",
+            "description": "Defeat Eikthyr"
         },
         {
-            "Id": "VikingGraveyard",
-            "Name": "",
-            "Description": "Plunder a viking graveyard in the meadows"
+            "id": "VikingGraveyard",
+            "name": "",
+            "description": "Plunder a viking graveyard in the meadows"
         },
         {
-            "Id": "CollectTrophiesMeadows",
-            "Name": "",
-            "Description": "Collect all the trophies available in the meadows"
+            "id": "CollectTrophiesMeadows",
+            "name": "",
+            "description": "Collect all the trophies available in the meadows"
         },
         {
-            "Id": "EatFoodMeadows",
-            "Name": "",
-            "Description": "Eat all types of food available in the meadows"
+            "id": "EatFoodMeadows",
+            "name": "",
+            "description": "Eat all types of food available in the meadows"
         }
     ]
 }
