@@ -87,8 +87,12 @@
         "",
         "Plunder a viking graveyard in the meadows"
     ],
-    "CollectTrophies": [
+    "CollectTrophiesMeadows": [
         "",
         "Collect all the trophies available in the meadows"
+    ],
+    "EatFoodMeadows": [
+        "",
+        "Eat all types of food available in the meadows"
     ]
 }
