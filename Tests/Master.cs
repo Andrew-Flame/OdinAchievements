@@ -1,9 +1,7 @@
-﻿using AwesomeAchievements;
+﻿namespace Tests; 
 
-namespace Tests {
-    internal static class Master {
-        public static void Main() {
-            
-        }
+internal static class Master {
+    public static void Main() {
+        AchievementsListTest.Run();
     }
 }

@@ -1,46 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+
+    <!-- General assembly parameters -->
     <PropertyGroup>
+        <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{83B66B24-0D05-4548-A52E-D6B3D2EAA82D}</ProjectGuid>
+        <Platform>x64</Platform>
+        <ProcessorArchitecture>x64</ProcessorArchitecture>
         <OutputType>Exe</OutputType>
-        <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>Tests</RootNamespace>
         <AssemblyName>Tests</AssemblyName>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
-        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <DebugSymbols>true</DebugSymbols>
-        <DebugType>full</DebugType>
-        <Optimize>false</Optimize>
-        <OutputPath>bin\Debug\</OutputPath>
-        <DefineConstants>DEBUG;TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
+        <Deterministic>true</Deterministic>
         <WarningLevel>4</WarningLevel>
+        <LangVersion>11.0</LangVersion>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
+
+    <!-- Debug and Release assembly parameters -->
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <OutputPath>bin\Debug</OutputPath>
         <DebugType>pdbonly</DebugType>
+        <Optimize>false</Optimize>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <OutputPath>bin\Release</OutputPath>
+        <DebugType>None</DebugType>
         <Optimize>true</Optimize>
-        <OutputPath>bin\Release\</OutputPath>
-        <DefineConstants>TRACE</DefineConstants>
-        <ErrorReport>prompt</ErrorReport>
-        <WarningLevel>4</WarningLevel>
+        <DefineDebug>false</DefineDebug>
+        <DefineTrace>false</DefineTrace>
+        <DebugSymbols>false</DebugSymbols>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="System" />
-        <Reference Include="System.Core" />
-        <Reference Include="System.Data" />
-        <Reference Include="System.Xml" />
-    </ItemGroup>
-    <ItemGroup>
+        <Compile Include="AchievementsListTest.cs" />
         <Compile Include="Master.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Reference Include="0Harmony">
+        <HintPath>..\Libs\0Harmony.dll</HintPath>
+      </Reference>
+      <Reference Include="assembly_valheim">
+        <HintPath>..\Libs\assembly_valheim.dll</HintPath>
+      </Reference>
+      <Reference Include="BepInEx">
+        <HintPath>..\Libs\BepInEx.dll</HintPath>
+      </Reference>
+      <Reference Include="Newtonsoft.Json">
+        <HintPath>..\Libs\Newtonsoft.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine">
+        <HintPath>..\Libs\UnityEngine.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.CoreModule">
+        <HintPath>..\Libs\UnityEngine.CoreModule.dll</HintPath>
+      </Reference>
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\AwesomeAchievements.csproj">
