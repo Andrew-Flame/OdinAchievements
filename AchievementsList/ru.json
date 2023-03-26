@@ -46,6 +46,11 @@
             "description": "Превратите кусок мяса в уголь"
         },
         {
+            "id": "CreateHoe",
+            "name": "Ландшафтный дизайнер",
+            "description": "Создайте мотыгу"
+        },
+        {
             "id": "CollectRaspberries",
             "name": "Сладкая жизнь",
             "description": "Сорвите с кустов 200 ягод малины"
@@ -64,6 +69,16 @@
             "id": "CutTrees",
             "name": "Дровосек",
             "description": "Срубите топором 500 деревьев"
+        },
+        {
+            "id": "UseRaft",
+            "name": "Полный вперед!",
+            "description" : "Впервые используйте плот"
+        },
+        {
+            "id": "KillPlayer",
+            "name": "Два друга",
+            "description" : "Убейте другого игрока"
         },
         {
             "id": "FindVillage",

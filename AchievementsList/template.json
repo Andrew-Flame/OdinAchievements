@@ -46,6 +46,11 @@
             "description": "Turn a piece of meat into coal"
         },
         {
+            "id": "CreateHoe",
+            "name": "",
+            "description": "Create a hoe"
+        },
+        {
             "id": "CollectRaspberries",
             "name": "",
             "description": "Pick up 200 raspberries from bushes"
@@ -64,6 +69,16 @@
             "id": "CutTrees",
             "name": "",
             "description": "Cut down 500 trees with an axe"
+        },
+        {
+            "id": "UseRaft",
+            "name": "",
+            "description" : "Use the raft for the first time"
+        },
+        {
+            "id": "KillPlayer",
+            "name": "",
+            "description" : "Kill the other player"
         },
         {
             "id": "FindVillage",
