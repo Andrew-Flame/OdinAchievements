@@ -1,6 +1,6 @@
 ﻿// ReSharper disable InconsistentNaming
 // ReSharper disable UnusedAutoPropertyAccessor.Global
-namespace AwesomeAchievements.AchievementsLists; 
+namespace AwesomeAchievements.AchievementsList; 
 
 internal struct AchievementJsonObject {
     public string id { get; set; }

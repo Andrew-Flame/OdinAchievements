@@ -111,6 +111,11 @@
             "description": "Kill a gull or a crow using a bow"
         },
         {
+            "id": "Comfort5",
+            "name": "",
+            "description": "Reach the fifth level of comfort"
+        },
+        {
             "id": "DefeatEikthyrArmy",
             "name": "",
             "description": "Survive the attack of the Eikthyr army"
