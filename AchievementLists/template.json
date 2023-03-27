@@ -31,6 +31,16 @@
             "description": "Skip the night by falling asleep on the bed"
         },
         {
+            "id": "BuildBeehives",
+            "name": "",
+            "description": "Place 10 beehives in the same place"
+        },
+        {
+            "id": "BeeGuard",
+            "name": "",
+            "description": "Defend yourself from enemies using bees"
+        },
+        {
             "id": "Campfire",
             "name": "",
             "description": "Have a rest near the campfire"
@@ -74,6 +84,11 @@
             "id": "UseRaft",
             "name": "",
             "description" : "Use the raft for the first time"
+        },
+        {
+            "id": "SinkShip",
+            "name": "",
+            "description" : "Do not leave the swimming vehicle while it is sinking"
         },
         {
             "id": "KillPlayer",
