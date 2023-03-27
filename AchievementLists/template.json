@@ -154,6 +154,11 @@
             "id": "EatFoodMeadows",
             "name": "",
             "description": "Eat all types of food available in the meadows"
+        },
+        {
+            "id": "LoremasterMeadows",
+            "name": "",
+            "description": "Read all the runestones available in the meadows"
         }
     ]
 }
