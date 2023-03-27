@@ -38,6 +38,8 @@
         <Compile Include="AchievementLists\AchievementJSON.cs" />
         <Compile Include="ModInfo.cs" />
         <Compile Include="Master.cs" />
+        <Compile Include="Patches\AchievementPatch.cs" />
+        <Compile Include="Patches\Patcher.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>

@@ -5,10 +5,9 @@ namespace AwesomeAchievements;
 
 [BepInPlugin(ModInfo.GUID, ModInfo.TITLE, ModInfo.VERSION)]
 internal sealed class Master : BaseUnityPlugin {
+    public static Harmony harmony;
+    
     private void Awake() {
-        #region Harmony patch
-        Harmony harmony = new Harmony(ModInfo.GUID);
-        harmony.PatchAll();
-        #endregion
+        harmony = new Harmony(ModInfo.GUID);  //Create a harmony
     }
 }
