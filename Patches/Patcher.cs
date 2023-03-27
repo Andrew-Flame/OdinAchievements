@@ -4,12 +4,15 @@ using UnityEngine;
 
 namespace AwesomeAchievements.Patches; 
 
-internal class Patcher {
+/// <summary>Abstract class containing methods for quick patch and unpatch harmony patches</summary>
+internal abstract class Patcher {
     private AchievementPatch _patch;
     
+    /// <summary>Patch methods from this class using harmony</summary>
+    /// <exception cref="UnityException">When class hasn't `AchievementPatch` attribute</exception>
     public void Patch() {
         _patch = GetType().GetCustomAttribute<AchievementPatch>();
-        if (_patch == null) throw new UnityException("Patcher class has not <AchievementPatch> attribute");
+        if (_patch == null) throw new UnityException("Patcher class hasn't <AchievementPatch> attribute");
 
         MethodInfo prefix = GetType().GetMethod("Prefix");
         MethodInfo postfix = GetType().GetMethod("Postfix");
@@ -19,5 +22,9 @@ internal class Patcher {
                              postfix: postfix == null ? null : new HarmonyMethod(postfix));
     }
 
+    /// <summary>Unpatch methods from harmony</summary>
     public void Unpatch() => Master.harmony.Unpatch(_patch.MethodBase, HarmonyPatchType.All);
+
+    /// <summary>When collecting garbage, it should be unpatched</summary>
+    ~Patcher() => Unpatch();
 }
