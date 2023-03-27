@@ -35,7 +35,7 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <Compile Include="AchievementsList\AchievementJSON.cs" />
+        <Compile Include="AchievementLists\AchievementJSON.cs" />
         <Compile Include="ModInfo.cs" />
         <Compile Include="Master.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,10 +72,10 @@
       <None Include="Libs\UnityEngine.CoreModule.dll" />
     </ItemGroup>
     <ItemGroup>
-      <EmbeddedResource Include="AchievementsList\template.json" />
+      <EmbeddedResource Include="AchievementLists\template.json" />
     </ItemGroup>
     <ItemGroup>
-      <Content Include="AchievementsList\ru.json" />
+      <EmbeddedResource Include="AchievementLists\ru.json" />
       <Content Include="Libs\Newtonsoft.Json.dll" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,34 +1,48 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using Newtonsoft.Json;
+using System.Reflection;
 using AwesomeAchievements.AchievementsList;
+using Newtonsoft.Json;
 
 namespace Tests; 
 
 internal static class AchievementsListTest {
     public static void Run() {
         System.Console.WriteLine("Achievements list test:");
-        DirectoryInfo dir = new DirectoryInfo("../../../AchievementsList");  //Get directory with json documents
-        var files = dir.GetFiles("*.json");  //Get all json documents from this directory
-        FileInfo templateFile = (from file in files where file.Name.Contains("template") select file).First();  //Get template file from this files
-        string templateJson = File.ReadAllText(templateFile.FullName);  //Read data from template file
         
-        for (ushort i = 0; i < files.Length; i++) {
-            FileInfo file = files[i];  //Get a fileInfo from array
-            if (file.Name.Contains("template")) continue;  //If it is the template file, go to the next iteration
-            string fileJson = File.ReadAllText(file.FullName);  //Read the data from file
+        Assembly assembly = Assembly.GetAssembly(typeof(AwesomeAchievements.Master));
+        const string resourceNamespace = "AwesomeAchievements.AchievementLists.",
+                     templateResourcePath = resourceNamespace + "template.json";
+        
+        var resources = from resource in assembly.GetManifestResourceNames()
+                        where resource.StartsWith(resourceNamespace) && resource != templateResourcePath
+                        select resource;
 
-            /* Create objects using json data from files */
+        string templateJson;
+        int counter = 0;
+        using (Stream templateStream = assembly.GetManifestResourceStream(templateResourcePath))
+        using (StreamReader templateReader = new StreamReader(templateStream!)) {
+            templateJson = templateReader.ReadToEnd();
+        }
+        
+        foreach (string resourcePath in resources) {
+            string resourceJson;
+            using (Stream resourceStream = assembly.GetManifestResourceStream(resourcePath))
+            using (StreamReader resourceReader = new StreamReader(resourceStream!)) {
+                resourceJson = resourceReader.ReadToEnd();
+            }
+
+            /* Create objects using json data from files #1# */
             var templateData = JsonConvert.DeserializeObject<AchievementJsonArray>(templateJson).data;
-            var fileData = JsonConvert.DeserializeObject<AchievementJsonArray>(fileJson).data;
-            
+            var fileData = JsonConvert.DeserializeObject<AchievementJsonArray>(resourceJson).data;
+
             if (Eval(templateData, fileData)) {  //Check the data for correctness
                 System.Console.ForegroundColor = ConsoleColor.Green;
-                System.Console.WriteLine("[✔] Test #" + (i + 1) + $" ({file.Name}) passed");
+                System.Console.WriteLine("[✔] Test #" + (++counter) + $" ({resourcePath.Split('.')[2]}) passed");
             } else {
                 System.Console.ForegroundColor = ConsoleColor.Red;
-                System.Console.WriteLine("[ ] Test #" + (i + 1) + $" ({file.Name}) failed");
+                System.Console.WriteLine("[ ] Test #" + (++counter) + $" ({resourcePath.Split('.')[2]}) failed");
             }
         }
         
