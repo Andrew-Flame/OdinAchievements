@@ -52,8 +52,12 @@ internal sealed class AchievementsContainer {
             }
 
             /* When find such achievement */
-            flag = true;  //Raise the flag
-            newData[i] = _data[i + 1];  //Fill in the array with an offset to the left
+            if (_data[i].Id == id) {
+                flag = true;  //Raise the flag
+                _data[i].UnpatchAll();  //Unpatch all patches
+            }
+            
+            newData[i] = _data[i + 1];  //Then fill in the array with an offset to the left
         }
 
         /* Throw an exception if the container doesn't contain the achievement with the same id */
@@ -62,6 +66,14 @@ internal sealed class AchievementsContainer {
         
         _data = newData;  //Change the reference of the old array to the new array
     }
+
+    /// <summary>Make the achievement by id completed</summary>
+    /// <param name="id">Id of the achievement</param>
+    public void CompleteAchievement(string id) {
+        Achievement achievement = GetAchievement(id);
+        achievement.UnpatchAll();
+        achievement.Complete();
+    } 
 
     /// <summary>Get list of achievements from embedded resources</summary>
     /// <param name="language">Name of achievement list</param>
