@@ -3,7 +3,6 @@ using System.IO;
 using System.Reflection;
 using AwesomeAchievements.AchievementLists;
 using AwesomeAchievements.Achievements;
-using JetBrains.Annotations;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -12,7 +11,7 @@ namespace AwesomeAchievements.Saving;
 internal sealed class AchievementsContainer {
     private Achievement[] _data;
     
-    public AchievementsContainer([NotNull]string language) {
+    public AchievementsContainer(string language) {
         var achievementList = GetAchievementList(language);
         _data = new Achievement[achievementList.Length];
 
@@ -78,7 +77,7 @@ internal sealed class AchievementsContainer {
     /// <summary>Get list of achievements from embedded resources</summary>
     /// <param name="language">Name of achievement list</param>
     /// <returns>List of achievements</returns>
-    private static AchievementJsonObject[] GetAchievementList([NotNull]string language) {
+    private static AchievementJsonObject[] GetAchievementList(string language) {
         Assembly assembly = Assembly.GetExecutingAssembly();  //Get executing assembly
         const string resourceNamespace = "AwesomeAchievements.AchievementLists";  //Namespace which contains lists of achievements
         
