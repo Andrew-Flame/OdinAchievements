@@ -39,6 +39,6 @@ internal abstract class Achievement {
     }
 
     public void Complete() {
-        Master.achievementsContainer.DeleteAchievement(Id);
+        AchievementsContainer.CompleteAchievement(this);
     }
 }

@@ -1,17 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using AwesomeAchievements.AchievementLists;
 using AwesomeAchievements.Achievements;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace AwesomeAchievements.Saving; 
+namespace AwesomeAchievements; 
 
-internal sealed class AchievementsContainer {
-    private Achievement[] _data;
+internal static class AchievementsContainer {
+    private static Achievement[] _data;
+    private static string CurrentLanguage { get; set; }
     
-    public AchievementsContainer(string language) {
+    public static void Init(string language) {
+        CurrentLanguage = language;
         var achievementList = GetAchievementList(language);
         _data = new Achievement[achievementList.Length];
 
@@ -26,11 +30,15 @@ internal sealed class AchievementsContainer {
         }
     }
 
+    /// <summary>Get all achievements from json file</summary>
+    /// <returns>All achievements</returns>
+    public static IEnumerable<string> GetAllAchievementsId() => GetAchievementList(CurrentLanguage).Select(e => e.id);
+
     /// <summary>Get the achievement by id from the container</summary>
     /// <param name="id">Id of the achievement</param>
     /// <returns>Achievement</returns>
     /// <exception cref="UnityException">If the container doesn't contain the achievement with the same id</exception>
-    public Achievement GetAchievement(string id) {
+    public static Achievement GetAchievement(string id) {
         foreach (Achievement achievement in _data) 
             if (achievement.Id == id) return achievement;
         throw new UnityException("Error while getting achievement from container");
@@ -39,7 +47,7 @@ internal sealed class AchievementsContainer {
     /// <summary>Delete the achievement by id from the container</summary>
     /// <param name="id">Id of the achievement</param>
     /// <exception cref="UnityException">If the container doesn't contain the achievement with the same id</exception>
-    public void DeleteAchievement(string id) {
+    public static void DeleteAchievement(string id) {
         var newData = new Achievement[_data.Length - 1];  //Create new array with a less lenght
         
         /* Cycle trough the array with achievements */
@@ -68,10 +76,16 @@ internal sealed class AchievementsContainer {
 
     /// <summary>Make the achievement by id completed</summary>
     /// <param name="id">Id of the achievement</param>
-    public void CompleteAchievement(string id) {
+    public static void CompleteAchievement(string id) {
         Achievement achievement = GetAchievement(id);
         achievement.UnpatchAll();
-        achievement.Complete();
+        DeleteAchievement(id);
+    }
+    /// <summary>Make the achievement by id completed</summary>
+    /// <param name="achievement">Instance of the achievement</param>
+    public static void CompleteAchievement(Achievement achievement) {
+        achievement.UnpatchAll();
+        DeleteAchievement(achievement.Id);
     } 
 
     /// <summary>Get list of achievements from embedded resources</summary>
