@@ -2,7 +2,6 @@
 
 using System;
 using AwesomeAchievements.Patches;
-using UnityEngine;
 
 namespace AwesomeAchievements.Achievements;
 
@@ -19,6 +18,8 @@ internal abstract class Achievement {
         Description = description;
         _patchers = new Patcher[1];
     }
+
+    ~Achievement() => UnpatchAll();
 
     public abstract void LoadData(string data);
 
