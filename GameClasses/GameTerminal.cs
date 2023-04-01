@@ -12,13 +12,13 @@ internal static class GameTerminal {
         private static void Postfix() {
             /* Add new console commands */
             new ConsoleCommand("achievement-add", "add achievement to the current character",
-                               TerminalHandler.AddAchievement, 
+                               AchieveHandler.AddAchieves, 
                                isCheat: true, isSecret: false,
-                               optionsFetcher: AchievementsContainer.GetAllAchievementsId().ToList);
+                               optionsFetcher: AchieveHandler.GetAchievesForList().ToList);
             new ConsoleCommand("achievement-remove", "remove achievement from the current character",
-                               TerminalHandler.RemoveAchievement,
+                               AchieveHandler.RemoveAchieves,
                                isCheat: true, isSecret: false,
-                               optionsFetcher: AchievementsContainer.GetAllAchievementsId().ToList);
+                               optionsFetcher: AchieveHandler.GetAchievesForList().ToList);
         }
     }
 }

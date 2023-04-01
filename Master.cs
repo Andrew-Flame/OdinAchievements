@@ -1,5 +1,4 @@
-﻿using AwesomeAchievements.Saving;
-using BepInEx;
+﻿using BepInEx;
 using HarmonyLib;
 
 namespace AwesomeAchievements;
@@ -12,6 +11,6 @@ internal sealed class Master : BaseUnityPlugin {
         harmony = new Harmony(ModInfo.GUID);  //Create a harmony
         harmony.PatchAll();  //Patch the harmony
         
-        AchievementsContainer.Init("ru");  //Init the achievement container
+        AchieveContainer.Init("ru");  //Init the achievement container
     }
 }

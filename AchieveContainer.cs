@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using AwesomeAchievements.AchievementLists;
 using AwesomeAchievements.Achievements;
+using AwesomeAchievements.Utility;
 using Newtonsoft.Json;
 using UnityEngine;
 
 namespace AwesomeAchievements; 
 
-internal static class AchievementsContainer {
+internal static class AchieveContainer {
     private static Achievement[] _data;
-    private static string CurrentLanguage { get; set; }
     
     public static void Init(string language) {
-        CurrentLanguage = language;
         var achievementList = GetAchievementList(language);
         _data = new Achievement[achievementList.Length];
 
@@ -30,23 +27,14 @@ internal static class AchievementsContainer {
         }
     }
 
-    /// <summary>Get all achievements from json file</summary>
-    /// <returns>All achievements</returns>
-    public static IEnumerable<string> GetAllAchievementsId() => GetAchievementList(CurrentLanguage).Select(e => e.id);
-
-    /// <summary>Get the achievement by id from the container</summary>
-    /// <param name="id">Id of the achievement</param>
-    /// <returns>Achievement</returns>
-    /// <exception cref="UnityException">If the container doesn't contain the achievement with the same id</exception>
+    public static IEnumerable<Achievement> GetAllAchieves() => _data.Select(e => e);
+    
     public static Achievement GetAchievement(string id) {
         foreach (Achievement achievement in _data) 
             if (achievement.Id == id) return achievement;
         throw new UnityException("Error while getting achievement from container");
     }
-    
-    /// <summary>Delete the achievement by id from the container</summary>
-    /// <param name="id">Id of the achievement</param>
-    /// <exception cref="UnityException">If the container doesn't contain the achievement with the same id</exception>
+
     public static void DeleteAchievement(string id) {
         var newData = new Achievement[_data.Length - 1];  //Create new array with a less lenght
         
@@ -73,37 +61,13 @@ internal static class AchievementsContainer {
         
         _data = newData;  //Change the reference of the old array to the new array
     }
-
-    /// <summary>Make the achievement by id completed</summary>
-    /// <param name="id">Id of the achievement</param>
-    public static void CompleteAchievement(string id) {
-        Achievement achievement = GetAchievement(id);
-        achievement.UnpatchAll();
-        DeleteAchievement(id);
-    }
-    /// <summary>Make the achievement by id completed</summary>
-    /// <param name="achievement">Instance of the achievement</param>
-    public static void CompleteAchievement(Achievement achievement) {
-        achievement.UnpatchAll();
-        DeleteAchievement(achievement.Id);
-    } 
-
-    /// <summary>Get list of achievements from embedded resources</summary>
-    /// <param name="language">Name of achievement list</param>
-    /// <returns>List of achievements</returns>
-    private static AchievementJsonObject[] GetAchievementList(string language) {
-        Assembly assembly = Assembly.GetExecutingAssembly();  //Get executing assembly
-        const string resourceNamespace = "AwesomeAchievements.AchievementLists";  //Namespace which contains lists of achievements
-        
+    
+    public static AchievementJsonObject[] GetAchievementList(string language) {
         /* Read required list */
-        Stream listStream = assembly.GetManifestResourceStream($"{resourceNamespace}.{language}.json");
-        StreamReader listReader = new StreamReader(listStream!);
-        var result = JsonConvert.DeserializeObject<AchievementJsonArray>(listReader.ReadToEnd()).data;
-        
-        /* Close streams */
-        listStream.Close();
-        listReader.Close();
+        const string resourceNamespace = "AwesomeAchievements.AchievementLists";
+        ResourceReader listReader = new ResourceReader($"{resourceNamespace}.{language}.json");
+        var result = JsonConvert.DeserializeObject<AchievementJsonArray>(listReader.ReadString()).data;
 
-        return result;  //Return the result
+        return result;
     }
 }

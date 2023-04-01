@@ -1,4 +1,4 @@
-﻿using AwesomeAchievements.Patches;
+﻿using AwesomeAchievements.Patch;
 
 namespace AwesomeAchievements.Achievements.PatchedAchievements; 
 
@@ -9,9 +9,9 @@ internal class UseVegvisir : SingleAchievement {
     }
 }
 
-[AchievementPatch(typeof(Vegvisir), "Interact")]
-file class VegvisirInteract : Patcher {
+[AchievePatch(typeof(Vegvisir), "Interact")]
+file sealed class VegvisirInteract : Patcher {
     public static void Postfix() {
-        AchievementsContainer.CompleteAchievement("UseVegvisir");
+        AchieveContainer.GetAchievement("UseVegvisir").Complete();
     }
 }

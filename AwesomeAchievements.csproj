@@ -36,7 +36,8 @@
     
     <ItemGroup>
         <Compile Include="AchievementLists\AchievementJSON.cs" />
-        <Compile Include="AchievementsContainer.cs" />
+        <Compile Include="AchievePanel.cs" />
+        <Compile Include="AchieveContainer.cs" />
         <Compile Include="Achievements\Achievement.cs" />
         <Compile Include="Achievements\LengthyAchievement.cs" />
         <Compile Include="Achievements\PatchedAchievements\BeeGuard.cs" />
@@ -73,15 +74,17 @@
         <Compile Include="Achievements\PatchedAchievements\VikingGraveyard.cs" />
         <Compile Include="Achievements\SingleAchievement.cs" />
         <Compile Include="Achievements\SpecialAchievement.cs" />
+        <Compile Include="GameClasses\GameHud.cs" />
         <Compile Include="GameClasses\GameTerminal.cs" />
         <Compile Include="ModInfo.cs" />
         <Compile Include="Master.cs" />
-        <Compile Include="Patches\AchievementPatch.cs" />
-        <Compile Include="Patches\Patcher.cs" />
+        <Compile Include="Patch\AchievePatch.cs" />
+        <Compile Include="Patch\Patcher.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Saving\SaveReader.cs" />
-        <Compile Include="Saving\SaveWriter.cs" />
-        <Compile Include="TerminalCommands\AchievementHandler.cs" />
+        <Compile Include="TerminalCommands\AchieveHandler.cs" />
+        <Compile Include="Utility\ResourceReader.cs" />
+        <Compile Include="Utility\SaveReader.cs" />
+        <Compile Include="Utility\SaveWriter.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="Libs\0Harmony.dll" />
@@ -113,6 +116,10 @@
         <HintPath>libs\UnityEngine.CoreModule.dll</HintPath>
         <Private>False</Private>
       </Reference>
+      <Reference Include="UnityEngine.ImageConversionModule">
+        <HintPath>libs\UnityEngine.ImageConversionModule.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
       <Reference Include="UnityEngine.UI">
         <HintPath>Libs\UnityEngine.UI.dll</HintPath>
         <Private>False</Private>
@@ -128,6 +135,12 @@
       <None Include="Libs\UnityEngine.UI.dll" />
       <EmbeddedResource Include="AchievementLists\ru.json" />
       <None Include="Libs\Newtonsoft.Json.dll" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="Assets\Textures\AchievementPanel.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="Libs\UnityEngine.ImageConversionModule.dll" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
