@@ -39,7 +39,8 @@
         <Compile Include="AchieveContainer.cs" />
         <Compile Include="Achievements\Achievement.cs" />
         <Compile Include="Achievements\LengthyAchievement.cs" />
-        <Compile Include="Achievements\PatchedAchievements\UseVegvisir.cs" />
+        <Compile Include="Achievements\PatchedAchievements\UseVegvisir\UseVegvisir.cs" />
+        <Compile Include="Achievements\PatchedAchievements\UseVegvisir\VegvisirInteract.cs" />
         <Compile Include="Achievements\SingleAchievement.cs" />
         <Compile Include="Achievements\SpecialAchievement.cs" />
         <Compile Include="AchievePanel\PanelHandler.cs" />

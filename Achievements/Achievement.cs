@@ -9,21 +9,25 @@ namespace AwesomeAchievements.Achievements;
 
 /// <summary>Abstract class describing all kinds of achievements </summary>
 internal abstract class Achievement {
-    private Patcher[] _patchers;
-
     public string Id  => GetType().Name;
     public string Name { get; }
     public string Description { get; }
+    
+    private Patcher[] _patchers;
 
     public Achievement(string name, string description) {
         Name = name;
         Description = description;
         _patchers = new Patcher[1];
+        InitPatchers();
+        PatchAll();
     }
 
     ~Achievement() => UnpatchAll();
-
+    
     public abstract void LoadData(string data);
+    
+    protected abstract void InitPatchers();
 
     protected void AddPatcher(Patcher patcher) {
         if (_patchers.Length == 1) _patchers[0] = patcher;
@@ -42,9 +46,9 @@ internal abstract class Achievement {
     }
 
     public void Complete() {
+        Debug.Log($"Achievement {Id} have been completed");
         UnpatchAll();
         PanelHandler.ShowPanel(Name);
         AchieveContainer.DeleteAchievement(Id);
-        Debug.Log($"Achievement \"{Id}\" have been completed");
     }
 }
