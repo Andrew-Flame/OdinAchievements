@@ -36,7 +36,6 @@
     
     <ItemGroup>
         <Compile Include="AchievementLists\AchievementJSON.cs" />
-        <Compile Include="AchievePanel.cs" />
         <Compile Include="AchieveContainer.cs" />
         <Compile Include="Achievements\Achievement.cs" />
         <Compile Include="Achievements\LengthyAchievement.cs" />
@@ -74,6 +73,8 @@
         <Compile Include="Achievements\PatchedAchievements\VikingGraveyard.cs" />
         <Compile Include="Achievements\SingleAchievement.cs" />
         <Compile Include="Achievements\SpecialAchievement.cs" />
+        <Compile Include="AchievePanel\PanelHandler.cs" />
+        <Compile Include="AchievePanel\AchievePanel.cs" />
         <Compile Include="GameClasses\GameHud.cs" />
         <Compile Include="GameClasses\GameTerminal.cs" />
         <Compile Include="ModInfo.cs" />
