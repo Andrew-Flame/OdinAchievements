@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using AwesomeAchievements.AchievementLists;
-using AwesomeAchievements.Achievements;
+using AwesomeAchievements.Achieves;
 using static Terminal;
 
 namespace AwesomeAchievements.TerminalCommands; 

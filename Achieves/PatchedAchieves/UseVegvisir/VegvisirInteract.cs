@@ -1,6 +1,6 @@
 ﻿using AwesomeAchievements.Patch;
 
-namespace AwesomeAchievements.Achievements.PatchedAchievements.UseVegvisir; 
+namespace AwesomeAchievements.Achieves.PatchedAchieves.UseVegvisir; 
 
 [AchievePatch(typeof(Vegvisir), "Interact")] 
 internal sealed class VegvisirInteract : Patcher {

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AwesomeAchievements.AchievementLists;
-using AwesomeAchievements.Achievements;
-using AwesomeAchievements.Achievements.PatchedAchievements.UseVegvisir;
+using AwesomeAchievements.Achieves;
 using AwesomeAchievements.Utility;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -17,7 +16,7 @@ internal static class AchieveContainer {
         var achieveList = GetAchievementList(language);
         _data = new Achievement[achieveList.Length];
 
-        const string classesNamespace = "AwesomeAchievements.Achievements.PatchedAchievements";  //Namespace where classes contained
+        const string classesNamespace = "AwesomeAchievements.Achieves.PatchedAchieves";  //Namespace where classes contained
         for (ushort i = 0; i < achieveList.Length; i++) {
             var achieveJson = achieveList[i];
             Type achieveClass = Type.GetType($"{classesNamespace}.{achieveJson.id}.{achieveJson.id}"); //Get type of the achievement class
@@ -65,7 +64,7 @@ internal static class AchieveContainer {
     
     public static AchievementJsonObject[] GetAchievementList(string language) {
         /* Read required list */
-        const string resourceNamespace = "AwesomeAchievements.AchievementLists";
+        const string resourceNamespace = "AwesomeAchievements.AchieveLists";
         ResourceReader listReader = new ResourceReader($"{resourceNamespace}.{language}.json");
         var result = JsonConvert.DeserializeObject<AchievementJsonArray>(listReader.ReadString()).data;
 

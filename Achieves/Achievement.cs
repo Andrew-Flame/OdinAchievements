@@ -5,7 +5,7 @@ using AwesomeAchievements.AchievePanel;
 using AwesomeAchievements.Patch;
 using UnityEngine;
 
-namespace AwesomeAchievements.Achievements;
+namespace AwesomeAchievements.Achieves;
 
 /// <summary>Abstract class describing all kinds of achievements </summary>
 internal abstract class Achievement {
@@ -38,11 +38,11 @@ internal abstract class Achievement {
     }
 
     public void PatchAll() {
-        foreach (Patcher patcher in _patchers) patcher.Patch();
+        foreach (Patcher patcher in _patchers) patcher?.Patch();
     }
 
     public void UnpatchAll() {
-        foreach (Patcher patcher in _patchers) patcher.Unpatch();
+        foreach (Patcher patcher in _patchers) patcher?.Unpatch();
     }
 
     public void Complete() {

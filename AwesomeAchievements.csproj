@@ -35,14 +35,45 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <Compile Include="AchievementLists\AchievementJSON.cs" />
+        <Compile Include="AchieveLists\AchievementJSON.cs" />
         <Compile Include="AchieveContainer.cs" />
-        <Compile Include="Achievements\Achievement.cs" />
-        <Compile Include="Achievements\LengthyAchievement.cs" />
-        <Compile Include="Achievements\PatchedAchievements\UseVegvisir\UseVegvisir.cs" />
-        <Compile Include="Achievements\PatchedAchievements\UseVegvisir\VegvisirInteract.cs" />
-        <Compile Include="Achievements\SingleAchievement.cs" />
-        <Compile Include="Achievements\SpecialAchievement.cs" />
+        <Compile Include="Achieves\Achievement.cs" />
+        <Compile Include="Achieves\LengthyAchievement.cs" />
+        <Compile Include="Achieves\PatchedAchieves\BeeGuard\BeeGuard.cs" />
+        <Compile Include="Achieves\PatchedAchieves\BuildBeehives\BuildBeehives.cs" />
+        <Compile Include="Achieves\PatchedAchieves\Campfire\Campfire.cs" />
+        <Compile Include="Achieves\PatchedAchieves\CollectMushrooms\CollectMushrooms.cs" />
+        <Compile Include="Achieves\PatchedAchieves\CollectRaspberries\CollectRaspberries.cs" />
+        <Compile Include="Achieves\PatchedAchieves\CollectStones\CollectStones.cs" />
+        <Compile Include="Achieves\PatchedAchieves\CollectTrophiesMeadows\CollectTrophiesMeadows.cs" />
+        <Compile Include="Achieves\PatchedAchieves\Comfort5\Comfort5.cs" />
+        <Compile Include="Achieves\PatchedAchieves\CookCoal\CookCoal.cs" />
+        <Compile Include="Achieves\PatchedAchieves\CookMeat\CookMeat.cs" />
+        <Compile Include="Achieves\PatchedAchieves\CreateHoe\CreateHoe.cs" />
+        <Compile Include="Achieves\PatchedAchieves\CutTrees\CutTrees.cs" />
+        <Compile Include="Achieves\PatchedAchieves\DefeatEikthyrArmy\DefeatEikthyrArmy.cs" />
+        <Compile Include="Achieves\PatchedAchieves\DefeatEikthyr\DefeatEikthyr.cs" />
+        <Compile Include="Achieves\PatchedAchieves\EatFoodMeadows\EatFoodMeadows.cs" />
+        <Compile Include="Achieves\PatchedAchieves\FindDraugrVillage\FindDraugrVillage.cs" />
+        <Compile Include="Achieves\PatchedAchieves\FindVillage\FindVillage.cs" />
+        <Compile Include="Achieves\PatchedAchieves\FirstDeath\FirstDeath.cs" />
+        <Compile Include="Achieves\PatchedAchieves\HitWithClub\HitWithClub.cs" />
+        <Compile Include="Achieves\PatchedAchieves\KillBird\KillBird.cs" />
+        <Compile Include="Achieves\PatchedAchieves\KillDeerBow\KillDeerBow.cs" />
+        <Compile Include="Achieves\PatchedAchieves\KillDeerNoBow\KillDeerNoBow.cs" />
+        <Compile Include="Achieves\PatchedAchieves\KillPlayer\KillPlayer.cs" />
+        <Compile Include="Achieves\PatchedAchieves\LoremasterMeadows\LoremasterMeadows.cs" />
+        <Compile Include="Achieves\PatchedAchieves\SinkShip\SinkShip.cs" />
+        <Compile Include="Achieves\PatchedAchieves\Sleep\Sleep.cs" />
+        <Compile Include="Achieves\PatchedAchieves\StarterKit\StarterKit.cs" />
+        <Compile Include="Achieves\PatchedAchieves\TameBoar\TameBoar.cs" />
+        <Compile Include="Achieves\PatchedAchieves\TreeDie\TreeDie.cs" />
+        <Compile Include="Achieves\PatchedAchieves\UseRaft\UseRaft.cs" />
+        <Compile Include="Achieves\PatchedAchieves\UseVegvisir\UseVegvisir.cs" />
+        <Compile Include="Achieves\PatchedAchieves\UseVegvisir\VegvisirInteract.cs" />
+        <Compile Include="Achieves\PatchedAchieves\VikingGraveyard\VikingGraveyard.cs" />
+        <Compile Include="Achieves\SingleAchievement.cs" />
+        <Compile Include="Achieves\SpecialAchievement.cs" />
         <Compile Include="AchievePanel\PanelHandler.cs" />
         <Compile Include="AchievePanel\AchievePanel.cs" />
         <Compile Include="GameClasses\GameHud.cs" />
@@ -100,11 +131,11 @@
       <None Include="Libs\UnityEngine.CoreModule.dll" />
     </ItemGroup>
     <ItemGroup>
-      <EmbeddedResource Include="AchievementLists\template.json" />
+      <EmbeddedResource Include="AchieveLists\template.json" />
     </ItemGroup>
     <ItemGroup>
       <None Include="Libs\UnityEngine.UI.dll" />
-      <EmbeddedResource Include="AchievementLists\ru.json" />
+      <EmbeddedResource Include="AchieveLists\ru.json" />
       <None Include="Libs\Newtonsoft.Json.dll" />
     </ItemGroup>
     <ItemGroup>

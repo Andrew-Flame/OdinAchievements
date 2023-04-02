@@ -8,7 +8,7 @@ internal class AchievePanel : MonoBehaviour {
     public Vector3 position, offsetPosition;
 
     private const float TIME_OF_MOVE = 0.35f,
-                        TIME_OF_WAITING = 4.5f;  //Time in seconds
+                        TIME_OF_WAITING = 4f;  //Time in seconds
     private float _speed;
     private float _startTime;
     private bool _isAppearing, _isWaiting, _isDisappearing;
