@@ -18,12 +18,16 @@ internal static class AchieveContainer {
 
         const string classesNamespace = "AwesomeAchievements.Achievements.PatchedAchievements";  //Namespace where classes contained
         for (ushort i = 0; i < achievementList.Length; i++) {
-            var achievementJson = achievementList[i];
-            Type achievementClass = Type.GetType($"{classesNamespace}.{achievementJson.id}"); //Get type of the achievement class
-            Achievement achievement = (Achievement)Activator
-                .CreateInstance(achievementClass ?? throw new UnityException("Class of the achievement \"" + achievementJson.id + "\" not found"),
-                                achievementJson.name, achievementJson.description); //Get instance of the achievement class
-            _data[i] = achievement;  //Add the achievement to array
+            try {  //Temporary dev try
+                var achievementJson = achievementList[i];
+                Type achievementClass = Type.GetType($"{classesNamespace}.{achievementJson.id}"); //Get type of the achievement class
+                Achievement achievement = (Achievement)Activator
+                    .CreateInstance(achievementClass ?? throw new UnityException("Class of the achievement \"" + achievementJson.id + "\" not found"),
+                                    achievementJson.name, achievementJson.description); //Get instance of the achievement class
+                _data[i] = achievement;  //Add the achievement to array
+            } catch (UnityException e) {
+                Debug.Log(e.Message);
+            }
         }
     }
 
