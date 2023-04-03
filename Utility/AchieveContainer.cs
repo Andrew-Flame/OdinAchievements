@@ -66,7 +66,7 @@ internal static class AchieveContainer {
         /* Read required list */
         const string resourceNamespace = "AwesomeAchievements.AchieveLists";
         ResourceReader listReader = new ResourceReader($"{resourceNamespace}.{language}.json");
-        var result = JsonConvert.DeserializeObject<AchievementJsonArray>(listReader.ReadString()).data;
+        var result = JsonConvert.DeserializeObject<AchievementJsonArray>(listReader.ReadAllStrings()).data;
 
         return result;
     }

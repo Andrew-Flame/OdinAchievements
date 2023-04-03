@@ -2,7 +2,7 @@
 
 namespace AwesomeAchievements.AchievePanel; 
 
-internal class PanelComponent : MonoBehaviour {
+internal class AchievementPanel : MonoBehaviour {
     public bool isBusy;
     public float distance;
     public Vector3 position, offsetPosition;
@@ -14,6 +14,8 @@ internal class PanelComponent : MonoBehaviour {
     private bool _isAppearing, _isWaiting, _isDisappearing;
 
     private void Update() {
+        if (!isBusy) return;
+        
         if (_isAppearing) {
             float distCovered = (Time.time - _startTime) * _speed;
             float partOfDistance = distCovered / distance;

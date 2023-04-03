@@ -1,4 +1,5 @@
-﻿using BepInEx;
+﻿using AwesomeAchievements.Utility;
+using BepInEx;
 using HarmonyLib;
 
 namespace AwesomeAchievements;
@@ -12,5 +13,6 @@ internal sealed class Master : BaseUnityPlugin {
         harmony.PatchAll();  //Patch the harmony
         
         AchieveContainer.Init("ru");  //Init the achievement container
+        Localizer.Init("ru");  //Init the localizer
     }
 }
