@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using AwesomeAchievements.AchievementLists;
 using AwesomeAchievements.Achieves;
-using AwesomeAchievements.Utility;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace AwesomeAchievements; 
+namespace AwesomeAchievements.Utility; 
 
 internal static class AchieveContainer {
     private static Achievement[] _data;

@@ -1,8 +1,8 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
-
 using System;
 using AwesomeAchievements.AchievePanel;
 using AwesomeAchievements.Patch;
+using AwesomeAchievements.Utility;
 using UnityEngine;
 
 namespace AwesomeAchievements.Achieves;

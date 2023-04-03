@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AwesomeAchievements.AchievementLists;
 using AwesomeAchievements.Achieves;
+using AwesomeAchievements.Utility;
 using static Terminal;
 
 namespace AwesomeAchievements.TerminalCommands; 
