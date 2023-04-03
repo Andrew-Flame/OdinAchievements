@@ -2,7 +2,7 @@
 
 namespace AwesomeAchievements.AchievePanel; 
 
-internal class AchievePanel : MonoBehaviour {
+internal class PanelComponent : MonoBehaviour {
     public bool isBusy;
     public float distance;
     public Vector3 position, offsetPosition;
@@ -39,6 +39,7 @@ internal class AchievePanel : MonoBehaviour {
             if (tempPos.x >= offsetPosition.x) {
                 _isDisappearing = false;
                 isBusy = false;
+                gameObject.SetActive(false);
                 PanelHandler.RunNextPendingAction();
             }
         }
