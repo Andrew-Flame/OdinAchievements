@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace AwesomeAchievements.Utility; 
 
+/* A class for getting the fonts from the game because it's the easiest way to get them */
 internal static class Fonts {
     public static Font Norsebold =>
         GameObject.Find("_GameMain/LoadingGUI/PixelFix/IngameGui(Clone)/Inventory_screen/root/Crafting/topic").GetComponent<Text>().font;

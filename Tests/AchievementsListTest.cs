@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using AwesomeAchievements.AchievementLists;
+using AwesomeAchievements.AchieveLists;
 using Newtonsoft.Json;
 
 namespace Tests; 

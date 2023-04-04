@@ -3,14 +3,16 @@ using System.Reflection;
 
 namespace AwesomeAchievements.Patch; 
 
-/// <summary>Class-attribute for convenient work with patches</summary>
+/* A class-attribute for convenient work with patches */
 internal sealed class AchievePatch : Attribute {
     private readonly Type _classType;
     private readonly string _methodName;
     
-    /// <summary>Get MethodBase for work with harmony</summary>
     public MethodBase MethodBase => _classType.GetMethod(_methodName);
 
+    /* Constructor for creating an attribute of patcher class for work with harmony patches
+     * classType - the type of the patcher class
+     * methodName - the name of the method for patching */
     public AchievePatch(Type classType, string methodName) {
         _classType = classType;
         _methodName = methodName;

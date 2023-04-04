@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using AwesomeAchievements.AchievementLists;
+using AwesomeAchievements.AchieveLists;
 using AwesomeAchievements.Achieves;
 using AwesomeAchievements.Utility;
 using static Terminal;
@@ -17,8 +17,7 @@ internal static class AchieveHandler {
     }
 
     private static void AddAllAchieves() {
-        foreach (Achievement achievement in AchieveContainer.GetAllAchieves()) 
-            achievement.Complete();
+        
     }
 
     public static void RemoveAchieves(ConsoleEventArgs args) {
