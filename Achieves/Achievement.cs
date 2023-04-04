@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace AwesomeAchievements.Achieves;
 
-/// <summary>Abstract class describing all kinds of achievements </summary>
 internal abstract class Achievement {
     public string Id  => GetType().Name;
     public string Name { get; }
@@ -15,7 +14,7 @@ internal abstract class Achievement {
     
     private Patcher[] _patchers;
 
-    public Achievement(string name, string description) {
+    protected Achievement(string name, string description) {
         Name = name;
         Description = description;
         _patchers = new Patcher[1];
@@ -28,8 +27,9 @@ internal abstract class Achievement {
     public abstract void LoadData(string data);
     
     protected abstract void InitPatchers();
-
-    protected void AddPatcher(Patcher patcher) {
+    
+    protected void AddPatcher<T>() where T: Patcher, new() {
+        Patcher patcher = new T();
         if (_patchers.Length == 1) _patchers[0] = patcher;
         else {
             Array.Resize(ref _patchers, _patchers.Length + 1);
