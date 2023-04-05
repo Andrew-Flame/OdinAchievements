@@ -13,6 +13,7 @@ internal static class PanelHandler {
     private static readonly List<string> Queue = new();
     private static AchievementPanel _panel;
     private static Vector2 _size;
+    private static Text _achievementText;
 
     /* Method for initializing the panel object */
     public static void InitPanel() {
@@ -32,6 +33,7 @@ internal static class PanelHandler {
         
         /* Add achievement panel childs */
         AddHeaderText();
+        AddAchieveText();
     }
 
     /* Method for setting the panel texture */
@@ -86,12 +88,13 @@ internal static class PanelHandler {
         const float offsetX = 1.1f,
                     offsetY = 1.5f;
         
-        GameObject headerTextObject = new GameObject("Header_Text", typeof(Text), typeof(Outline));  //Create a new game object
-        headerTextObject.transform.SetParent(_panel.transform);  //Set the achievement panel as the parent for this object
-        headerTextObject.transform.localPosition = new Vector3(0f, 0f, 0f);  //Set local position of the text object
+        GameObject textObject = new GameObject("Header_Text", typeof(Text));  //Create a new game object
+        textObject.transform.SetParent(_panel.transform);  //Set the achievement panel as the parent for this object
+        textObject.transform.localPosition = new Vector3(0f, 0f, 0f);  //Set local position of the text object
         
-        Text headerText = headerTextObject.GetComponent<Text>();  //Get text component of this object
+        Text headerText = textObject.GetComponent<Text>();  //Get text component of this object
         headerText.rectTransform.sizeDelta = panelRect.sizeDelta / new Vector2(offsetX, offsetY);  //Set text size
+        AddOutline(textObject);  //Add the outline to the text
 
         /* Set text properties */
         headerText.text = Localizer.AchievePanelHeader;
@@ -103,7 +106,40 @@ internal static class PanelHandler {
         headerText.horizontalOverflow = HorizontalWrapMode.Overflow;
 
         /* Setting the text outline */
-        Outline headerOutline = headerTextObject.GetComponent<Outline>();  //Get outline component
+        Outline headerOutline = textObject.GetComponent<Outline>();  //Get outline component
+        headerOutline.effectDistance = new Vector2(1.5f, 1.5f);
+        headerOutline.effectColor = Color.black;
+        headerOutline.useGraphicAlpha = false;
+    }
+
+    /* Method for adding the achievement name text */
+    private static void AddAchieveText() {
+        const float offsetX = 1.1f,
+                    offsetY = 1.8f;
+        
+        GameObject textObject = new GameObject("Achievement_Text", typeof(Text));  //Create a new game object
+        textObject.transform.SetParent(_panel.transform);  //Set the achievement panel as the parent for this object
+        textObject.transform.localPosition = new Vector3(0f, 0f, 0f);  //Set local position of the text object
+        
+        _achievementText = textObject.GetComponent<Text>();  //Get text component of this object
+        _achievementText.rectTransform.sizeDelta = panelRect.sizeDelta / new Vector2(offsetX, offsetY);  //Set text size
+        _achievementText.rectTransform.position -= new Vector3(0f, _achievementText.rectTransform.sizeDelta.y / offsetY);  //Shift the text object
+        AddOutline(textObject);  //Add the outline to the text
+        
+        /* Set text properties */
+        _achievementText.text = "null";
+        _achievementText.color = Color.white;
+        _achievementText.font = Fonts.AveriaSerifLibre;
+        _achievementText.fontStyle = FontStyle.Normal;
+        _achievementText.fontSize = 26;
+        _achievementText.alignment = TextAnchor.UpperLeft;
+        _achievementText.horizontalOverflow = HorizontalWrapMode.Overflow;
+    }
+
+    /* Method for adding the outline to Unity object
+     * gameObject - the game object to add an outline to */
+    private static void AddOutline(GameObject gameObject) {
+        Outline headerOutline = gameObject.AddComponent<Outline>();
         headerOutline.effectDistance = new Vector2(1.5f, 1.5f);
         headerOutline.effectColor = Color.black;
         headerOutline.useGraphicAlpha = false;
@@ -115,6 +151,8 @@ internal static class PanelHandler {
             Queue.Add(achievementName);
             return;
         }
+
+        _achievementText.text = achievementName;
         _panel.Appear();
     }
 
