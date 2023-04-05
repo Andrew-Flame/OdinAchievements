@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 namespace AwesomeAchievements.AchievePanel; 
 
+/* A class for working with the achievement panel */
 internal static class PanelHandler {
     public static RectTransform panelRect;
     
@@ -13,6 +14,7 @@ internal static class PanelHandler {
     private static AchievementPanel _panel;
     private static Vector2 _size;
 
+    /* Method for initializing the panel object */
     public static void InitPanel() {
         /* Init the achievement panel game object */
         GameObject panel = new GameObject("Achievement_Panel", typeof(Image), typeof(AchievementPanel));  //Create an achievement panel object
@@ -32,6 +34,7 @@ internal static class PanelHandler {
         AddHeaderText();
     }
 
+    /* Method for setting the panel texture */
     private static void SetPanelTexture() {
         /* Get a resource from assembly */
         const string panelTextureResource = "AwesomeAchievements.Assets.Textures.AchievementPanel.png";  //Get a resource name
@@ -49,6 +52,7 @@ internal static class PanelHandler {
         panelImage.mainTexture.wrapMode = TextureWrapMode.Clamp;  //Set the wrap mode to clamp
     }
 
+    /* Method for setting the panel size */
     private static void SetPanelSize() {
         Vector2 size = Chat.instance.m_chatWindow.GetComponent<RectTransform>().sizeDelta;  //Get size of the chat box
         float width = size.x,
@@ -57,6 +61,7 @@ internal static class PanelHandler {
         panelRect.sizeDelta = _size;  //Apply the new size to panel
     }
 
+    /* Method for setting the panel position */
     private static void SetPanelPosition() {
         var minimapVectors = new Vector3[4];  //Init the array of minimap vectors
         Minimap.instance.m_smallRoot.GetComponent<RectTransform>().GetWorldCorners(minimapVectors);  //Get corners coordinates
@@ -76,6 +81,7 @@ internal static class PanelHandler {
         _panel.offsetPosition = offsetPosition;  //Set the offset position
     }
 
+    /* Method for adding the header text */
     private static void AddHeaderText() {
         const float offsetX = 1.1f,
                     offsetY = 1.5f;
@@ -103,6 +109,7 @@ internal static class PanelHandler {
         headerOutline.useGraphicAlpha = false;
     }
     
+    /* Method for showing the achievement panel */
     public static void ShowPanel(string achievementName) {
         if (_panel.isBusy) {
             Queue.Add(achievementName);
@@ -111,7 +118,9 @@ internal static class PanelHandler {
         _panel.Appear();
     }
 
-    public static void RunNextPendingAction() {
+    /* Method for run the next pended action (if it exists)
+     * (User can complete more than one achievement in a short time, so we need to pend the showing of the panel) */
+    public static void NextPendedAction() {
         if (_panel.isBusy) return;
         if (Queue.Count == 0) return;
 

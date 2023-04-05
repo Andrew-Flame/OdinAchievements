@@ -2,6 +2,7 @@
 
 namespace AwesomeAchievements.AchievePanel; 
 
+/* A custom Unity component for showing the achievement panel */
 internal class AchievementPanel : MonoBehaviour {
     public bool isBusy;
     public float distance;
@@ -14,45 +15,47 @@ internal class AchievementPanel : MonoBehaviour {
     private bool _isAppearing, _isWaiting, _isDisappearing;
 
     private void Update() {
-        if (!isBusy) return;
+        if (!isBusy) return;  //If the panel isn't busy, exit the method
         
-        if (_isAppearing) {
-            float distCovered = (Time.time - _startTime) * _speed;
-            float partOfDistance = distCovered / distance;
-            Vector3 tempPos = Vector3.Lerp(offsetPosition, position, partOfDistance);
-            PanelHandler.panelRect.position = tempPos;
+        if (_isAppearing) {  //If the panel is appearing
+            float distCovered = (Time.time - _startTime) * _speed;  //Get a covered distance
+            float partOfDistance = distCovered / distance;  //Get a part of the covered distance from the whole distance
+            Vector3 tempPos = Vector3.Lerp(offsetPosition, position, partOfDistance);  //Get a temp panel position
+            PanelHandler.panelRect.position = tempPos;  //Set the temp position to the panel
             
-            if (tempPos.x <= position.x) {
-                _isAppearing = false;
-                _isWaiting = true;
-                UpdateStartTime();
+            if (tempPos.x <= position.x) {  //If the panel already appeared
+                _isAppearing = false;  //Make the panel not appear
+                _isWaiting = true;  //Make the panel wait
+                UpdateStartTime();  //Update the start time
             }
-        } else if (_isWaiting) {
-            if (Time.time - _startTime < TIME_OF_WAITING) return;
-            _isWaiting = false;
-            _isDisappearing = true;
-            UpdateStartTime();
-        } else if (_isDisappearing) {
-            float distCovered = (Time.time - _startTime) * _speed;
-            float partOfDistance = distCovered / distance;
-            Vector3 tempPos = Vector3.Lerp(position, offsetPosition, partOfDistance);
-            PanelHandler.panelRect.position = tempPos;
+        } else if (_isWaiting) {  //If the panel is waiting
+            if (Time.time - _startTime < TIME_OF_WAITING) return;  //If the panel hasn't been waiting long enough, exit the method
+            _isWaiting = false;  //Else, make the panel not waiting
+            _isDisappearing = true;  //Make the panel disappear
+            UpdateStartTime();  //Update the start time
+        } else if (_isDisappearing) {  //If panel is disappearing
+            /* Do the same as the panel is appearing but conversely */
+            float distCovered = (Time.time - _startTime) * _speed;  //Get a covered distance
+            float partOfDistance = distCovered / distance;  //Get a part of the covered distance from the whole distance
+            Vector3 tempPos = Vector3.Lerp(position, offsetPosition, partOfDistance);  //Get a temp panel position
+            PanelHandler.panelRect.position = tempPos;  //Set the temp position to the panel
 
-            if (tempPos.x >= offsetPosition.x) {
-                _isDisappearing = false;
-                isBusy = false;
-                gameObject.SetActive(false);
-                PanelHandler.RunNextPendingAction();
+            if (tempPos.x >= offsetPosition.x) {  //If the panel already disappeared
+                _isDisappearing = false;  //Make the panel not disappear
+                isBusy = false;  //Make the panel not busy
+                gameObject.SetActive(false);  //Make the panel not active
+                PanelHandler.NextPendedAction();  //Run the next pended action (if it exists)
             }
         }
     }
 
+    /* Method for appearing the achievement panel and its disappearing */
     public void Appear() {
-        isBusy = true;
-        _isAppearing = true;
-        _speed = distance / TIME_OF_MOVE;
-        gameObject.SetActive(true);
-        UpdateStartTime();
+        isBusy = true;  //Make the panel busy
+        _isAppearing = true;  //Make the panel appear
+        _speed = distance / TIME_OF_MOVE;  //Set the speed
+        gameObject.SetActive(true);  //Make the panel active
+        UpdateStartTime();  //Update the start time
     }
     
     private void UpdateStartTime() => _startTime = Time.time;
