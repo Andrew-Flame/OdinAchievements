@@ -113,8 +113,13 @@
       <Reference Include="Newtonsoft.Json">
         <HintPath>Libs\Newtonsoft.Json.dll</HintPath>
       </Reference>
+      <Reference Include="System" />
       <Reference Include="UnityEngine">
         <HintPath>libs\UnityEngine.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+      <Reference Include="UnityEngine.AudioModule">
+        <HintPath>libs\UnityEngine.AudioModule.dll</HintPath>
         <Private>False</Private>
       </Reference>
       <Reference Include="UnityEngine.CoreModule">
@@ -131,6 +136,14 @@
       </Reference>
       <Reference Include="UnityEngine.UI">
         <HintPath>Libs\UnityEngine.UI.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+      <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+        <HintPath>libs\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+      <Reference Include="UnityEngine.UnityWebRequestModule">
+        <HintPath>libs\UnityEngine.UnityWebRequestModule.dll</HintPath>
         <Private>False</Private>
       </Reference>
     </ItemGroup>
@@ -156,6 +169,19 @@
     </ItemGroup>
     <ItemGroup>
       <EmbeddedResource Include="Localization\ru.ini" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="Assets\Sounds\AchievementPanelIn.ogg" />
+      <EmbeddedResource Include="Assets\Sounds\AchievementPanelOut.ogg" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="Libs\UnityEngine.AudioModule.dll" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="Libs\UnityEngine.UnityWebRequestModule.dll" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="Libs\UnityEngine.UnityWebRequestAudioModule.dll" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

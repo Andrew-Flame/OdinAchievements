@@ -55,4 +55,22 @@ internal class ResourceReader {
         
         return binaryReader.ReadBytes((int)resourceStream.Length);
     }
+
+    public void WriteToFile(string filePath) {
+        if (File.Exists(filePath)) return;
+        
+        using Stream resourceStream = _assembly.GetManifestResourceStream(_resource);
+        if (resourceStream == null) throw new UnityException("Can't read embedded resource");
+
+        using FileStream fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write);
+        if (fileStream == null) throw new UnityException("Can't create a file");
+        
+        resourceStream.CopyTo(fileStream);
+    }
+
+    public string WriteToTmp(string fileName) {
+        string filePath = $@"{Path.GetTempPath()}/{fileName}";
+        WriteToFile(filePath);
+        return filePath;
+    }
 }

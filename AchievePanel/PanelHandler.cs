@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using AwesomeAchievements.Utility;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 
 namespace AwesomeAchievements.AchievePanel; 
@@ -8,12 +10,14 @@ namespace AwesomeAchievements.AchievePanel;
 /* A class for working with the achievement panel */
 internal static class PanelHandler {
     public static RectTransform panelRect;
-    
+    public static AudioSource audioSource;
+
     private const float ASPECT_RATIO = 4.12121212f;
     private static readonly List<string> Queue = new();
     private static AchievementPanel _panel;
     private static Vector2 _size;
     private static Text _achievementText;
+    private static AudioClip _inSound, _outSound;
 
     /* Method for initializing the panel object */
     public static void InitPanel() {
@@ -34,6 +38,9 @@ internal static class PanelHandler {
         /* Add achievement panel childs */
         AddHeaderText();
         AddAchieveText();
+        
+        /* Set audio files */
+        SetAudioComponents();
     }
 
     /* Method for setting the panel texture */
@@ -135,7 +142,7 @@ internal static class PanelHandler {
         _achievementText.alignment = TextAnchor.UpperLeft;
         _achievementText.horizontalOverflow = HorizontalWrapMode.Overflow;
     }
-
+    
     /* Method for adding the outline to Unity object
      * gameObject - the game object to add an outline to */
     private static void AddOutline(GameObject gameObject) {
@@ -144,7 +151,47 @@ internal static class PanelHandler {
         headerOutline.effectColor = Color.black;
         headerOutline.useGraphicAlpha = false;
     }
-    
+
+    private static void SetAudioComponents() {
+        const string mainNamespace = "AwesomeAchievements.Assets.Sounds",
+                     inSoundName = "AchievementPanelIn.ogg",
+                     outSoundName = "AchievementPanelOut.ogg";
+        
+        /* Init a new audio source */
+        GameObject audioObject = new GameObject("AchievementSounds");  //Create a new object
+        audioSource = audioObject.AddComponent<AudioSource>();  //Add an audio source component
+        audioSource.volume = 1f;  //Set volume
+        audioObject.transform.parent = AudioMan.instance.transform;  //Set the audio manager as the parent object
+        
+        /* Get "in" panel sound */
+        ResourceReader soundReader = new ResourceReader($"{mainNamespace}.{inSoundName}");
+        UnityWebRequest request = UnityWebRequestMultimedia.GetAudioClip("file:///" + soundReader.WriteToTmp(inSoundName), AudioType.OGGVORBIS);
+        request.SendWebRequest();
+        WaitForRequest();
+        _inSound = DownloadHandlerAudioClip.GetContent(request);
+
+        /* Get "out" panel sound */
+        soundReader = new ResourceReader($"{mainNamespace}.{outSoundName}");
+        request = UnityWebRequestMultimedia.GetAudioClip("file:///" + soundReader.WriteToTmp(outSoundName), AudioType.OGGVORBIS);
+        request.SendWebRequest();
+        WaitForRequest();
+        _outSound = DownloadHandlerAudioClip.GetContent(request);
+
+        void WaitForRequest() {
+            while (!request.isDone) Thread.Sleep(100);
+        }
+    }
+
+    public static void PlayInSound() {
+        audioSource.clip = _inSound;
+        audioSource.Play();
+    }
+
+    public static void PlatOutSound() {
+        audioSource.clip = _outSound;
+        audioSource.Play();
+    }
+
     /* Method for showing the achievement panel */
     public static void ShowPanel(string achievementName) {
         if (_panel.isBusy) {

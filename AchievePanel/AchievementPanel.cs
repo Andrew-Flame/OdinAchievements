@@ -32,6 +32,7 @@ internal class AchievementPanel : MonoBehaviour {
             if (Time.time - _startTime < TIME_OF_WAITING) return;  //If the panel hasn't been waiting long enough, exit the method
             _isWaiting = false;  //Else, make the panel not waiting
             _isDisappearing = true;  //Make the panel disappear
+            PanelHandler.PlatOutSound();  //Play the panel disappearing sound
             UpdateStartTime();  //Update the start time
         } else if (_isDisappearing) {  //If panel is disappearing
             /* Do the same as the panel is appearing but conversely */
@@ -55,6 +56,7 @@ internal class AchievementPanel : MonoBehaviour {
         _isAppearing = true;  //Make the panel appear
         _speed = distance / TIME_OF_MOVE;  //Set the speed
         gameObject.SetActive(true);  //Make the panel active
+        PanelHandler.PlayInSound();  //Play the panel appearing sound
         UpdateStartTime();  //Update the start time
     }
     
