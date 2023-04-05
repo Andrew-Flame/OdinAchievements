@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using AwesomeAchievements.AchieveLists;
+using AwesomeAchievements.Utility;
+using static Terminal;
+
+namespace AwesomeAchievements.TerminalCommands; 
+
+/* A class for working with achievement terminal commands */
+internal static class AchievesHandler {
+    /* Method for checking for args
+     * args - arguments for checking
+     * returns true if there is at least one argument, otherwise - false */
+    public static bool HaveArgs(ConsoleEventArgs args) {
+        if (args.Length > 1) return true;
+        string output = string.Format('\n' + 
+@"Not enough arguments!
+Use {0} + achievement-id:
+    {0} All
+    {0} UseVegvisir
+    {0} CutTrees", args[0]);
+        args.Context.AddString(output);
+        return false;
+    }
+
+    /* Method for checking for "All" argument in args
+     * args - arguments for checking
+     * actionIfAll - delegate for executing if there is "All" in arguments
+     * returns true if there is an "All" argument in args, otherwise - false */
+    public static bool HaveAll(ConsoleEventArgs args, Action actionIfAll) {
+        if (!args.Args.Contains("All")) return false;
+        actionIfAll();
+        return true;
+    }
+}

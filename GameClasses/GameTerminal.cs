@@ -11,14 +11,10 @@ internal static class GameTerminal {
     private static class TerminalAwake {
         private static void Postfix() {
             /* Add new console commands */
-            new ConsoleCommand("achievement-add", "add achievement to the current character",
-                               AchieveHandler.AddAchieves, 
+            new ConsoleCommand("achieve-complete", "complete an achievement for the current character",
+                               CompleteAchieve.Run,
                                isCheat: true, isSecret: false,
-                               optionsFetcher: AchieveHandler.GetAchievesForList().ToList);
-            new ConsoleCommand("achievement-remove", "remove achievement from the current character",
-                               AchieveHandler.RemoveAchieves,
-                               isCheat: true, isSecret: false,
-                               optionsFetcher: AchieveHandler.GetAchievesForList().ToList);
+                               optionsFetcher: CompleteAchieve.GetList().ToList);
         }
     }
 }

@@ -49,6 +49,6 @@ internal abstract class Achievement {
         Debug.Log($"Achievement {Id} have been completed");
         UnpatchAll();
         PanelHandler.ShowPanel(Name);
-        AchieveContainer.DeleteAchievement(Id);
+        AchievesContainer.DeleteAchievement(Id);
     }
 }

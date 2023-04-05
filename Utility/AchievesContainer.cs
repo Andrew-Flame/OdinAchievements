@@ -7,7 +7,7 @@ using UnityEngine;
 namespace AwesomeAchievements.Utility; 
 
 /* Container realizing assess for all achievements patches */
-internal static class AchieveContainer {
+internal static class AchievesContainer {
     private static Achievement[] _data;
     
     /* Method for initializing this type
@@ -73,7 +73,7 @@ internal static class AchieveContainer {
     /* Method for getting the array of the achievement json objects
      * language - the language in which the achievements should be
      * returns the array with achievement json objects containing their ids, names and descriptions */
-    public static AchievementJsonObject[] GetAchievementList(string language) {
+    private static AchievementJsonObject[] GetAchievementList(string language) {
         const string resourceNamespace = "AwesomeAchievements.AchieveLists";  //The main namespace where json documents are stored
         ResourceReader listReader = new ResourceReader($"{resourceNamespace}.{language}.json");  //Create a resource reader for json list
         return JsonConvert.DeserializeObject<AchievementJsonArray>(listReader.ReadAllStrings()).data;  //Return deserialized json data
