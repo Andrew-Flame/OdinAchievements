@@ -152,6 +152,7 @@ internal static class PanelHandler {
         headerOutline.useGraphicAlpha = false;
     }
 
+    /* Method for setting audio components */
     private static void SetAudioComponents() {
         const string mainNamespace = "AwesomeAchievements.Assets.Sounds",
                      inSoundName = "AchievementPanelIn.ogg",
@@ -182,11 +183,13 @@ internal static class PanelHandler {
         }
     }
 
+    /* Method for playing the "panel appearing" sound */
     public static void PlayInSound() {
         audioSource.clip = _inSound;
         audioSource.Play();
     }
 
+    /* Method for playing the "panel disappearing" sound */
     public static void PlatOutSound() {
         audioSource.clip = _outSound;
         audioSource.Play();

@@ -56,6 +56,9 @@ internal class ResourceReader {
         return binaryReader.ReadBytes((int)resourceStream.Length);
     }
 
+    /* Method for writing the resource data into the file
+     * filePath - the path of the file for writing
+     * can throw an exception if it can't read the resource or if it can't create a file */
     public void WriteToFile(string filePath) {
         if (File.Exists(filePath)) return;
         
@@ -68,6 +71,9 @@ internal class ResourceReader {
         resourceStream.CopyTo(fileStream);
     }
 
+    /* Method for writing the resource data into temp file
+     * fileName - the name of the temp file
+     * returns the full path for the temp file */
     public string WriteToTmp(string fileName) {
         string filePath = $@"{Path.GetTempPath()}/{fileName}";
         WriteToFile(filePath);
