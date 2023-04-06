@@ -35,7 +35,6 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <Compile Include="AchieveAnnounce\Announcer.cs" />
         <Compile Include="AchieveLists\AchieveJSON.cs" />
         <Compile Include="Achieves\Achievement.cs" />
         <Compile Include="Achieves\LengthyAchievement.cs" />
@@ -76,6 +75,7 @@
         <Compile Include="Achieves\SpecialAchievement.cs" />
         <Compile Include="AchievePanel\PanelHandler.cs" />
         <Compile Include="AchievePanel\AchievementPanel.cs" />
+        <Compile Include="ConfigValues.cs" />
         <Compile Include="GameClasses\GameChat.cs" />
         <Compile Include="GameClasses\GameHud.cs" />
         <Compile Include="GameClasses\GameTerminal.cs" />
@@ -84,15 +84,17 @@
         <Compile Include="Patch\AchievePatch.cs" />
         <Compile Include="Patch\Patcher.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Saving\SaveReader.cs" />
+        <Compile Include="Saving\SaveWriter.cs" />
+        <Compile Include="Saving\SavingData.cs" />
         <Compile Include="TerminalCommands\AchievesHandler.cs" />
         <Compile Include="TerminalCommands\CompleteAchieve.cs" />
         <Compile Include="Utility\AchievesContainer.cs" />
+        <Compile Include="Utility\Announcer.cs" />
         <Compile Include="Utility\Fonts.cs" />
         <Compile Include="Utility\JsonParser.cs" />
         <Compile Include="Utility\Localizer.cs" />
         <Compile Include="Utility\ResourceReader.cs" />
-        <Compile Include="Utility\SaveReader.cs" />
-        <Compile Include="Utility\SaveWriter.cs" />
     </ItemGroup>
     <ItemGroup>
       <None Include="Libs\0Harmony.dll" />

@@ -14,7 +14,7 @@ internal sealed class Master : BaseUnityPlugin {
         harmony = new Harmony(ModInfo.GUID);  //Create a harmony
         harmony.PatchAll();  //Patch the harmony
         
-        AchievesContainer.Init("ru");  //Init the achievement container
-        Localizer.Init("ru");  //Init the localizer
+        ConfigValues.Init(Config);
+        Localizer.Init(ConfigValues.language);  //Init the localizer
     }
 }
