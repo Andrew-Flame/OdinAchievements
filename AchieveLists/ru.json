@@ -63,22 +63,22 @@
         {
             "id": "CollectRaspberries",
             "name": "Сладкая жизнь",
-            "description": "Сорвите с кустов 200 ягод малины"
+            "description": "Сорвите с кустов 250 ягод малины"
         },
         {
             "id": "CollectMushrooms",
-            "name": "Грибник",
-            "description": "Сорвите с земли 200 грибов"
+            "name": "Дары леса",
+            "description": "Сорвите с земли 250 грибов"
         },
         {
             "id": "CollectStones",
             "name": "Заглянуть под каждый камень",
-            "description": "Поднимите с земли 200 камней"
+            "description": "Поднимите с земли 250 камней"
         },
         {
             "id": "CutTrees",
-            "name": "Дровосек",
-            "description": "Срубите топором 500 деревьев"
+            "name": "Лесоруб",
+            "description": "Срубите топором 1000 деревьев"
         },
         {
             "id": "UseRaft",

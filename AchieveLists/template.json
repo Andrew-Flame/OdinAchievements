@@ -63,22 +63,22 @@
         {
             "id": "CollectRaspberries",
             "name": "",
-            "description": "Pick up 200 raspberries from bushes"
+            "description": "Pick up 250 raspberries from bushes"
         },
         {
             "id": "CollectMushrooms",
             "name": "",
-            "description": "Pick up 200 mushrooms from the ground"
+            "description": "Pick up 250 mushrooms from the ground"
         },
         {
             "id": "CollectStones",
             "name": "",
-            "description": "Pick up 200 stones from the ground"
+            "description": "Pick up 250 stones from the ground"
         },
         {
             "id": "CutTrees",
             "name": "",
-            "description": "Cut down 500 trees with an axe"
+            "description": "Cut down 1000 trees with an axe"
         },
         {
             "id": "UseRaft",
