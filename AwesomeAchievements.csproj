@@ -78,6 +78,7 @@
         <Compile Include="ConfigValues.cs" />
         <Compile Include="GameClasses\GameChat.cs" />
         <Compile Include="GameClasses\GameHud.cs" />
+        <Compile Include="GameClasses\GamePlayerProfile.cs" />
         <Compile Include="GameClasses\GameTerminal.cs" />
         <Compile Include="ModInfo.cs" />
         <Compile Include="Master.cs" />
@@ -86,7 +87,7 @@
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Saving\SaveReader.cs" />
         <Compile Include="Saving\SaveWriter.cs" />
-        <Compile Include="Saving\SavingData.cs" />
+        <Compile Include="Saving\SaveData.cs" />
         <Compile Include="TerminalCommands\AchievesHandler.cs" />
         <Compile Include="TerminalCommands\CompleteAchieve.cs" />
         <Compile Include="Utility\AchievesContainer.cs" />

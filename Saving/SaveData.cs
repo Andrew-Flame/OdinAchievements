@@ -1,6 +1,6 @@
 ﻿namespace AwesomeAchievements.Saving; 
 
-internal readonly struct SavingData {
+internal readonly struct SaveData {
     public const char ACHIEVE_SEPARATOR = (char)0,
                       ENUM_BEGINNER = (char)1,
                       ENUM_SEPARATOR = (char)2,
