@@ -160,8 +160,13 @@ internal static class PanelHandler {
         /* Init a new audio source */
         GameObject audioObject = new GameObject("AchievementSounds");  //Create a new object
         _audioSource = audioObject.AddComponent<AudioSource>();  //Add an audio source component
-        _audioSource.volume = 1f;  //Set volume
         audioObject.transform.parent = AudioMan.instance.transform;  //Set the audio manager as the parent object
+        
+        /* Setting the audio source */
+        _audioSource.volume = 1f;
+        _audioSource.spatialize = false;
+        _audioSource.spatializePostEffects = false;
+        _audioSource.spatialBlend = 0f;
         
         /* Get "in" panel sound */
         ResourceReader soundReader = new ResourceReader($"{mainNamespace}.{inSoundName}");
