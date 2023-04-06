@@ -21,7 +21,7 @@ internal class AchievementPanel : MonoBehaviour {
             float distCovered = (Time.time - _startTime) * _speed;  //Get a covered distance
             float partOfDistance = distCovered / distance;  //Get a part of the covered distance from the whole distance
             Vector3 tempPos = Vector3.Lerp(offsetPosition, position, partOfDistance);  //Get a temp panel position
-            PanelHandler.panelRect.position = tempPos;  //Set the temp position to the panel
+            PanelHandler.Reposition(tempPos);  //Set the temp position to the panel
             
             if (tempPos.x <= position.x) {  //If the panel already appeared
                 _isAppearing = false;  //Make the panel not appear
@@ -39,7 +39,7 @@ internal class AchievementPanel : MonoBehaviour {
             float distCovered = (Time.time - _startTime) * _speed;  //Get a covered distance
             float partOfDistance = distCovered / distance;  //Get a part of the covered distance from the whole distance
             Vector3 tempPos = Vector3.Lerp(position, offsetPosition, partOfDistance);  //Get a temp panel position
-            PanelHandler.panelRect.position = tempPos;  //Set the temp position to the panel
+            PanelHandler.Reposition(tempPos);  //Set the temp position to the panel
 
             if (tempPos.x >= offsetPosition.x) {  //If the panel already disappeared
                 _isDisappearing = false;  //Make the panel not disappear

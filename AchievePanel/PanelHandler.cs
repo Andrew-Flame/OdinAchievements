@@ -9,15 +9,13 @@ namespace AwesomeAchievements.AchievePanel;
 
 /* A class for working with the achievement panel */
 internal static class PanelHandler {
-    public static RectTransform panelRect;
-    public static AudioSource audioSource;
-
     private const float ASPECT_RATIO = 4.12121212f;
     private static readonly List<string> Queue = new();
+    private static RectTransform _panelRect;
     private static AchievementPanel _panel;
-    private static Vector2 _size;
     private static Text _achievementText;
     private static AudioClip _inSound, _outSound;
+    private static AudioSource _audioSource;
 
     /* Method for initializing the panel object */
     public static void InitPanel() {
@@ -28,7 +26,7 @@ internal static class PanelHandler {
         
         /* Get panel components */
         _panel = panel.GetComponent<AchievementPanel>();  //Get the achieve panel component
-        panelRect = panel.GetComponent<RectTransform>();  //Get the achievement panel rect transform component
+        _panelRect = panel.GetComponent<RectTransform>();  //Get the achievement panel rect transform component
 
         /* Set achievement panel properties */
         SetPanelTexture();  //Set the achievement panel texture
@@ -66,8 +64,8 @@ internal static class PanelHandler {
         Vector2 size = Chat.instance.m_chatWindow.GetComponent<RectTransform>().sizeDelta;  //Get size of the chat box
         float width = size.x,
               height = width / ASPECT_RATIO;  //Get the width and the height of the panel
-        _size = new Vector2(width, height);  //Set the new size
-        panelRect.sizeDelta = _size;  //Apply the new size to panel
+        Vector2 newSize = new Vector2(width, height);  //Set the new size
+        _panelRect.sizeDelta = newSize;  //Apply the new size to panel
     }
 
     /* Method for setting the panel position */
@@ -78,11 +76,12 @@ internal static class PanelHandler {
         var chatVectors = new Vector3[4];  //Init the array of chat vectors
         Chat.instance.m_chatWindow.GetComponent<RectTransform>().GetWorldCorners(chatVectors);  //Get corners coordinates
 
+        Vector2 sizeDelta = _panelRect.sizeDelta;
         float positionX = ((chatVectors[1] + chatVectors[2]) / 2).x - 5f,
-              positionY = minimapVectors[0].y - panelRect.sizeDelta.y / 2 - 5f;  //Get the new panel position
+              positionY = minimapVectors[0].y - sizeDelta.y / 2 - 5f;  //Get the new panel position
         Vector3 position = new Vector3(positionX, positionY);  //Set the new panel position
-        Vector3 offsetPosition = position + new Vector3(_size.x + 5f, 0f);  //Set the new panel position with offset
-        panelRect.position = offsetPosition;  //Apply new panel position with offset
+        Vector3 offsetPosition = position + new Vector3(sizeDelta.x + 5f, 0f);  //Set the new panel position with offset
+        _panelRect.position = offsetPosition;  //Apply new panel position with offset
         
         /* Set values to panel component */
         _panel.distance = Vector3.Distance(position, offsetPosition);  //Set the distance between position and offset position
@@ -100,7 +99,7 @@ internal static class PanelHandler {
         textObject.transform.localPosition = new Vector3(0f, 0f, 0f);  //Set local position of the text object
         
         Text headerText = textObject.GetComponent<Text>();  //Get text component of this object
-        headerText.rectTransform.sizeDelta = panelRect.sizeDelta / new Vector2(offsetX, offsetY);  //Set text size
+        headerText.rectTransform.sizeDelta = _panelRect.sizeDelta / new Vector2(offsetX, offsetY);  //Set text size
         AddOutline(textObject);  //Add the outline to the text
 
         /* Set text properties */
@@ -129,7 +128,7 @@ internal static class PanelHandler {
         textObject.transform.localPosition = new Vector3(0f, 0f, 0f);  //Set local position of the text object
         
         _achievementText = textObject.GetComponent<Text>();  //Get text component of this object
-        _achievementText.rectTransform.sizeDelta = panelRect.sizeDelta / new Vector2(offsetX, offsetY);  //Set text size
+        _achievementText.rectTransform.sizeDelta = _panelRect.sizeDelta / new Vector2(offsetX, offsetY);  //Set text size
         _achievementText.rectTransform.position -= new Vector3(0f, _achievementText.rectTransform.sizeDelta.y / offsetY);  //Shift the text object
         AddOutline(textObject);  //Add the outline to the text
         
@@ -160,8 +159,8 @@ internal static class PanelHandler {
         
         /* Init a new audio source */
         GameObject audioObject = new GameObject("AchievementSounds");  //Create a new object
-        audioSource = audioObject.AddComponent<AudioSource>();  //Add an audio source component
-        audioSource.volume = 1f;  //Set volume
+        _audioSource = audioObject.AddComponent<AudioSource>();  //Add an audio source component
+        _audioSource.volume = 1f;  //Set volume
         audioObject.transform.parent = AudioMan.instance.transform;  //Set the audio manager as the parent object
         
         /* Get "in" panel sound */
@@ -185,14 +184,20 @@ internal static class PanelHandler {
 
     /* Method for playing the "panel appearing" sound */
     public static void PlayInSound() {
-        audioSource.clip = _inSound;
-        audioSource.Play();
+        _audioSource.clip = _inSound;
+        _audioSource.Play();
     }
 
     /* Method for playing the "panel disappearing" sound */
     public static void PlatOutSound() {
-        audioSource.clip = _outSound;
-        audioSource.Play();
+        _audioSource.clip = _outSound;
+        _audioSource.Play();
+    }
+
+    /* Method for the reposition of the achievement panel
+     * newPosition - the new position of the achievement panel */
+    public static void Reposition(Vector3 newPosition) {
+        _panelRect.position = newPosition;
     }
 
     /* Method for showing the achievement panel */
