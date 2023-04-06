@@ -1,9 +1,7 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using AwesomeAchievements.AchieveLists;
-using Newtonsoft.Json;
+using AwesomeAchievements.Utility;
 
 namespace Tests; 
 
@@ -12,32 +10,19 @@ internal static class AchievementsListTest {
         System.Console.WriteLine("Achievements list test:");
         
         Assembly assembly = Assembly.GetAssembly(typeof(AwesomeAchievements.Master));
-        const string resourceNamespace = "AwesomeAchievements.AchievementLists.",
+        const string resourceNamespace = "AwesomeAchievements.AchieveLists.",
                      templateResourcePath = resourceNamespace + "template.json";
         
         var resources = from resource in assembly.GetManifestResourceNames()
                         where resource.StartsWith(resourceNamespace) && resource != templateResourcePath
                         select resource;
 
-        string templateJson;
+        string templateJson = new ResourceReader(templateResourcePath, assembly).ReadAllStrings();
         int counter = 0;
-        using (Stream templateStream = assembly.GetManifestResourceStream(templateResourcePath))
-        using (StreamReader templateReader = new StreamReader(templateStream!)) {
-            templateJson = templateReader.ReadToEnd();
-        }
-        
         foreach (string resourcePath in resources) {
-            string resourceJson;
-            using (Stream resourceStream = assembly.GetManifestResourceStream(resourcePath))
-            using (StreamReader resourceReader = new StreamReader(resourceStream!)) {
-                resourceJson = resourceReader.ReadToEnd();
-            }
+            string resourceJson = new ResourceReader(resourcePath, assembly).ReadAllStrings();
 
-            /* Create objects using json data from files #1# */
-            var templateData = JsonConvert.DeserializeObject<AchievementJsonArray>(templateJson).data;
-            var fileData = JsonConvert.DeserializeObject<AchievementJsonArray>(resourceJson).data;
-
-            if (Eval(templateData, fileData)) {  //Check the data for correctness
+            if (Eval(templateJson, resourceJson)) {  //Check the data for correctness
                 System.Console.ForegroundColor = ConsoleColor.Green;
                 System.Console.WriteLine("[✔] Test #" + (++counter) + $" ({resourcePath.Split('.')[2]}) passed");
             } else {
@@ -50,22 +35,28 @@ internal static class AchievementsListTest {
         System.Console.WriteLine();
     }
 
-    private static bool Eval(AchievementJsonObject[] templateData, AchievementJsonObject[] fileData) {
-        if (templateData.Length != fileData.Length) return false;  //If files have different lenght return false
-
-        /* Get enumerators from arrays */
-        var templateDataEnum = templateData.GetEnumerator();
-        var fileDataEnum = fileData.GetEnumerator();
+    private static bool Eval(string templateJson, string resourceJson) {
+        /* Create parsers */
+        var templateParser = new JsonParser(templateJson);
+        var fileParser = new JsonParser(resourceJson);
         
+        /* Create objects using json data from files */
+        var templateData = templateParser.ParseAchieves();
+        var fileData = fileParser.ParseAchieves();
+        
+        /* Files must have the same number of objects */
+        if (templateParser.AchievesCount != fileParser.AchievesCount) return false;
+        
+        /* Get enumerators from arrays */
+        using var templateDataEnum = templateData.GetEnumerator();
+        using var fileDataEnum = fileData.GetEnumerator();
+
         /* Compare data using enums */
-        for (ushort i = 0; i < templateData.Length; i++) {
-            templateDataEnum.MoveNext();
-            fileDataEnum.MoveNext();
-
-            var templateObj = (AchievementJsonObject)templateDataEnum.Current!;
-            var fileObj = (AchievementJsonObject)fileDataEnum.Current!;
-
-            if (templateObj.id != fileObj.id || fileObj.name is null or "" || fileObj.description is null or "") return false;
+        while (templateDataEnum.MoveNext() && fileDataEnum.MoveNext()) {
+            var templateObj = templateDataEnum.Current;
+            var fileObj = fileDataEnum.Current;
+            
+            if (templateObj.Id != fileObj.Id || fileObj.Name is null or "" || fileObj.Description is null or "") return false;
         }
 
         return true;

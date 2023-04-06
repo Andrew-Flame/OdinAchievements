@@ -48,9 +48,6 @@
       <Reference Include="BepInEx">
         <HintPath>..\Libs\BepInEx.dll</HintPath>
       </Reference>
-      <Reference Include="Newtonsoft.Json">
-        <HintPath>..\Libs\Newtonsoft.Json.dll</HintPath>
-      </Reference>
       <Reference Include="UnityEngine">
         <HintPath>..\Libs\UnityEngine.dll</HintPath>
       </Reference>

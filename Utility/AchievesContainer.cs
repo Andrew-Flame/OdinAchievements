@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using AwesomeAchievements.AchieveLists;
 using AwesomeAchievements.Achieves;
-using Newtonsoft.Json;
 using UnityEngine;
 
 namespace AwesomeAchievements.Utility; 
@@ -14,17 +14,17 @@ internal static class AchievesContainer {
      * language - the language in which the achievements should be
      * can throw an exception if there no at least one achievement class for patching */
     public static void Init(string language) {
-        var achieveList = GetAchievementList(language);
-        _data = new Achievement[achieveList.Length];
-
+        var achieveList = GetAchievementList(language, out int lenght);  //Get list of achievement json objects
+        _data = new Achievement[lenght];  //Initialize a temp list of achievements
         const string classesNamespace = "AwesomeAchievements.Achieves.PatchedAchieves";  //Namespace where classes contained
-        for (ushort i = 0; i < achieveList.Length; i++) {
-            var achieveJson = achieveList[i];
-            Type achieveClass = Type.GetType($"{classesNamespace}.{achieveJson.id}.{achieveJson.id}"); //Get type of the achievement class
-            if (achieveClass == null) throw new UnityException("Class of the achievement \"" + achieveJson.id + "\" not found");  //Check class for null
+
+        ushort counter = 0;  //Init the counter
+        foreach (AchieveJson achieveJson in achieveList) {
+            Type achieveClass = Type.GetType($"{classesNamespace}.{achieveJson.Id}.{achieveJson.Id}"); //Get type of the achievement class
+            if (achieveClass == null) throw new UnityException("Class of the achievement \"" + achieveJson.Id + "\" not found");  //Check class for null
             Achievement achievement = 
-                (Achievement)Activator.CreateInstance(achieveClass, achieveJson.name, achieveJson.description); //Get instance of the achievement class
-            _data[i] = achievement;  //Add the achievement to array
+                (Achievement)Activator.CreateInstance(achieveClass, achieveJson.Name, achieveJson.Description); //Get instance of the achievement class
+            _data[counter++] = achievement;  //Add the achievement to array
         }
     }
 
@@ -73,9 +73,11 @@ internal static class AchievesContainer {
     /* Method for getting the array of the achievement json objects
      * language - the language in which the achievements should be
      * returns the array with achievement json objects containing their ids, names and descriptions */
-    private static AchievementJsonObject[] GetAchievementList(string language) {
+    private static IEnumerable<AchieveJson> GetAchievementList(string language, out int lenght) {
         const string resourceNamespace = "AwesomeAchievements.AchieveLists";  //The main namespace where json documents are stored
         ResourceReader listReader = new ResourceReader($"{resourceNamespace}.{language}.json");  //Create a resource reader for json list
-        return JsonConvert.DeserializeObject<AchievementJsonArray>(listReader.ReadAllStrings()).data;  //Return deserialized json data
+        var jsonParser = new JsonParser(listReader.ReadAllStrings());  //Create an instance of the JSON  parser
+        lenght = jsonParser.AchievesCount;
+        return jsonParser.ParseAchieves();  //Return deserialized json data
     }
 }

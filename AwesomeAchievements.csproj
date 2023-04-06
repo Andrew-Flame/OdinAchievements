@@ -36,7 +36,7 @@
     
     <ItemGroup>
         <Compile Include="AchieveAnnounce\Announcer.cs" />
-        <Compile Include="AchieveLists\AchievementJSON.cs" />
+        <Compile Include="AchieveLists\AchieveJSON.cs" />
         <Compile Include="Achieves\Achievement.cs" />
         <Compile Include="Achieves\LengthyAchievement.cs" />
         <Compile Include="Achieves\PatchedAchieves\BeeGuard\BeeGuard.cs" />
@@ -88,6 +88,7 @@
         <Compile Include="TerminalCommands\CompleteAchieve.cs" />
         <Compile Include="Utility\AchievesContainer.cs" />
         <Compile Include="Utility\Fonts.cs" />
+        <Compile Include="Utility\JsonParser.cs" />
         <Compile Include="Utility\Localizer.cs" />
         <Compile Include="Utility\ResourceReader.cs" />
         <Compile Include="Utility\SaveReader.cs" />
@@ -111,9 +112,6 @@
       <Reference Include="BepInEx">
         <HintPath>libs\BepInEx.dll</HintPath>
         <Private>False</Private>
-      </Reference>
-      <Reference Include="Newtonsoft.Json">
-        <HintPath>Libs\Newtonsoft.Json.dll</HintPath>
       </Reference>
       <Reference Include="System" />
       <Reference Include="UnityEngine">
@@ -158,7 +156,6 @@
     <ItemGroup>
       <None Include="Libs\UnityEngine.UI.dll" />
       <EmbeddedResource Include="AchieveLists\ru.json" />
-      <None Include="Libs\Newtonsoft.Json.dll" />
     </ItemGroup>
     <ItemGroup>
       <EmbeddedResource Include="Assets\Textures\AchievementPanel.png" />

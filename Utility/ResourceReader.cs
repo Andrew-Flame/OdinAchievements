@@ -7,15 +7,18 @@ namespace AwesomeAchievements.Utility;
 
 /* A class for working with embedded resources */
 internal class ResourceReader {
-    private readonly Assembly _assembly;
     private readonly string _resource;
+    private readonly Assembly _assembly;
 
     /* A constructor for creating a new instance of the resource reader using the path of the resource
-     * resource - the full path of the resource including its namespace */
-    public ResourceReader(string resource) {
-        _assembly = Assembly.GetExecutingAssembly();
+     * resource - the full path of the resource including its namespace
+     * assembly - the assembly where the resource is stored */
+    public ResourceReader(string resource, Assembly assembly) {
         _resource = resource;
+        _assembly = assembly;
     }
+    public ResourceReader(string resource) : 
+        this(resource, Assembly.GetExecutingAssembly()) { }
 
     /* Method for getting an enumerator to reading the resource content as a text file line by line
      * returns a string enumerator
