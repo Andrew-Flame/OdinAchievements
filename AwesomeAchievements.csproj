@@ -35,6 +35,7 @@
     </PropertyGroup>
     
     <ItemGroup>
+        <Compile Include="AchieveAnnounce\Announcer.cs" />
         <Compile Include="AchieveLists\AchievementJSON.cs" />
         <Compile Include="Achieves\Achievement.cs" />
         <Compile Include="Achieves\LengthyAchievement.cs" />
@@ -75,6 +76,7 @@
         <Compile Include="Achieves\SpecialAchievement.cs" />
         <Compile Include="AchievePanel\PanelHandler.cs" />
         <Compile Include="AchievePanel\AchievementPanel.cs" />
+        <Compile Include="GameClasses\GameChat.cs" />
         <Compile Include="GameClasses\GameHud.cs" />
         <Compile Include="GameClasses\GameTerminal.cs" />
         <Compile Include="ModInfo.cs" />

@@ -1,5 +1,6 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
 using System;
+using AwesomeAchievements.AchieveAnnounce;
 using AwesomeAchievements.AchievePanel;
 using AwesomeAchievements.Patch;
 using AwesomeAchievements.Utility;
@@ -47,8 +48,9 @@ internal abstract class Achievement {
 
     public void Complete() {
         Debug.Log($"Achievement {Id} have been completed");
-        UnpatchAll();
         PanelHandler.ShowPanel(Name);
+        Announcer.Announce(Name);
+        UnpatchAll();
         AchievesContainer.Remove(Id);
     }
 }
