@@ -32,7 +32,7 @@ internal static class AchievesContainer {
      * id - the id of the achievement that we need to get
      * returns the instance of the achievement
      * can throw an exception if there no achievement with the same id in the container */
-    public static Achievement GetAchievement(string id) {
+    public static Achievement Get(string id) {
         foreach (Achievement achievement in _data)  //Cycle through the container data
             if (achievement.Id == id) return achievement;  //Get the achievement with the same id
         
@@ -43,7 +43,7 @@ internal static class AchievesContainer {
     /* Method for deleting an achievement by its id from container
      * id - the id of the achievement that we need to delete
      * can throw an exception if there no achievement with the same id in the container */
-    public static void DeleteAchievement(string id) {
+    public static void Remove(string id) {
         var newData = new Achievement[_data.Length - 1];  //Create new array with a less lenght
         
         /* Cycle trough the array with achievements */

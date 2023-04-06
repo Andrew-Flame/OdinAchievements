@@ -18,7 +18,7 @@ internal static class CompleteAchieve {
         /* If all is OK */
         try {
             for (ushort i = 1; i < args.Length; i++) {  //Cycle through arguments
-                Achievement achievement = AchievesContainer.GetAchievement(args[i]);  //Get achievement by id
+                Achievement achievement = AchievesContainer.Get(args[i]);  //Get achievement by id
                 achievement.Complete();  //Complete this achievement
             }
         } catch { }
