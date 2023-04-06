@@ -183,7 +183,7 @@
       <None Include="Libs\UnityEngine.UnityWebRequestModule.dll" />
     </ItemGroup>
     <ItemGroup>
-      <Content Include="Libs\UnityEngine.UnityWebRequestAudioModule.dll" />
+      <None Include="Libs\UnityEngine.UnityWebRequestAudioModule.dll" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
