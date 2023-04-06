@@ -7,6 +7,7 @@ using static Terminal;
 namespace AwesomeAchievements.GameClasses; 
 
 internal static class GameTerminal {
+    /* A patch to add new terminal commands */
     [HarmonyPatch(typeof(Terminal), "Awake")]
     private static class TerminalAwake {
         private static void Postfix() {

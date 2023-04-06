@@ -2,13 +2,19 @@
 
 namespace AwesomeAchievements.AchieveAnnounce; 
 
+/* A class for the working with chat announcements */
 internal static class Announcer {
-    public const string DISTINCTIVE = "[/achievement/]";
-    public const string PLACEHOLDER = "\rGot an achievement, but you won't see it, since you don't have the AwesomeAchievements mod installed";
+    /* This alert will be shown to those who haven't installed the mod. It ends with a null character, therefore nothing after it will be displayed.
+     * For those who have installed the modification, this part of the line is removed and a normal message is displayed.*/
+    public const string NOT_INSTALLED_ALERT = "This player has just completed an achievement in the 'AwesomeAchievements' mod. " + 
+                                              "If you want to know more, find this mod on NexusMods or Thunderstore\0";
+    
+    /* Method for announce the achievement name in the game chat
+     * achievementName - the name of the achievement for printing in the chat*/
     public static void Announce(string achievementName) {
-        string playerName = Player.m_localPlayer.GetPlayerName();
-        string message = $"{DISTINCTIVE}{Localizer.Player} {playerName.ToUpper()}" +
-                         $"{Localizer.ChatMessage} <color=green>[{achievementName.ToUpper()}]</color>{PLACEHOLDER}";
-        Chat.instance.SendText(Talker.Type.Shout, message);
+        string playerName = Player.m_localPlayer.GetPlayerName();  //Get the player name
+        string message = $"{Localizer.Player} {playerName.ToUpper()} {Localizer.ChatMessage}:\n" +
+                         $"<color=green>[{achievementName.ToUpper()}]</color>";  //Create a message
+        Chat.instance.SendText(Talker.Type.Normal, NOT_INSTALLED_ALERT + message);  //'Say' message with the alert in the chat
     }
 }

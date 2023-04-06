@@ -14,12 +14,13 @@ internal static class AchievesHandler {
      * returns true if there is at least one argument, otherwise - false */
     public static bool HaveArgs(ConsoleEventArgs args) {
         if (args.Length > 1) return true;
-        string output = string.Format('\n' + 
-@"Not enough arguments!
-Use {0} + achievement-id:
-    {0} All
-    {0} UseVegvisir
-    {0} CutTrees", args[0]);
+        string output = string.Format('\n' + "Not enough arguments!\n" +
+                                      "Use {0} + achievement-id:\n" +
+                                      "{0} All\n" +
+                                      "{0} Sleep\n" +
+                                      "{0} UseVegvisir\n" +
+                                      "{0} FindVillage\n" +
+                                      "e.t.c", args[0]);
         args.Context.AddString(output);
         return false;
     }
