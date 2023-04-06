@@ -9,7 +9,7 @@ namespace AwesomeAchievements.AchievePanel;
 
 /* A class for working with the achievement panel */
 internal static class PanelHandler {
-    private const float ASPECT_RATIO = 4.12121212f;
+    private const float ASPECT_RATIO = 278f / 66f;
     private static readonly List<string> Queue = new();
     private static RectTransform _panelRect;
     private static AchievementPanel _panel;
