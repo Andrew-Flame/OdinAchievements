@@ -1,6 +1,4 @@
-﻿using AwesomeAchievements.Utility;
-
-namespace AwesomeAchievements.AchieveAnnounce; 
+﻿namespace AwesomeAchievements.Utility; 
 
 /* A class for the working with chat announcements */
 internal static class Announcer {
@@ -10,11 +8,11 @@ internal static class Announcer {
                                               "If you want to know more, find this mod on NexusMods or Thunderstore\0";
     
     /* Method for announce the achievement name in the game chat
-     * achievementName - the name of the achievement for printing in the chat*/
+     * achievementName - the name of the achievement for printing in the chat */
     public static void Announce(string achievementName) {
         string playerName = Player.m_localPlayer.GetPlayerName();  //Get the player name
         string message = $"{Localizer.Player} <color=orange>{playerName}</color> {Localizer.ChatMessage}:\n" +
-                         $"<color=green>[{achievementName.ToUpper()}]</color>";  //Create a message
+                         $"<color=green>[{achievementName}]</color>";  //Create a message
         Chat.instance.SendText(Talker.Type.Normal, NOT_INSTALLED_ALERT + message);  //'Say' message with the alert in the chat
     }
 }
