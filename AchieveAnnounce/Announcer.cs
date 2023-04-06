@@ -13,7 +13,7 @@ internal static class Announcer {
      * achievementName - the name of the achievement for printing in the chat*/
     public static void Announce(string achievementName) {
         string playerName = Player.m_localPlayer.GetPlayerName();  //Get the player name
-        string message = $"{Localizer.Player} {playerName.ToUpper()} {Localizer.ChatMessage}:\n" +
+        string message = $"{Localizer.Player} <color=orange>{playerName.ToUpper()}</color> {Localizer.ChatMessage}:\n" +
                          $"<color=green>[{achievementName.ToUpper()}]</color>";  //Create a message
         Chat.instance.SendText(Talker.Type.Normal, NOT_INSTALLED_ALERT + message);  //'Say' message with the alert in the chat
     }
