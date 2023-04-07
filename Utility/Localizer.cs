@@ -7,7 +7,6 @@ namespace AwesomeAchievements.Utility;
 internal static class Localizer {
     /* Properties for getting localized texts */
     public static string AchievePanelHeader { get; private set; }
-    public static string Player { get; private set; }
     public static string ChatMessage { get; private set; }
     
     /* Method for initializing this type */
