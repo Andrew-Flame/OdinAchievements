@@ -13,11 +13,8 @@ internal sealed class JsonParser {
     public JsonParser(string data) => _data = data;
 
     public IEnumerable<AchieveJson> ParseAchieves() {
-        Regex compressRegex = new Regex(@"(?<=[\s"":\{\}\[\],])\s(?=[\s"":\{\}\[\],])");
-        string compressedData = compressRegex.Replace(_data, string.Empty);
-        
         Regex substringRegex = new Regex(@"{(""(id|name|description)"":""[^""]+"",?){3}}");
-        MatchCollection matches = substringRegex.Matches(compressedData);
+        MatchCollection matches = substringRegex.Matches(_data);
 
         foreach (Match match in matches) {
             string jsonObjStr = match.Value;

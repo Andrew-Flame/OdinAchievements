@@ -63,12 +63,12 @@
         {
             "id": "CollectRaspberries",
             "name": "Сладкая жизнь",
-            "description": "Сорвите с кустов 250 ягод малины"
+            "description": "Сорвите с кустов 500 ягод малины"
         },
         {
             "id": "CollectMushrooms",
             "name": "Дары леса",
-            "description": "Сорвите с земли 250 грибов"
+            "description": "Сорвите с земли 500 грибов"
         },
         {
             "id": "CollectStones",
@@ -107,12 +107,12 @@
         },
         {
             "id": "KillDeerBow",
-            "name": "Бедный Бэмби",
+            "name": "Точно в цель",
             "description": "Убейте оленя из лука"
         },
         {
             "id": "KillDeerNoBow",
-            "name": "Примитивные инструменты",
+            "name": "Бедный Бэмби",
             "description": "Убейте оленя, не используя лук"
         },
         {
@@ -122,7 +122,7 @@
         },
         {
             "id": "KillBird",
-            "name": "Точно в цель",
+            "name": "Птичку жалко",
             "description": "Убейте чайку или ворона из лука"
         },
         {
