@@ -24,5 +24,7 @@ internal static class Localizer {
                 property.SetValue(null, localeValue);  //Set this value to the static property
             }
         }
+        
+        LogInfo.Log("A locale container has been initialized");
     }
 }

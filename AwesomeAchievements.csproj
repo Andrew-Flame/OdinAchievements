@@ -76,7 +76,6 @@
         <Compile Include="AchievePanel\PanelHandler.cs" />
         <Compile Include="AchievePanel\AchievementPanel.cs" />
         <Compile Include="AchieveTab\TabHandler.cs" />
-        <Compile Include="ConfigValues.cs" />
         <Compile Include="GameClasses\GameChat.cs" />
         <Compile Include="GameClasses\GameHud.cs" />
         <Compile Include="GameClasses\GamePlayerProfile.cs" />
@@ -93,9 +92,11 @@
         <Compile Include="TerminalCommands\CompleteAchieve.cs" />
         <Compile Include="Utility\AchievesContainer.cs" />
         <Compile Include="Utility\Announcer.cs" />
+        <Compile Include="Utility\ConfigValues.cs" />
         <Compile Include="Utility\Fonts.cs" />
         <Compile Include="Utility\JsonParser.cs" />
         <Compile Include="Utility\Localizer.cs" />
+        <Compile Include="Utility\LogInfo.cs" />
         <Compile Include="Utility\ResourceReader.cs" />
     </ItemGroup>
     <ItemGroup>

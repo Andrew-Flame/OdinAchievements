@@ -13,7 +13,7 @@ internal static class AchievesContainer {
     /* Method for initializing this type
      * can throw an exception if there no at least one achievement class for patch */
     public static void Init() {
-        if (_data != null) SafeClear();  //If the container had been initialized, safe clear it
+        if (_data != null) SafeClear();  //If the container has been initialized, safe clear it
         var achieveList = GetAchievementList(out int lenght);  //Get list of achievement json objects
         _data = new Achievement[lenght];  //Initialize an array of achievements
         const string classesNamespace = "AwesomeAchievements.Achieves.PatchedAchieves";  //Namespace where classes contained
@@ -26,6 +26,8 @@ internal static class AchievesContainer {
                 (Achievement)Activator.CreateInstance(achieveClass, achieveJson.Name, achieveJson.Description); //Get instance of the achievement class
             _data[counter++] = achievement;  //Add the achievement to array
         }
+        
+        LogInfo.Log("An achievement container has been initialized");
     }
 
     /* Method for getting an achievement by its id from container

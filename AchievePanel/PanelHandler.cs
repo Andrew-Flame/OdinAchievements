@@ -39,6 +39,8 @@ internal static class PanelHandler {
         
         /* Set audio files */
         SetAudioComponents();
+        
+        LogInfo.Log("An achievement panel handler has been initialized");
     }
 
     /* Method for setting the panel texture */
@@ -206,7 +208,7 @@ internal static class PanelHandler {
             Queue.Add(achievementName);
             return;
         }
-
+        
         _achievementText.text = achievementName;
         _panel.Appear();
     }

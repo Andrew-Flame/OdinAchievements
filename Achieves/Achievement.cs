@@ -23,9 +23,7 @@ internal abstract class Achievement {
     }
 
     ~Achievement() => UnpatchAll();
-    
-    public abstract void LoadData(string data);
-    
+
     protected abstract void InitPatchers();
     
     protected void AddPatcher<T>() where T: Patcher, new() {
@@ -46,7 +44,7 @@ internal abstract class Achievement {
     }
 
     public void Complete() {
-        Debug.Log($"Achievement {Id} have been completed");
+        LogInfo.Log($"The achievement '{Id}' has been completed");
         PanelHandler.ShowPanel(Name);
         Announcer.Announce(Name);
         UnpatchAll();
