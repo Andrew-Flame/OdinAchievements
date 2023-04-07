@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AwesomeAchievements.Utility; 
 
-/* A class for working with embedded resources */
+/* Class for work with embedded resources */
 internal class ResourceReader {
     private readonly string _resource;
     private readonly Assembly _assembly;
@@ -81,5 +81,11 @@ internal class ResourceReader {
         string filePath = $@"{Path.GetTempPath()}/{fileName}";
         WriteToFile(filePath);
         return filePath;
+    }
+
+    public Sprite GetSprite() {
+        Texture2D panelTexture = new Texture2D(0, 0);  //Init random texture (it will be resized)
+        panelTexture.LoadImage(ReadAllBytes(), false);  //Load an image from resource
+        return Sprite.Create(panelTexture, new Rect(0f, 0f, panelTexture.width, panelTexture.height), new Vector2(0f, 0f));  //Create a new sprite
     }
 }

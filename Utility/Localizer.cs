@@ -3,18 +3,17 @@ using System.Reflection;
 
 namespace AwesomeAchievements.Utility; 
 
-/* A class for getting all localizable texts for this mod */
+/* Class for get all localizable texts for this mod */
 internal static class Localizer {
     /* Properties for getting localized texts */
     public static string AchievePanelHeader { get; private set; }
     public static string Player { get; private set; }
     public static string ChatMessage { get; private set; }
     
-    /* Method for initializing this type
-     * language - the language in which the texts should be */
-    public static void Init(string language) {
+    /* Method for initializing this type */
+    public static void Init() {
         const string resourceNamespace = "AwesomeAchievements.Localization";  //The namespace with locale files
-        ResourceReader localeReader = new ResourceReader($"{resourceNamespace}.{language}.ini");  //Create an resource reader for locale file
+        ResourceReader localeReader = new ResourceReader($"{resourceNamespace}.{ConfigValues.Language}.ini");  //Create an resource reader for locale file
         var properties = typeof(Localizer).GetProperties();  //Get an array of properties in this class
         
         foreach (string locale in localeReader.GetStringReader()) {  //Cycle through the string of the locale file

@@ -1,6 +1,6 @@
 ﻿namespace AwesomeAchievements.Utility; 
 
-/* A class for the working with chat announcements */
+/* Class for the work with chat announcements */
 internal static class Announcer {
     /* This alert will be shown to those who haven't installed the mod. It ends with a null character, therefore nothing after it will be displayed.
      * For those who have installed the modification, this part of the line is removed and a normal message is displayed.*/

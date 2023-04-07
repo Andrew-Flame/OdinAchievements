@@ -1,12 +1,11 @@
-﻿using BepInEx;
-using BepInEx.Configuration;
+﻿using BepInEx.Configuration;
 
 namespace AwesomeAchievements; 
 
-/* A class-container for BepInEx config values */
+/* Class-container for BepInEx config values */
 internal static class ConfigValues {
     private static ConfigEntry<string> _language;
-    public static string language => _language.Value;
+    public static string Language => _language.Value;
 
     /* Method for initializing this type
      * config - the config file where data in containing */

@@ -1,6 +1,6 @@
 ﻿namespace AwesomeAchievements.Saving; 
 
-/* A class for writing save files */
+/* Class for write save files */
 internal class SaveWriter {
     
 }

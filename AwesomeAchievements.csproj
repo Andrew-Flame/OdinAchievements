@@ -75,6 +75,7 @@
         <Compile Include="Achieves\SpecialAchievement.cs" />
         <Compile Include="AchievePanel\PanelHandler.cs" />
         <Compile Include="AchievePanel\AchievementPanel.cs" />
+        <Compile Include="AchieveTab\TabHandler.cs" />
         <Compile Include="ConfigValues.cs" />
         <Compile Include="GameClasses\GameChat.cs" />
         <Compile Include="GameClasses\GameHud.cs" />
@@ -184,6 +185,9 @@
     </ItemGroup>
     <ItemGroup>
       <None Include="Libs\UnityEngine.UnityWebRequestAudioModule.dll" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="Assets\Textures\AchievementTabIcon.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

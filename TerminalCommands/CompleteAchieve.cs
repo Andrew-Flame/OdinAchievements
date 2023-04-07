@@ -8,7 +8,7 @@ using static AwesomeAchievements.TerminalCommands.AchievesHandler;
 
 namespace AwesomeAchievements.TerminalCommands; 
 
-/* A class for working with achievement-add terminal commands */
+/* Class for work with achievement-add terminal commands */
 internal static class CompleteAchieve {
     /* Method for run the terminal command */
     public static void Run(ConsoleEventArgs args) {

@@ -4,7 +4,7 @@ using AwesomeAchievements.AchieveLists;
 
 namespace AwesomeAchievements.Utility; 
 
-/* A class for the working with json achievement lists */
+/* Class for work with json achievement lists */
 internal sealed class JsonParser {
     private readonly string _data;
 

@@ -11,11 +11,10 @@ internal static class AchievesContainer {
     private static Achievement[] _data;
     
     /* Method for initializing this type
-     * language - the language in which the achievements should be
-     * can throw an exception if there no at least one achievement class for patching */
-    public static void Init(string language) {
+     * can throw an exception if there no at least one achievement class for patch */
+    public static void Init() {
         if (_data != null) SafeClear();  //If the container had been initialized, safe clear it
-        var achieveList = GetAchievementList(language, out int lenght);  //Get list of achievement json objects
+        var achieveList = GetAchievementList(out int lenght);  //Get list of achievement json objects
         _data = new Achievement[lenght];  //Initialize an array of achievements
         const string classesNamespace = "AwesomeAchievements.Achieves.PatchedAchieves";  //Namespace where classes contained
 
@@ -74,9 +73,9 @@ internal static class AchievesContainer {
     /* Method for getting the array of the achievement json objects
      * language - the language in which the achievements should be
      * returns the array with achievement json objects containing their ids, names and descriptions */
-    private static IEnumerable<AchieveJson> GetAchievementList(string language, out int lenght) {
+    private static IEnumerable<AchieveJson> GetAchievementList(out int lenght) {
         const string resourceNamespace = "AwesomeAchievements.AchieveLists";  //The main namespace where json documents are stored
-        ResourceReader listReader = new ResourceReader($"{resourceNamespace}.{language}.json");  //Create a resource reader for json list
+        ResourceReader listReader = new ResourceReader($"{resourceNamespace}.{ConfigValues.Language}.json");  //Create a resource reader for json list
         var jsonParser = new JsonParser(listReader.ReadAllStrings());  //Create an instance of the JSON  parser
         lenght = jsonParser.AchievesCount;
         return jsonParser.ParseAchieves();  //Return deserialized json data

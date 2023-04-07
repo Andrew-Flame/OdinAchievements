@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace AwesomeAchievements.AchievePanel; 
 
-/* A class for working with the achievement panel */
+/* Class for work with the achievement panel */
 internal static class PanelHandler {
     private const float ASPECT_RATIO = 278f / 66f;
     private static readonly List<string> Queue = new();
@@ -18,7 +18,7 @@ internal static class PanelHandler {
     private static AudioSource _audioSource;
 
     /* Method for initializing the panel object */
-    public static void InitPanel() {
+    public static void Init() {
         /* Init the achievement panel game object */
         GameObject panel = new GameObject("Achievement_Panel", typeof(Image), typeof(AchievementPanel));  //Create an achievement panel object
         panel.transform.SetParent(Hud.instance.transform.parent.transform);  //Set the hud root as the parent for the achievement panel
@@ -46,15 +46,10 @@ internal static class PanelHandler {
         /* Get a resource from assembly */
         const string panelTextureResource = "AwesomeAchievements.Assets.Textures.AchievementPanel.png";  //Get a resource name
         ResourceReader resourceReader = new ResourceReader(panelTextureResource);  //Create a new resource reader
-        
-        /* Create a texture from the resource */
-        Texture2D panelTexture = new Texture2D(0, 0);  //Init random texture (it will be resized)
-        panelTexture.LoadImage(resourceReader.ReadAllBytes(), false);  //Load an image from resource
-        Sprite panelSprite = 
-            Sprite.Create(panelTexture, new Rect(0f, 0f, panelTexture.width, panelTexture.height), new Vector2(0f, 0f));  //Create a new sprite
+        Sprite panelSprite = resourceReader.GetSprite();  //Get the achievement panel sprite
 
         /* Set the texture to the achievement panel */
-        Image panelImage = _panel.GetComponent<Image>();  //Get image component from the achievement panel
+        Image panelImage = _panel.GetComponent<Image>();  //Get an image component from the achievement panel
         panelImage.sprite = panelSprite;  //Set the new sprite
         panelImage.mainTexture.wrapMode = TextureWrapMode.Clamp;  //Set the wrap mode to clamp
     }

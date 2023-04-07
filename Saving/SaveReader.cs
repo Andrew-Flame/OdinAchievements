@@ -1,6 +1,6 @@
 ﻿namespace AwesomeAchievements.Saving; 
 
-/* A class for reading save files */
+/* Class for read save files */
 internal class SaveReader {
     
 }

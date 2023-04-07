@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace AwesomeAchievements.Patch; 
 
-/* A class-attribute for convenient work with patches */
+/* Class-attribute for convenient work with patches */
 internal sealed class AchievePatch : Attribute {
     private readonly Type _classType;
     private readonly string _methodName;

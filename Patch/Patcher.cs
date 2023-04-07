@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AwesomeAchievements.Patch; 
 
-/* A class for working with achievement patches
+/* Class for work with achievement patches
  * it helps to patch and unpatch single harmony patches */
 internal abstract class Patcher {
     private AchievePatch _patch;
