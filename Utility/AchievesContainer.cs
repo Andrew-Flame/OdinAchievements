@@ -14,8 +14,9 @@ internal static class AchievesContainer {
      * language - the language in which the achievements should be
      * can throw an exception if there no at least one achievement class for patching */
     public static void Init(string language) {
+        if (_data != null) SafeClear();  //If the container had been initialized, safe clear it
         var achieveList = GetAchievementList(language, out int lenght);  //Get list of achievement json objects
-        _data = new Achievement[lenght];  //Initialize a temp list of achievements
+        _data = new Achievement[lenght];  //Initialize an array of achievements
         const string classesNamespace = "AwesomeAchievements.Achieves.PatchedAchieves";  //Namespace where classes contained
 
         ushort counter = 0;  //Init the counter
@@ -79,5 +80,11 @@ internal static class AchievesContainer {
         var jsonParser = new JsonParser(listReader.ReadAllStrings());  //Create an instance of the JSON  parser
         lenght = jsonParser.AchievesCount;
         return jsonParser.ParseAchieves();  //Return deserialized json data
+    }
+
+    /* Method for the save clearing the container from patched achievements */
+    private static void SafeClear() {
+        foreach (Achievement achievement in _data) achievement.UnpatchAll();  //Unpatch all achievements
+        _data = null;  //Remove the array reference
     }
 }

@@ -14,6 +14,7 @@ internal sealed class Master : BaseUnityPlugin {
         harmony = new Harmony(ModInfo.GUID);  //Create a harmony
         harmony.PatchAll();  //Patch the harmony
         
+        /* Init containers */
         ConfigValues.Init(Config);
         Localizer.Init(ConfigValues.language);  //Init the localizer
     }
