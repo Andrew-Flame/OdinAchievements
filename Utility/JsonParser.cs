@@ -13,8 +13,11 @@ internal sealed class JsonParser {
     public JsonParser(string data) => _data = data;
 
     public IEnumerable<AchieveJson> ParseAchieves() {
-        Regex substringRegex = new Regex(@"{\s*(""(id|name|description)""\s*:\s*"".*""\s*,?\s*){3}}");
-        MatchCollection matches = substringRegex.Matches(_data);
+        Regex compressRegex = new Regex(@"(?<=[\s"":\{\}\[\],])\s(?=[\s"":\{\}\[\],])");
+        string compressedData = compressRegex.Replace(_data, string.Empty);
+        
+        Regex substringRegex = new Regex(@"{(""(id|name|description)"":""[^""]+"",?){3}}");
+        MatchCollection matches = substringRegex.Matches(compressedData);
 
         foreach (Match match in matches) {
             string jsonObjStr = match.Value;
@@ -23,11 +26,11 @@ internal sealed class JsonParser {
                    name = GetValue("name"),
                    description = GetValue("description");
 
-            string GetValue(string key) {
-                string line = Regex.Match(jsonObjStr, @$"""{key}""\s*:\s*"".*""").Value;
-                return line.Split(':')[1].Trim().Replace("\"", "").Trim();
-            }
-            
+            /* Method for getting a value of achievement json object by it's key */
+            string GetValue(string key) =>
+                Regex.Match(jsonObjStr, @$"""{key}"":""[^""]*""").Value
+                     .Split(':')[1].Trim(' ', '\"');
+
             yield return new AchieveJson(id, name, description);
         }
     }

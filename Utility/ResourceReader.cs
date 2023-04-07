@@ -83,6 +83,8 @@ internal class ResourceReader {
         return filePath;
     }
 
+    /* Method fot getting the sprite from the resource
+     * return the sprite */
     public Sprite GetSprite() {
         Texture2D panelTexture = new Texture2D(0, 0);  //Init random texture (it will be resized)
         panelTexture.LoadImage(ReadAllBytes(), false);  //Load an image from resource

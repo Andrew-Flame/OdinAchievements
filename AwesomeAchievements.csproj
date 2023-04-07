@@ -156,13 +156,15 @@
       <None Include="Libs\UnityEngine.CoreModule.dll" />
     </ItemGroup>
     <ItemGroup>
-      <EmbeddedResource Include="AchieveLists\template.json" />
+      <None Include="AchieveLists\ru.json" />
+      <None Include="AchieveLists\template.json" />
     </ItemGroup>
     <ItemGroup>
       <None Include="Libs\UnityEngine.UI.dll" />
-      <EmbeddedResource Include="AchieveLists\ru.json" />
+      <EmbeddedResource Include="AchieveLists\ru.min.json" />
     </ItemGroup>
     <ItemGroup>
+      <EmbeddedResource Include="AchieveLists\template.min.json" />
       <EmbeddedResource Include="Assets\Textures\AchievementPanel.png" />
     </ItemGroup>
     <ItemGroup>

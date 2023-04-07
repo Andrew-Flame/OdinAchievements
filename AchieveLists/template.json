@@ -1,4 +1,13 @@
-﻿{
+﻿/* This is a template json file
+ * You must not change "id" parameters
+ * You should translate "description" parameters
+ * Then come up with name for the achievements according to descriptions and write it to "name" parameters
+ * After all remove this comment and copy this file
+ * Next rename this files to "lang.json" and "lang.min.json" where lang is a short entry of the language name
+ * Finally compress the "lang.min.json" (You cam use the regex below. Just replace all matches using your IDE/text editor to an empty string)
+ * Regex for copy:    (?<=[\s\":\{\}\[\],])\s(?=[\s\":\{\}\[\],])     */
+
+{
     "data": [
         {
             "id": "UseVegvisir",
