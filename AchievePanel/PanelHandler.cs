@@ -46,8 +46,8 @@ internal static class PanelHandler {
     /* Method for setting the panel texture */
     private static void SetPanelTexture() {
         /* Get a resource from assembly */
-        const string panelTextureResource = "AwesomeAchievements.Assets.Textures.AchievementPanel.png";  //Get a resource name
-        ResourceReader resourceReader = new ResourceReader(panelTextureResource);  //Create a new resource reader
+        const string panelTextureResourcePath = "Assets.Textures.AchievementPanel.png";  //Get a path of the texture resource
+        ResourceReader resourceReader = new ResourceReader(panelTextureResourcePath);  //Create a new resource reader
         Sprite panelSprite = resourceReader.GetSprite();  //Get the achievement panel sprite
 
         /* Set the texture to the achievement panel */
@@ -150,7 +150,7 @@ internal static class PanelHandler {
 
     /* Method for setting audio components */
     private static void SetAudioComponents() {
-        const string mainNamespace = "AwesomeAchievements.Assets.Sounds",
+        const string mainNamespace = "Assets.Sounds",
                      inSoundName = "AchievementPanelIn.ogg",
                      outSoundName = "AchievementPanelOut.ogg";
         

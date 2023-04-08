@@ -76,8 +76,8 @@ internal static class AchievesContainer {
      * language - the language in which the achievements should be
      * returns the array with achievement json objects containing their ids, names and descriptions */
     private static IEnumerable<AchieveJson> GetAchievementList(out int lenght) {
-        const string resourceNamespace = "AwesomeAchievements.AchieveLists";  //The main namespace where json documents are stored
-        ResourceReader listReader = new ResourceReader($"{resourceNamespace}.{ConfigValues.Language}.min.json");  //Create a resource reader for a json list
+        string listPath = $"AchieveLists.{ConfigValues.Language}.min.json";  //Get a path of the list resource
+        ResourceReader listReader = new ResourceReader(listPath);  //Create a resource reader for a json list
         var jsonParser = new JsonParser(listReader.ReadAllStrings());  //Create an instance of the JSON  parser
         lenght = jsonParser.AchievesCount;
         return jsonParser.ParseAchieves();  //Return deserialized json data

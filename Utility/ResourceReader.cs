@@ -14,8 +14,9 @@ internal class ResourceReader {
      * resource - the full path of the resource including its namespace
      * assembly - the assembly where the resource is stored */
     public ResourceReader(string resource, Assembly assembly) {
-        _resource = resource;
         _assembly = assembly;
+        string assemblyName = assembly.GetName().Name;
+        _resource = $"{assemblyName}.{resource}";
     }
     public ResourceReader(string resource) : 
         this(resource, Assembly.GetExecutingAssembly()) { }
