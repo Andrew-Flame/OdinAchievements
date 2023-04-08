@@ -160,6 +160,7 @@
       <None Include="AchieveLists\template.json" />
     </ItemGroup>
     <ItemGroup>
+      <EmbeddedResource Include="Locales\template.ini" />
       <None Include="Libs\UnityEngine.UI.dll" />
       <EmbeddedResource Include="AchieveLists\ru.min.json" />
     </ItemGroup>
