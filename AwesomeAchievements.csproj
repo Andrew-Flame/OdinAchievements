@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
 
     <!-- General assembly parameters -->
     <PropertyGroup>
@@ -33,167 +33,170 @@
         <DefineTrace>false</DefineTrace>
         <DebugSymbols>false</DebugSymbols>
     </PropertyGroup>
-    
+
     <!-- Script files for compiling -->
     <ItemGroup>
-        <Compile Include="AchieveLists\AchieveJSON.cs" />
-        <Compile Include="Achieves\Achievement.cs" />
-        <Compile Include="Achieves\LengthyAchievement.cs" />
-        <Compile Include="Achieves\PatchedAchieves\BeeGuard\BeeGuard.cs" />
-        <Compile Include="Achieves\PatchedAchieves\BuildBeehives\BuildBeehives.cs" />
-        <Compile Include="Achieves\PatchedAchieves\Campfire\Campfire.cs" />
-        <Compile Include="Achieves\PatchedAchieves\CollectMushrooms\CollectMushrooms.cs" />
-        <Compile Include="Achieves\PatchedAchieves\CollectRaspberries\CollectRaspberries.cs" />
-        <Compile Include="Achieves\PatchedAchieves\CollectStones\CollectStones.cs" />
-        <Compile Include="Achieves\PatchedAchieves\CollectTrophiesMeadows\CollectTrophiesMeadows.cs" />
-        <Compile Include="Achieves\PatchedAchieves\Comfort5\Comfort5.cs" />
-        <Compile Include="Achieves\PatchedAchieves\CookCoal\CookCoal.cs" />
-        <Compile Include="Achieves\PatchedAchieves\CookMeat\CookMeat.cs" />
-        <Compile Include="Achieves\PatchedAchieves\CreateHoe\CreateHoe.cs" />
-        <Compile Include="Achieves\PatchedAchieves\CutTrees\CutTrees.cs" />
-        <Compile Include="Achieves\PatchedAchieves\DefeatEikthyrArmy\DefeatEikthyrArmy.cs" />
-        <Compile Include="Achieves\PatchedAchieves\DefeatEikthyr\DefeatEikthyr.cs" />
-        <Compile Include="Achieves\PatchedAchieves\EatFoodMeadows\EatFoodMeadows.cs" />
-        <Compile Include="Achieves\PatchedAchieves\FindDraugrVillage\FindDraugrVillage.cs" />
-        <Compile Include="Achieves\PatchedAchieves\FindVillage\FindVillage.cs" />
-        <Compile Include="Achieves\PatchedAchieves\FirstDeath\FirstDeath.cs" />
-        <Compile Include="Achieves\PatchedAchieves\HitWithClub\HitWithClub.cs" />
-        <Compile Include="Achieves\PatchedAchieves\KillBird\KillBird.cs" />
-        <Compile Include="Achieves\PatchedAchieves\KillDeerBow\KillDeerBow.cs" />
-        <Compile Include="Achieves\PatchedAchieves\KillDeerNoBow\KillDeerNoBow.cs" />
-        <Compile Include="Achieves\PatchedAchieves\KillPlayer\KillPlayer.cs" />
-        <Compile Include="Achieves\PatchedAchieves\LoremasterMeadows\LoremasterMeadows.cs" />
-        <Compile Include="Achieves\PatchedAchieves\SinkShip\SinkShip.cs" />
-        <Compile Include="Achieves\PatchedAchieves\Sleep\Sleep.cs" />
-        <Compile Include="Achieves\PatchedAchieves\StarterKit\StarterKit.cs" />
-        <Compile Include="Achieves\PatchedAchieves\TameBoar\TameBoar.cs" />
-        <Compile Include="Achieves\PatchedAchieves\TreeDie\TreeDie.cs" />
-        <Compile Include="Achieves\PatchedAchieves\UseRaft\UseRaft.cs" />
-        <Compile Include="Achieves\PatchedAchieves\UseVegvisir\UseVegvisir.cs" />
-        <Compile Include="Achieves\PatchedAchieves\UseVegvisir\VegvisirInteract.cs" />
-        <Compile Include="Achieves\PatchedAchieves\VikingGraveyard\VikingGraveyard.cs" />
-        <Compile Include="Achieves\SingleAchievement.cs" />
-        <Compile Include="Achieves\SpecialAchievement.cs" />
-        <Compile Include="AchievePanel\PanelHandler.cs" />
-        <Compile Include="AchievePanel\AchievementPanel.cs" />
-        <Compile Include="AchieveTab\TabHandler.cs" />
-        <Compile Include="GameClasses\GameChat.cs" />
-        <Compile Include="GameClasses\GameHud.cs" />
-        <Compile Include="GameClasses\GamePlayerProfile.cs" />
-        <Compile Include="GameClasses\GameTerminal.cs" />
-        <Compile Include="ModInfo.cs" />
-        <Compile Include="Master.cs" />
-        <Compile Include="Patch\AchievePatch.cs" />
-        <Compile Include="Patch\Patcher.cs" />
-        <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="Saving\SaveReader.cs" />
-        <Compile Include="Saving\SaveWriter.cs" />
-        <Compile Include="Saving\SaveData.cs" />
-        <Compile Include="TerminalCommands\AchievesHandler.cs" />
-        <Compile Include="TerminalCommands\CompleteAchieve.cs" />
-        <Compile Include="Utility\AchievesContainer.cs" />
-        <Compile Include="Utility\Announcer.cs" />
-        <Compile Include="Utility\ConfigValues.cs" />
-        <Compile Include="Utility\Fonts.cs" />
-        <Compile Include="Utility\JsonParser.cs" />
-        <Compile Include="Utility\Localizer.cs" />
-        <Compile Include="Utility\LogInfo.cs" />
-        <Compile Include="Utility\ResourceReader.cs" />
+        <Compile Include="AchieveLists\AchieveJSON.cs"/>
+        <Compile Include="Achieves\Achievement.cs"/>
+        <Compile Include="Achieves\LengthyAchievement.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\BeeGuard\BeeGuard.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\BuildBeehives\BuildBeehives.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\Campfire\Campfire.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\CollectMushrooms\CollectMushrooms.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\CollectRaspberries\CollectRaspberries.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\CollectStones\CollectStones.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\CollectTrophiesMeadows\CollectTrophiesMeadows.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\Comfort5\Comfort5.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\CookCoal\CookCoal.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\CookMeat\CookMeat.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\CreateHoe\CreateHoe.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\CutTrees\CutTrees.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\DefeatEikthyrArmy\DefeatEikthyrArmy.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\DefeatEikthyr\DefeatEikthyr.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\EatFoodMeadows\EatFoodMeadows.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\FindDraugrVillage\FindDraugrVillage.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\FindVillage\FindVillage.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\FirstDeath\FirstDeath.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\HitWithClub\HitWithClub.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\KillBird\KillBird.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\KillDeerBow\KillDeerBow.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\KillDeerNoBow\KillDeerNoBow.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\KillPlayer\KillPlayer.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\LoremasterMeadows\LoremasterMeadows.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\SinkShip\SinkShip.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\Sleep\Sleep.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\StarterKit\StarterKit.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\TameBoar\TameBoar.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\TreeDie\TreeDie.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\UseRaft\UseRaft.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\UseVegvisir\UseVegvisir.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\UseVegvisir\VegvisirInteract.cs"/>
+        <Compile Include="Achieves\PatchedAchieves\VikingGraveyard\VikingGraveyard.cs"/>
+        <Compile Include="Achieves\SingleAchievement.cs"/>
+        <Compile Include="Achieves\SpecialAchievement.cs"/>
+        <Compile Include="AchievePanel\PanelHandler.cs"/>
+        <Compile Include="AchievePanel\AchievementPanel.cs"/>
+        <Compile Include="AchieveTab\TabHandler.cs"/>
+        <Compile Include="GameClasses\GameChat.cs"/>
+        <Compile Include="GameClasses\GameHud.cs"/>
+        <Compile Include="GameClasses\GamePlayerProfile.cs"/>
+        <Compile Include="GameClasses\GameTerminal.cs"/>
+        <Compile Include="ModInfo.cs"/>
+        <Compile Include="Master.cs"/>
+        <Compile Include="Patch\AchievePatch.cs"/>
+        <Compile Include="Patch\Patcher.cs"/>
+        <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="Saving\SaveReader.cs"/>
+        <Compile Include="Saving\SaveWriter.cs"/>
+        <Compile Include="Saving\SaveData.cs"/>
+        <Compile Include="TerminalCommands\AchievesHandler.cs"/>
+        <Compile Include="TerminalCommands\CompleteAchieve.cs"/>
+        <Compile Include="Utility\AchievesContainer.cs"/>
+        <Compile Include="Utility\Announcer.cs"/>
+        <Compile Include="Utility\ConfigValues.cs"/>
+        <Compile Include="Utility\Fonts.cs"/>
+        <Compile Include="Utility\JsonParser.cs"/>
+        <Compile Include="Utility\Localizer.cs"/>
+        <Compile Include="Utility\LogInfo.cs"/>
+        <Compile Include="Utility\ResourceReader.cs"/>
     </ItemGroup>
+
+    <!-- Lib files -->
     <ItemGroup>
-      <None Include="Libs\0Harmony.dll" />
-      <None Include="Libs\assembly_valheim.dll" />
-      <None Include="Libs\BepInEx.dll" />
-      <None Include="Libs\UnityEngine.dll" />
+        <None Include="Libs\BepInEx.dll"/>
+        <None Include="Libs\0Harmony.dll"/>
+        <None Include="Libs\UnityEngine.dll"/>
+        <None Include="Libs\UnityEngine.UI.dll"/>
+        <None Include="Libs\assembly_valheim.dll"/>
+        <None Include="Libs\UnityEngine.CoreModule.dll"/>
+        <None Include="Libs\UnityEngine.AudioModule.dll"/>
+        <None Include="Libs\UnityEngine.TextRenderingModule.dll"/>
+        <None Include="Libs\UnityEngine.ImageConversionModule.dll"/>
+        <None Include="Libs\UnityEngine.UnityWebRequestModule.dll"/>
+        <None Include="Libs\UnityEngine.UnityWebRequestAudioModule.dll"/>
     </ItemGroup>
+
+    <!-- Asset files -->
     <ItemGroup>
-      <Reference Include="0Harmony">
-        <HintPath>libs\0Harmony.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="assembly_valheim">
-        <HintPath>libs\assembly_valheim.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="BepInEx">
-        <HintPath>libs\BepInEx.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="System" />
-      <Reference Include="UnityEngine">
-        <HintPath>libs\UnityEngine.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="UnityEngine.AudioModule">
-        <HintPath>libs\UnityEngine.AudioModule.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="UnityEngine.CoreModule">
-        <HintPath>libs\UnityEngine.CoreModule.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="UnityEngine.ImageConversionModule">
-        <HintPath>libs\UnityEngine.ImageConversionModule.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="UnityEngine.TextRenderingModule">
-        <HintPath>libs\UnityEngine.TextRenderingModule.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="UnityEngine.UI">
-        <HintPath>Libs\UnityEngine.UI.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="UnityEngine.UnityWebRequestAudioModule">
-        <HintPath>libs\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
-      <Reference Include="UnityEngine.UnityWebRequestModule">
-        <HintPath>libs\UnityEngine.UnityWebRequestModule.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
+        <!-- Textures -->
+        <EmbeddedResource Include="Assets\Textures\AchievementTabIcon.png"/>
+        <EmbeddedResource Include="Assets\Textures\AchievementPanel.png"/>
+        
+        <!-- Sounds -->
+        <EmbeddedResource Include="Assets\Sounds\AchievementPanelIn.ogg"/>
+        <EmbeddedResource Include="Assets\Sounds\AchievementPanelOut.ogg"/>
     </ItemGroup>
+    
+    <!-- Achievement lists -->
     <ItemGroup>
-      <None Include="Libs\UnityEngine.CoreModule.dll" />
+        <!-- Template file -->
+        <None Include="AchieveLists\template.json" Condition=" '$(Configuration)' == 'Release' "/>
+        <EmbeddedResource Include="AchieveLists\template.json" Condition=" '$(Configuration)' != 'Release' "/>
+        
+        <!-- Formatted json -->
+        <None Include="AchieveLists\ru.json"/>
+        
+        <!-- Compressed json -->
+        <EmbeddedResource Include="AchieveLists\ru.min.json"/>
     </ItemGroup>
+    
+    <!-- Locales -->
     <ItemGroup>
-      <None Include="AchieveLists\ru.json" />
-      <None Include="AchieveLists\template.json" Condition=" '$(Configuration)' == 'Release' " />
-      <EmbeddedResource Include="AchieveLists\template.json" Condition=" '$(Configuration)' != 'Release' " />
+        <!-- Template file -->
+        <None Include="Locales\template.ini" Condition=" '$(Configuration)' == 'Release' "/>
+        <EmbeddedResource Include="Locales\template.ini" Condition=" '$(Configuration)' != 'Release' "/>
+        
+        <!-- Locale files -->
+        <EmbeddedResource Include="Locales\ru.ini"/>
     </ItemGroup>
+    
     <ItemGroup>
-      <None Include="Locales\template.ini" Condition=" '$(Configuration)' == 'Release' " />
-      <EmbeddedResource Include="Locales\template.ini" Condition=" '$(Configuration)' != 'Release' " />
-      <None Include="Libs\UnityEngine.UI.dll" />
-      <EmbeddedResource Include="AchieveLists\ru.min.json" />
+        <Reference Include="0Harmony">
+            <HintPath>libs\0Harmony.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="assembly_valheim">
+            <HintPath>libs\assembly_valheim.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="BepInEx">
+            <HintPath>libs\BepInEx.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="System"/>
+        <Reference Include="UnityEngine">
+            <HintPath>libs\UnityEngine.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.AudioModule">
+            <HintPath>libs\UnityEngine.AudioModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+            <HintPath>libs\UnityEngine.CoreModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.ImageConversionModule">
+            <HintPath>libs\UnityEngine.ImageConversionModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule">
+            <HintPath>libs\UnityEngine.TextRenderingModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UI">
+            <HintPath>Libs\UnityEngine.UI.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+            <HintPath>libs\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestModule">
+            <HintPath>libs\UnityEngine.UnityWebRequestModule.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
     </ItemGroup>
-    <ItemGroup>
-      <EmbeddedResource Include="Assets\Textures\AchievementPanel.png" />
-    </ItemGroup>
-    <ItemGroup>
-      <None Include="Libs\UnityEngine.ImageConversionModule.dll" />
-    </ItemGroup>
-    <ItemGroup>
-      <None Include="Libs\UnityEngine.TextRenderingModule.dll" />
-    </ItemGroup>
-    <ItemGroup>
-      <EmbeddedResource Include="Locales\ru.ini" />
-    </ItemGroup>
-    <ItemGroup>
-      <EmbeddedResource Include="Assets\Sounds\AchievementPanelIn.ogg" />
-      <EmbeddedResource Include="Assets\Sounds\AchievementPanelOut.ogg" />
-    </ItemGroup>
-    <ItemGroup>
-      <None Include="Libs\UnityEngine.AudioModule.dll" />
-    </ItemGroup>
-    <ItemGroup>
-      <None Include="Libs\UnityEngine.UnityWebRequestModule.dll" />
-    </ItemGroup>
-    <ItemGroup>
-      <None Include="Libs\UnityEngine.UnityWebRequestAudioModule.dll" />
-    </ItemGroup>
-    <ItemGroup>
-      <EmbeddedResource Include="Assets\Textures\AchievementTabIcon.png" />
-    </ItemGroup>
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
 </Project>
