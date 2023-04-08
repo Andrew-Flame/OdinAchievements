@@ -34,6 +34,7 @@
         <DebugSymbols>false</DebugSymbols>
     </PropertyGroup>
     
+    <!-- Script files for compiling -->
     <ItemGroup>
         <Compile Include="AchieveLists\AchieveJSON.cs" />
         <Compile Include="Achieves\Achievement.cs" />
@@ -157,15 +158,16 @@
     </ItemGroup>
     <ItemGroup>
       <None Include="AchieveLists\ru.json" />
-      <None Include="AchieveLists\template.json" />
+      <None Include="AchieveLists\template.json" Condition=" '$(Configuration)' == 'Release' " />
+      <EmbeddedResource Include="AchieveLists\template.json" Condition=" '$(Configuration)' != 'Release' " />
     </ItemGroup>
     <ItemGroup>
-      <EmbeddedResource Include="Locales\template.ini" />
+      <None Include="Locales\template.ini" Condition=" '$(Configuration)' == 'Release' " />
+      <EmbeddedResource Include="Locales\template.ini" Condition=" '$(Configuration)' != 'Release' " />
       <None Include="Libs\UnityEngine.UI.dll" />
       <EmbeddedResource Include="AchieveLists\ru.min.json" />
     </ItemGroup>
     <ItemGroup>
-      <EmbeddedResource Include="AchieveLists\template.min.json" />
       <EmbeddedResource Include="Assets\Textures\AchievementPanel.png" />
     </ItemGroup>
     <ItemGroup>

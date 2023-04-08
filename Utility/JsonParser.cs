@@ -10,9 +10,15 @@ internal sealed class JsonParser {
 
     public int AchievesCount => Regex.Matches(_data, "id").Count;
 
-    public JsonParser(string data) => _data = data;
+    public JsonParser(string data) {
+        Regex jsonString = new Regex(@"{\s*""data"":\s*\[(\s*{(\s*(""(id|name|description)""\s*:\s*"".*"",?\s*)*)},?)*\s*\]\s*}");
+        Regex compressRegex = new Regex(@"(?<=[\s"":\{\}\[\],])\s(?=[\s"":\{\}\[\],])");
 
-    public IEnumerable<AchieveJson> ParseAchieves() {
+        _data = jsonString.Match(data).Value;
+        _data = compressRegex.Replace(_data, string.Empty);
+    }
+
+    public IEnumerable<AchieveJson> ParseAchieves() { 
         Regex substringRegex = new Regex(@"{(""(id|name|description)"":""[^""]+"",?){3}}");
         MatchCollection matches = substringRegex.Matches(_data);
 

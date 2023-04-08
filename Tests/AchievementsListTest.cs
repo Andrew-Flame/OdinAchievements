@@ -11,7 +11,8 @@ internal static class AchievementsListTest {
         
         Assembly assembly = Assembly.GetAssembly(typeof(AwesomeAchievements.Master));
         const string resourceNamespace = "AwesomeAchievements.AchieveLists.",
-                     templateResourcePath = resourceNamespace + "template.min.json";
+                     templateResourcePath = resourceNamespace + "template.json";
+        System.Console.WriteLine(assembly.Location);
         
         var resources = from resource in assembly.GetManifestResourceNames()
                         where resource.StartsWith(resourceNamespace) && resource != templateResourcePath
@@ -55,7 +56,7 @@ internal static class AchievementsListTest {
         while (templateDataEnum.MoveNext() && fileDataEnum.MoveNext()) {
             var templateObj = templateDataEnum.Current;
             var fileObj = fileDataEnum.Current;
-            
+
             if (templateObj.Id != fileObj.Id || fileObj.Name is null or "" || fileObj.Description is null or "") return false;
         }
 
