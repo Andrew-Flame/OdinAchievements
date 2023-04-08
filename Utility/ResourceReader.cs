@@ -16,7 +16,9 @@ internal class ResourceReader {
     public ResourceReader(string resource, Assembly assembly) {
         _assembly = assembly;
         string assemblyName = assembly.GetName().Name;
-        _resource = $"{assemblyName}.{resource}";
+
+        _resource = resource.StartsWith(assemblyName) ?
+                        resource : $"{assemblyName}.{resource}";
     }
     public ResourceReader(string resource) : 
         this(resource, Assembly.GetExecutingAssembly()) { }

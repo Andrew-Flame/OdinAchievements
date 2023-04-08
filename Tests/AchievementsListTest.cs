@@ -10,12 +10,11 @@ internal static class AchievementsListTest {
         System.Console.WriteLine("Achievements list test:");
         
         Assembly assembly = Assembly.GetAssembly(typeof(AwesomeAchievements.Master));
-        const string resourceNamespace = "AwesomeAchievements.AchieveLists.",
-                     templateResourcePath = resourceNamespace + "template.json";
-        System.Console.WriteLine(assembly.Location);
-        
+        const string resourceNamespace = "AchieveLists",
+                     templateResourcePath = $"{resourceNamespace}.template.json";
+
         var resources = from resource in assembly.GetManifestResourceNames()
-                        where resource.StartsWith(resourceNamespace) && resource != templateResourcePath
+                        where resource.Contains(resourceNamespace) && !resource.Contains(templateResourcePath)
                         select resource;
 
         string templateJson = new ResourceReader(templateResourcePath, assembly).ReadAllStrings();
