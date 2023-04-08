@@ -11,7 +11,7 @@ internal static class AchievementsListTest {
         
         Assembly assembly = Assembly.GetAssembly(typeof(AwesomeAchievements.Master));
         const string resourceNamespace = "AwesomeAchievements.AchieveLists.",
-                     templateResourcePath = resourceNamespace + "template.json";
+                     templateResourcePath = resourceNamespace + "template.min.json";
         
         var resources = from resource in assembly.GetManifestResourceNames()
                         where resource.StartsWith(resourceNamespace) && resource != templateResourcePath
