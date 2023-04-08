@@ -174,7 +174,7 @@
       <None Include="Libs\UnityEngine.TextRenderingModule.dll" />
     </ItemGroup>
     <ItemGroup>
-      <EmbeddedResource Include="Localization\ru.ini" />
+      <EmbeddedResource Include="Locales\ru.ini" />
     </ItemGroup>
     <ItemGroup>
       <EmbeddedResource Include="Assets\Sounds\AchievementPanelIn.ogg" />

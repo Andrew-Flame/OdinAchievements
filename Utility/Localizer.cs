@@ -1,5 +1,7 @@
 ﻿// ReSharper disable UnusedAutoPropertyAccessor.Local
+using System.Collections.Generic;
 using System.Reflection;
+using UnityEngine;
 
 namespace AwesomeAchievements.Utility; 
 
@@ -11,7 +13,7 @@ internal static class Localizer {
     
     /* Method for initializing this type */
     public static void Init() {
-        const string resourceNamespace = "AwesomeAchievements.Localization";  //The namespace with locale files
+        const string resourceNamespace = "AwesomeAchievements.Locales";  //The namespace with locale files
         ResourceReader localeReader = new ResourceReader($"{resourceNamespace}.{ConfigValues.Language}.ini");  //Create an resource reader for locale file
         var properties = typeof(Localizer).GetProperties();  //Get an array of properties in this class
         
@@ -23,7 +25,16 @@ internal static class Localizer {
                 property.SetValue(null, localeValue);  //Set this value to the static property
             }
         }
-        
+
         LogInfo.Log("A locale container has been initialized");
+    }
+
+    public static IEnumerable<string> AvailableLangs() {
+        Assembly assembly = Assembly.GetExecutingAssembly();
+        const string localesNamespace = "AwesomeAchievements.Locales.";
+
+        foreach (var locale in assembly.GetManifestResourceNames())
+            if (locale.StartsWith(localesNamespace))
+                yield return locale.Substring(localesNamespace.Length, 2);
     }
 }

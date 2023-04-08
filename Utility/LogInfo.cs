@@ -15,5 +15,5 @@ internal static class LogInfo {
         Log("An info logger has been initialized");
     }
 
-    public static void Log(object info) => _logger.LogInfo(info.ToString() + '\n');
+    public static void Log(object info) => _logger.LogInfo(info);
 }

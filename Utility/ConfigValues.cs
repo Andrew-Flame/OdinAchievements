@@ -11,7 +11,8 @@ internal static class ConfigValues {
      * config - the config file where data in containing */
     public static void Init(ConfigFile config) {
         _language = config.Bind("general", "language", "en",
-                                "The language in which the mod elements will be displayed");
+                                "The language in which the mod elements will be displayed\n" +
+                                "Available languages: " + string.Join(", ", Localizer.AvailableLangs()));
         
         LogInfo.Log("A config value container has been initialized");
     }
