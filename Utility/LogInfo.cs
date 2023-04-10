@@ -7,10 +7,9 @@ namespace AwesomeAchievements.Utility;
 internal static class LogInfo {
     private static ManualLogSource _logger;
 
+    /* Method for initializing this type
+     * logger - default modification logger */
     public static void Init(ManualLogSource logger) {
-        logger.Dispose();
-        Logger.Sources.Remove(logger);
-        logger = Logger.CreateLogSource(' ' + ModInfo.TITLE);
         _logger = logger;
         Log("An info logger has been initialized");
     }

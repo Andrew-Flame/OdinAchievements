@@ -1,6 +1,6 @@
 ﻿namespace AwesomeAchievements; 
 
-/* A struct with information about this modification */
+/* Struct with information about this modification */
 internal readonly struct ModInfo {
     public const string TITLE = "AwesomeAchievements",
                         AUTHOR = "Flame",

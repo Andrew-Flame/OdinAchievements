@@ -28,12 +28,13 @@ internal static class Localizer {
         LogInfo.Log("A locale container has been initialized");
     }
 
+    /* Method fot getting a list of available languages */
     public static IEnumerable<string> AvailableLangs() {
         Assembly assembly = Assembly.GetExecutingAssembly();
         const string localesNamespace = "AwesomeAchievements.Locales.";
 
         foreach (var locale in assembly.GetManifestResourceNames())
-            if (locale.StartsWith(localesNamespace))
-                yield return locale.Substring(localesNamespace.Length, 2);
+            if (locale.StartsWith(localesNamespace) && !locale.Contains("template"))
+                yield return locale.Substring(localesNamespace.Length, 3);
     }
 }

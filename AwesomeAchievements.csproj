@@ -134,10 +134,10 @@
         <EmbeddedResource Include="AchieveLists\template.json" Condition=" '$(Configuration)' != 'Release' " />
         
         <!-- Formatted json -->
-        <None Include="AchieveLists\ru.json" />
+        <None Include="AchieveLists\rus.json" />
         
         <!-- Compressed json -->
-        <EmbeddedResource Include="AchieveLists\ru.min.json" />
+        <EmbeddedResource Include="AchieveLists\rus.min.json" />
     </ItemGroup>
     
     <!-- Locales -->
@@ -147,7 +147,7 @@
         <EmbeddedResource Include="Locales\template.ini" Condition=" '$(Configuration)' != 'Release' " />
         
         <!-- Locale files -->
-        <EmbeddedResource Include="Locales\ru.ini" />
+        <EmbeddedResource Include="Locales\rus.ini" />
     </ItemGroup>
     
     <!-- References -->
