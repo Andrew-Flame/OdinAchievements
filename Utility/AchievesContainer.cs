@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using AwesomeAchievements.AchieveLists;
 using AwesomeAchievements.Achieves;
 using UnityEngine;
@@ -71,17 +72,27 @@ internal static class AchievesContainer {
         
         _data = newData;  //Change the reference of the old array to the new array
     }
-    
+
+    /* Method for checking has this container the achievement with the same id, or not
+     * id - the id of the achievement for checking
+     * out achievement - the achievement with the same id
+     * returns the true - id this container has an achievement with the same id, otherwise - false */
+    public static bool Has(string id, out Achievement achievement) {
+        achievement = _data.FirstOrDefault(e => e.Id == id);
+        return achievement != null;
+    }
+
     /* Method for getting the array of the achievement json objects
      * language - the language in which the achievements should be
      * returns the array with achievement json objects containing their ids, names and descriptions */
-    private static IEnumerable<AchieveJson> GetAchievementList(out int lenght) {
+    public static IEnumerable<AchieveJson> GetAchievementList(out int lenght) {
         string listPath = $"AchieveLists.{ConfigValues.Language}.min.json";  //Get a path of the list resource
         ResourceReader listReader = new ResourceReader(listPath);  //Create a resource reader for a json list
         var jsonParser = new JsonParser(listReader.ReadAllStrings());  //Create an instance of the JSON  parser
         lenght = jsonParser.AchievesCount;
         return jsonParser.ParseAchieves();  //Return deserialized json data
     }
+    public static IEnumerable<AchieveJson> GetAchievementList() => GetAchievementList(out int _);
 
     /* Method for the save clearing the container from patched achievements */
     private static void SafeClear() {
