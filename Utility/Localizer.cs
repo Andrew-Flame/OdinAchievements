@@ -1,6 +1,8 @@
 ﻿// ReSharper disable UnusedAutoPropertyAccessor.Local
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
+using UnityEngine;
 
 namespace AwesomeAchievements.Utility; 
 
@@ -10,8 +12,11 @@ internal static class Localizer {
     public static string AchievePanelHeader { get; private set; }
     public static string ChatMessage { get; private set; }
     
-    /* Method for initializing this type */
+    /* Method for initializing this type
+     * can throw an exception if this mod doesn't support a language from the config file */
     public static void Init() {
+        if (!AvailableLangs().Contains(ConfigValues.Language))  //If there isn't such a language in the resources, throw an exception
+            throw new UnityException($"This modification does not support such a language ({ConfigValues.Language}). Please, change it in the configuration");
         string localePath = $"Locales.{ConfigValues.Language}.ini";  //Get a path of the locale resource
         ResourceReader localeReader = new ResourceReader(localePath);  //Create an resource reader for locale file
         var properties = typeof(Localizer).GetProperties();  //Get an array of properties in this class
