@@ -35,6 +35,7 @@
     </PropertyGroup>
     <ItemGroup>
         <Compile Include="AchievementsListTest.cs" />
+        <Compile Include="LocalesTest.cs" />
         <Compile Include="Master.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
@@ -48,6 +49,7 @@
       <Reference Include="BepInEx">
         <HintPath>..\Libs\BepInEx.dll</HintPath>
       </Reference>
+      <Reference Include="System" />
       <Reference Include="UnityEngine">
         <HintPath>..\Libs\UnityEngine.dll</HintPath>
       </Reference>

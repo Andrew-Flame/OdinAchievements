@@ -3,5 +3,6 @@
 internal static class Master {
     public static void Main() {
         AchievementsListTest.Run();
+        LocalesTest.Run();
     }
 }
