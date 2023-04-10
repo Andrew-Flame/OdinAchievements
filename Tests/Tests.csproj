@@ -37,6 +37,7 @@
         <Compile Include="AchievementsListTest.cs" />
         <Compile Include="LocalesTest.cs" />
         <Compile Include="Master.cs" />
+        <Compile Include="Out.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>

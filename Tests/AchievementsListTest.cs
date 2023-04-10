@@ -21,14 +21,7 @@ internal static class AchievementsListTest {
         int counter = 0;
         foreach (string resourcePath in resources) {
             string resourceJson = new ResourceReader(resourcePath, assembly).ReadAllStrings();
-
-            if (Eval(templateJson, resourceJson)) {  //Check the data for correctness
-                System.Console.ForegroundColor = ConsoleColor.Green;
-                System.Console.WriteLine("[✔] Test #" + (++counter) + $" ({resourcePath.Split('.')[2]}) passed");
-            } else {
-                System.Console.ForegroundColor = ConsoleColor.Red;
-                System.Console.WriteLine("[ ] Test #" + (++counter) + $" ({resourcePath.Split('.')[2]}) failed");
-            }
+            Out.Write(Eval(templateJson, resourceJson), ++counter, resourcePath.Split('.')[2]);
         }
         
         System.Console.ForegroundColor = ConsoleColor.White;
