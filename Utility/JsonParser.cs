@@ -18,8 +18,8 @@ internal sealed class JsonParser {
         _data = compressRegex.Replace(_data, string.Empty);
     }
 
-    public IEnumerable<AchieveJson> ParseAchieves() { 
-        Regex substringRegex = new Regex(@"{(""(id|name|description)"":""[^""]+"",?){3}}");
+    public IEnumerable<AchieveJson> ParseAchieves() {
+        Regex substringRegex = new Regex(@"{(""(id|name|description)"":""[^""]*"",?){3}}");
         MatchCollection matches = substringRegex.Matches(_data);
 
         foreach (Match match in matches) {

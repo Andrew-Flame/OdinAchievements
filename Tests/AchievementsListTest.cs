@@ -51,13 +51,16 @@ internal static class AchievementsListTest {
         using var templateDataEnum = templateData.GetEnumerator();
         using var fileDataEnum = fileData.GetEnumerator();
 
+        templateDataEnum.MoveNext();
+        fileDataEnum.MoveNext();
+        
         /* Compare data using enums */
-        while (templateDataEnum.MoveNext() && fileDataEnum.MoveNext()) {
+        do {
             var templateObj = templateDataEnum.Current;
             var fileObj = fileDataEnum.Current;
 
             if (templateObj.Id != fileObj.Id || fileObj.Name is null or "" || fileObj.Description is null or "") return false;
-        }
+        } while (templateDataEnum.MoveNext() && fileDataEnum.MoveNext());
 
         return true;
     }
