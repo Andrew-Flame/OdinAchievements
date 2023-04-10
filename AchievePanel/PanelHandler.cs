@@ -160,7 +160,7 @@ internal static class PanelHandler {
         audioObject.transform.parent = AudioMan.instance.transform;  //Set the audio manager as the parent object
         
         /* Setting the audio source */
-        _audioSource.volume = 1f;
+        _audioSource.volume = ConfigValues.Volume / 100f;
         _audioSource.spatialize = false;
         _audioSource.spatializePostEffects = false;
         _audioSource.spatialBlend = 0f;
