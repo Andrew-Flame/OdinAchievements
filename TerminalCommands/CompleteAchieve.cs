@@ -4,7 +4,7 @@ using System.Reflection;
 using AwesomeAchievements.Achieves;
 using AwesomeAchievements.Utility;
 using static Terminal;
-using static AwesomeAchievements.TerminalCommands.CommandsManager;
+using static AwesomeAchievements.TerminalCommands.CommandManager;
 
 namespace AwesomeAchievements.TerminalCommands; 
 

@@ -1,5 +1,4 @@
 ﻿using BepInEx.Logging;
-using Logger = BepInEx.Logging.Logger;
 
 namespace AwesomeAchievements.Utility; 
 
