@@ -28,20 +28,28 @@ internal static class SaveManager {
      * returns the info of the save file */
     public static FileInfo SaveFile() => SaveFile(string.Empty);
     public static FileInfo SaveFile(string postfix) {
-        string playerName = GamePlayerProfile.GetPlayerName();
+        string playerName = GamePlayerProfile.GetPlayerName();  //Get player name
         return new FileInfo($"{SaveDirectory().FullName}/{playerName.ToLower()}{postfix}.{EXTENSION}");  //Get the save file using the save dir and player name
     }
 
+    /* Method for getting the repeating char as a string
+     * chr - the char for repeating */
     public static string Repeat(char chr) => new (chr, REPEAT);
 
+    /* Method for converting the string to the byte array
+     * str - the string for converting */
     public static byte[] ToByteArray(this string str) => Encoding.ASCII.GetBytes(str);
     
-    public static byte[] Crypt(this byte[] buffer) {
+    /* Method for encrypting the byte array
+     * buffer - the byte array for encrypting */
+    public static byte[] Encrypt(this byte[] buffer) {
         for (int i = 0; i < buffer.Length; i++)
             unchecked { buffer[i] += OFFSET; }
         return buffer;
     }
 
+    /* Method for decrypting the byte array
+     * buffer - the byte array for decrypting */
     public static byte[] Decrypt(this byte[] buffer) {
         for (int i = 0; i < buffer.Length; i++)
             unchecked { buffer[i] -= OFFSET; }

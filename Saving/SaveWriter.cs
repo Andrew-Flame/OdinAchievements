@@ -10,8 +10,7 @@ namespace AwesomeAchievements.Saving;
 
 /* Class for writing save files */
 internal static class SaveWriter {
-    /* Method for saving the mod data
-     * playerName - name of the current player for his saving data */
+    /* Method for saving the mod data */
     public static void Save() {
         RenameFiles();  //Rename old files
         WriteData();  //Write save data
@@ -33,14 +32,13 @@ internal static class SaveWriter {
             saveFile.MoveTo(SaveFile(".old").FullName);  //Make the .old file using it
     }
 
-    /* Method for making the backup from file
-     * file - the file from which will be made a backup */
+    /* Method for making the backup from file */
     private static void MakeBackup() {
-        FileInfo oldFile = SaveFile(".old");
-        DateTime timeStamp = oldFile.LastAccessTimeUtc;
-        string backupTime = timeStamp.ToString("yyyy-MM-dd-HH-mm-ss-") + timeStamp.Millisecond % 100;
-        string postfix = $".backup-{backupTime}";
-        oldFile.MoveTo(SaveFile(postfix).FullName);
+        FileInfo oldFile = SaveFile(".old");  //Get the old file save path
+        DateTime timeStamp = oldFile.LastAccessTimeUtc;  //Get the time stamp
+        string backupTime = timeStamp.ToString("yyyy-MM-dd-HH-mm-ss-") + timeStamp.Millisecond % 100;  //Get the formatted backup time
+        string postfix = $".backup-{backupTime}";  //Get the postfix for the new file name
+        oldFile.MoveTo(SaveFile(postfix).FullName);  //Move the old file to the new backup file
     }
 
     /* Method for write the save data into new save file */
@@ -50,27 +48,25 @@ internal static class SaveWriter {
         using FileStream saveStream = saveFile.Create();
 
         foreach (AchieveJson achieveJson in AchievesContainer.GetAchievementList()) {
-            if (AchievesContainer.Has(achieveJson.Id, out Achievement achievement)) {
-                byte[] buffer = achievement.SavingData().Crypt();
-                saveStream.Write(buffer, 0, buffer.Length);
-            } else {
-                string savingData = $"{achieveJson.Id}{Repeat(COMPLETED)}{Repeat(ACHIEVE_SEPARATOR)}";
-                byte[] buffer = savingData.ToByteArray().Crypt();
-                saveStream.Write(buffer, 0, buffer.Length);
+            if (AchievesContainer.Has(achieveJson.Id, out Achievement achievement)) {  //If the achievement is not completed
+                byte[] buffer = achievement.SavingData();  //Get the saving data from the achievement
+                saveStream.Write(buffer.Encrypt(), 0, buffer.Length);  //Write the encrypted data to the file
+            } else {  //If the achievement is already completed
+                string savingData = $"{achieveJson.Id}{Repeat(COMPLETED)}{Repeat(ACHIEVE_SEPARATOR)}";  //Create a saving data
+                byte[] buffer = savingData.ToByteArray();  //Create the buffer from the saving data
+                saveStream.Write(buffer.Encrypt(), 0, buffer.Length);  //Write the encrypted data to the file
             }
         }
 
-        byte[] endOfFile = Repeat(END_FILE).ToByteArray().Crypt();
-        saveStream.Write(endOfFile, 0, endOfFile.Length);
+        /* Write the end of file to the file */
+        byte[] endOfFile = Repeat(END_FILE).ToByteArray();
+        saveStream.Write(endOfFile.Encrypt(), 0, endOfFile.Length);
     }
 
     /* Method for removing old backups */
     private static void RemoveBackups() {
         DirectoryInfo saveDir = SaveDirectory();  //Get the save directory
-        var backups = saveDir.GetFiles("*.backup-*." + EXTENSION)
-                             .OrderBy(e => e.CreationTime.Millisecond).ToArray();  //Get all backups
-        
-        for (ushort i = 0; i < backups.Length - ConfigValues.NumberOfBackups; i++) 
-            backups[i].Delete();  //Delete excess backups
+        var backups = saveDir.GetFiles("*.backup-*." + EXTENSION).OrderBy(e => e.CreationTime.Millisecond).ToArray();  //Get all backups
+        for (ushort i = 0; i < backups.Length - ConfigValues.NumberOfBackups; i++) backups[i].Delete();  //Delete excess backups
     }
 }
