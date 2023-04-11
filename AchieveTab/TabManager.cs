@@ -4,7 +4,7 @@ using UnityEngine;
 namespace AwesomeAchievements.AchieveTab; 
 
 /* Class for work with achievement tab */  
-internal static class TabHandler {
+internal static class TabManager {
     
     /* Method for initializing this type */
     public static void Init() {
@@ -12,6 +12,6 @@ internal static class TabHandler {
         GameObject rootInventory = InventoryGui.instance.gameObject;
         GameObject infoPanel = InventoryGui.instance.m_infoPanel.gameObject;
 
-        LogInfo.Log("An achievement tab handler has been initialized");
+        LogInfo.Log("An achievement tab manager has been initialized");
     }
 }

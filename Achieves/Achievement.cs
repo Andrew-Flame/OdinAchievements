@@ -46,7 +46,7 @@ internal abstract class Achievement {
 
     public void Complete() {
         LogInfo.Log($"The achievement '{Id}' has been completed");
-        PanelHandler.ShowPanel(Name);  //Show the achievement panel
+        PanelManager.ShowPanel(Name);  //Show the achievement panel
         Announcer.Announce(Name);  //Announce the getting of the achievement into the game chat
         UnpatchAll();  //Unpatch all of the patches
         

@@ -8,8 +8,8 @@ internal static class GameHud {
     [HarmonyPatch(typeof(Hud), "Awake")]
     private static class HudAwake {
         private static void Postfix() {
-            PanelHandler.Init();
-            TabHandler.Init();
+            PanelManager.Init();
+            TabManager.Init();
         }
     }
 }

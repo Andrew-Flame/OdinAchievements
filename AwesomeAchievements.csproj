@@ -74,9 +74,9 @@
         <Compile Include="Achieves\PatchedAchieves\VikingGraveyard\VikingGraveyard.cs" />
         <Compile Include="Achieves\SingleAchievement.cs" />
         <Compile Include="Achieves\SpecialAchievement.cs" />
-        <Compile Include="AchievePanel\PanelHandler.cs" />
+        <Compile Include="AchievePanel\PanelManager.cs" />
         <Compile Include="AchievePanel\AchievementPanel.cs" />
-        <Compile Include="AchieveTab\TabHandler.cs" />
+        <Compile Include="AchieveTab\TabManager.cs" />
         <Compile Include="GameClasses\GameChat.cs" />
         <Compile Include="GameClasses\GameHud.cs" />
         <Compile Include="GameClasses\GamePlayerProfile.cs" />

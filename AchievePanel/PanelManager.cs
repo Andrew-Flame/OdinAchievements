@@ -8,7 +8,7 @@ using UnityEngine.UI;
 namespace AwesomeAchievements.AchievePanel; 
 
 /* Class for work with the achievement panel */
-internal static class PanelHandler {
+internal static class PanelManager {
     private const float ASPECT_RATIO = 278f / 66f;
     private static readonly List<string> Queue = new();
     private static RectTransform _panelRect;
@@ -40,7 +40,7 @@ internal static class PanelHandler {
         /* Set audio files */
         SetAudioComponents();
         
-        LogInfo.Log("An achievement panel handler has been initialized");
+        LogInfo.Log("An achievement panel manager has been initialized");
     }
 
     /* Method for setting the panel texture */
