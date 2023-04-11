@@ -39,6 +39,11 @@
             "description": "Skip the night by falling asleep on the bed"
         },
         {
+            "id": "NotSleep",
+            "name": "",
+            "description": "Not sleeping for a week"
+        },
+        {
             "id": "BuildBeehives",
             "name": "",
             "description": "Place 10 beehives in the same place"
