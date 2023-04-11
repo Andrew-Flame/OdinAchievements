@@ -90,7 +90,7 @@
         <Compile Include="Saving\SaveReader.cs" />
         <Compile Include="Saving\SaveWriter.cs" />
         <Compile Include="Saving\SaveManager.cs" />
-        <Compile Include="TerminalCommands\AchievesHandler.cs" />
+        <Compile Include="TerminalCommands\CommandsManager.cs" />
         <Compile Include="TerminalCommands\CompleteAchieve.cs" />
         <Compile Include="Utility\AchievesContainer.cs" />
         <Compile Include="Utility\Announcer.cs" />

@@ -8,7 +8,7 @@ using static Terminal;
 namespace AwesomeAchievements.TerminalCommands; 
 
 /* Class for work with achievement terminal commands */
-internal static class AchievesHandler {
+internal static class CommandsManager {
     /* Method for checking for args
      * args - arguments for checking
      * returns true if there is at least one argument, otherwise - false */
