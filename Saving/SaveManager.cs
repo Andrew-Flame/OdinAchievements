@@ -11,8 +11,8 @@ internal static class SaveManager {
                       ENUM_BEGINNER = (char)30,
                       ENUM_SEPARATOR = (char)31,
                       END_FILE = (char)3;
-    public const byte OFFSET = 179;
     public const string EXTENSION = "ach";
+    private const byte OFFSET = 208;
     private const byte REPEAT = 3;
 
     /* Method for getting the save directory
