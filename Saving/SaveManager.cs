@@ -12,7 +12,7 @@ internal static class SaveManager {
                       ENUM_SEPARATOR = (char)31,
                       END_FILE = (char)3;
     public const string EXTENSION = "ach";
-    private const byte OFFSET = 208;
+    public const byte OFFSET = 208;
     private const byte REPEAT = 3;
 
     /* Method for getting the save directory
@@ -34,25 +34,13 @@ internal static class SaveManager {
 
     /* Method for getting the repeating char as a string
      * chr - the char for repeating */
-    public static string Repeat(char chr) => new (chr, REPEAT);
+    public static string Repeat(this char chr) => new (chr, REPEAT);
 
-    /* Method for converting the string to the byte array
+    /* Method for converting the string to the byte buffer
      * str - the string for converting */
     public static byte[] ToByteArray(this string str) => Encoding.ASCII.GetBytes(str);
-    
-    /* Method for encrypting the byte array
-     * buffer - the byte array for encrypting */
-    public static byte[] Encrypt(this byte[] buffer) {
-        for (int i = 0; i < buffer.Length; i++)
-            unchecked { buffer[i] += OFFSET; }
-        return buffer;
-    }
 
-    /* Method for decrypting the byte array
-     * buffer - the byte array for decrypting */
-    public static byte[] Decrypt(this byte[] buffer) {
-        for (int i = 0; i < buffer.Length; i++)
-            unchecked { buffer[i] -= OFFSET; }
-        return buffer;
-    }
+    /* Method for converting the byte buffer to the string
+     * buffer - the byte buffer for converting */
+    public static string GetString(this byte[] buffer) => Encoding.ASCII.GetString(buffer);
 }
