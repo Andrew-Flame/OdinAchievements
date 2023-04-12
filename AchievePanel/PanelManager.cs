@@ -9,7 +9,7 @@ namespace AwesomeAchievements.AchievePanel;
 
 /* Class for work with the achievement panel */
 internal static class PanelManager {
-    private const float ASPECT_RATIO = 278f / 66f;
+    private const float ASPECT_RATIO = 704f / 174f;
     private static readonly List<string> Queue = new();
     private static RectTransform _panelRect;
     private static AchievementPanel _panel;
@@ -45,14 +45,9 @@ internal static class PanelManager {
 
     /* Method for setting the panel texture */
     private static void SetPanelTexture() {
-        /* Get a resource from assembly */
-        const string panelTextureResourcePath = "Assets.Textures.AchievementPanel.png";  //Get a path of the texture resource
-        ResourceReader resourceReader = new ResourceReader(panelTextureResourcePath);  //Create a new resource reader
-        Sprite panelSprite = resourceReader.GetSprite();  //Get the achievement panel sprite
-
-        /* Set the texture to the achievement panel */
         Image panelImage = _panel.GetComponent<Image>();  //Get an image component from the achievement panel
-        panelImage.sprite = panelSprite;  //Set the new sprite
+        ResourceReader resourceReader = new ResourceReader("Assets.Textures.AchievementPanel.png");  //Get a resource from assembly
+        panelImage.sprite = resourceReader.GetSprite();  //Set the new sprite
         panelImage.mainTexture.wrapMode = TextureWrapMode.Clamp;  //Set the wrap mode to clamp
     }
 
@@ -88,7 +83,7 @@ internal static class PanelManager {
 
     /* Method for adding the header text */
     private static void AddHeaderText() {
-        const float offsetX = 1.1f,
+        const float offsetX = 1.115f,
                     offsetY = 1.5f;
         
         GameObject textObject = new GameObject("Header_Text", typeof(Text));  //Create a new game object
@@ -101,7 +96,7 @@ internal static class PanelManager {
 
         /* Set text properties */
         headerText.text = Localizer.AchievePanelHeader;
-        headerText.color = Color.yellow;
+        headerText.color = new Color(1f, 0.7f, 0f);
         headerText.font = Fonts.Norsebold;
         headerText.fontStyle = FontStyle.Bold;
         headerText.fontSize = 32;
@@ -117,8 +112,8 @@ internal static class PanelManager {
 
     /* Method for adding the achievement name text */
     private static void AddAchieveText() {
-        const float offsetX = 1.1f,
-                    offsetY = 1.8f;
+        const float offsetX = 1.115f,
+                    offsetY = 1.7f;
         
         GameObject textObject = new GameObject("Achievement_Text", typeof(Text));  //Create a new game object
         textObject.transform.SetParent(_panel.transform);  //Set the achievement panel as the parent for this object
@@ -143,7 +138,7 @@ internal static class PanelManager {
      * gameObject - the game object to add an outline to */
     private static void AddOutline(GameObject gameObject) {
         Outline headerOutline = gameObject.AddComponent<Outline>();
-        headerOutline.effectDistance = new Vector2(1.5f, 1.5f);
+        headerOutline.effectDistance = new Vector2(1f, 1f);
         headerOutline.effectColor = Color.black;
         headerOutline.useGraphicAlpha = false;
     }
