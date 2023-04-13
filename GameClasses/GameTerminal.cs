@@ -15,6 +15,9 @@ internal static class GameTerminal {
                                AchieveUnlock.Run,
                                isCheat: true, isSecret: false,
                                optionsFetcher: AchieveUnlock.GetList);
+            new ConsoleCommand("achievement-reset", "reset the progress of all achievements for the current player",
+                               AchieveReset.Run,
+                               isCheat: true, isSecret: false);
         }
     }
 }
