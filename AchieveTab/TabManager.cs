@@ -9,10 +9,6 @@ internal static class TabManager {
     
     /* Method for initializing this type */
     public static void Init() {
- 
-        
-        
-        return;
         /* Get required game objects */
         GameObject rootInventory = InventoryGui.instance.gameObject;
         GameObject infoPanel = InventoryGui.instance.m_infoPanel.gameObject;
