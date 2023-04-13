@@ -99,6 +99,7 @@
         <Compile Include="Utility\JsonParser.cs" />
         <Compile Include="Utility\Localizer.cs" />
         <Compile Include="Utility\LogInfo.cs" />
+        <Compile Include="Utility\Materials.cs" />
         <Compile Include="Utility\ResourceReader.cs" />
     </ItemGroup>
 
