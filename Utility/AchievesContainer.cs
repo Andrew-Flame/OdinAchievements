@@ -15,7 +15,7 @@ internal static class AchievesContainer {
      * can throw an exception if there no at least one achievement class for patch */
     public static void Init() {
         if (_data != null) SafeClear();  //If the container has been initialized, safe clear it
-        var achieveList = GetAchievementList(out int lenght);  //Get list of achievement json objects
+        var achieveList = JsonAchieves(out int lenght);  //Get list of achievement json objects
         _data = new Achievement[lenght];  //Initialize an array of achievements
         const string classesNamespace = "AwesomeAchievements.Achieves.PatchedAchieves";  //Namespace where classes contained
 
@@ -85,14 +85,13 @@ internal static class AchievesContainer {
     /* Method for getting the array of the achievement json objects
      * language - the language in which the achievements should be
      * returns the array with achievement json objects containing their ids, names and descriptions */
-    public static IEnumerable<AchieveJson> GetAchievementList(out int lenght) {
+    public static IEnumerable<AchieveJson> JsonAchieves(out int lenght) {
         string listPath = $"AchieveLists.{ConfigValues.Language}.min.json";  //Get a path of the list resource
         ResourceReader listReader = new ResourceReader(listPath);  //Create a resource reader for a json list
         var jsonParser = new JsonParser(listReader.ReadAllStrings());  //Create an instance of the JSON  parser
-        lenght = jsonParser.AchievesCount;
+        lenght = jsonParser.AchievesCount;  //Get the lenght of the sequence
         return jsonParser.ParseAchieves();  //Return deserialized json data
     }
-    public static IEnumerable<AchieveJson> GetAchievementList() => GetAchievementList(out int _);
 
     /* Method for the save clearing the container from patched achievements */
     private static void SafeClear() {

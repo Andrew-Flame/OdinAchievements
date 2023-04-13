@@ -49,7 +49,7 @@ internal static class SaveWriter {
         FileInfo saveFile = SaveFile();
         using FileStream saveStream = saveFile.Create();
 
-        foreach (AchieveJson achieveJson in AchievesContainer.GetAchievementList()) {
+        foreach (AchieveJson achieveJson in AchievesContainer.JsonAchieves(out int _)) {
             if (AchievesContainer.Has(achieveJson.Id, out Achievement achievement)) {  //If the achievement is not completed
                 byte[] buffer = achievement.SavingData();  //Get the saving data from the achievement
                 saveStream.Write(buffer.Encrypt(), 0, buffer.Length);  //Write the encrypted data to the file
