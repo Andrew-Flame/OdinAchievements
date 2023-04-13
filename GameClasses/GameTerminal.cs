@@ -1,5 +1,4 @@
 ﻿// ReSharper disable ObjectCreationAsStatement
-using System.Linq;
 using AwesomeAchievements.TerminalCommands;
 using HarmonyLib;
 using static Terminal;
@@ -12,10 +11,10 @@ internal static class GameTerminal {
     private static class TerminalAwake {
         private static void Postfix() {
             /* Add new console commands */
-            new ConsoleCommand("achievement-complete", "complete an achievement for the current character",
-                               CompleteAchieve.Run,
+            new ConsoleCommand("achievement-unlock", "unlock an achievement for the current character",
+                               AchieveUnlock.Run,
                                isCheat: true, isSecret: false,
-                               optionsFetcher: CompleteAchieve.GetList().ToList);
+                               optionsFetcher: AchieveUnlock.GetList);
         }
     }
 }
