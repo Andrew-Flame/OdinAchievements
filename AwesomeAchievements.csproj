@@ -76,7 +76,7 @@
         <Compile Include="Achieves\SimpleAchieve.cs" />
         <Compile Include="Achieves\HardAchieve.cs" />
         <Compile Include="AchievePanel\PanelManager.cs" />
-        <Compile Include="AchievePanel\AchievementPanel.cs" />
+        <Compile Include="AchievePanel\AchievePanel.cs" />
         <Compile Include="AchieveTab\TabManager.cs" />
         <Compile Include="GameClasses\GameChat.cs" />
         <Compile Include="GameClasses\GameHud.cs" />

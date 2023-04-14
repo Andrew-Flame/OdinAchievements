@@ -3,7 +3,7 @@
 namespace AwesomeAchievements.AchievePanel; 
 
 /* A custom Unity component for showing the achievement panel */
-internal class AchievementPanel : MonoBehaviour {
+internal class AchievePanel : MonoBehaviour {
     public bool isBusy;
     public float distance;
     public Vector3 position, offsetPosition;
