@@ -38,7 +38,7 @@
     <ItemGroup>
         <Compile Include="AchieveLists\AchieveJSON.cs" />
         <Compile Include="Achieves\Achievement.cs" />
-        <Compile Include="Achieves\LengthyAchievement.cs" />
+        <Compile Include="Achieves\LongAchieve.cs" />
         <Compile Include="Achieves\PatchedAchieves\BeeGuard\BeeGuard.cs" />
         <Compile Include="Achieves\PatchedAchieves\BuildBeehives\BuildBeehives.cs" />
         <Compile Include="Achieves\PatchedAchieves\Campfire\Campfire.cs" />
@@ -73,8 +73,8 @@
         <Compile Include="Achieves\PatchedAchieves\UseVegvisir\UseVegvisir.cs" />
         <Compile Include="Achieves\PatchedAchieves\UseVegvisir\VegvisirInteract.cs" />
         <Compile Include="Achieves\PatchedAchieves\VikingGraveyard\VikingGraveyard.cs" />
-        <Compile Include="Achieves\SingleAchievement.cs" />
-        <Compile Include="Achieves\SpecialAchievement.cs" />
+        <Compile Include="Achieves\SimpleAchieve.cs" />
+        <Compile Include="Achieves\HardAchieve.cs" />
         <Compile Include="AchievePanel\PanelManager.cs" />
         <Compile Include="AchievePanel\AchievementPanel.cs" />
         <Compile Include="AchieveTab\TabManager.cs" />

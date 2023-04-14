@@ -1,6 +1,6 @@
 namespace AwesomeAchievements.Achieves.PatchedAchieves.KillDeerNoBow;
 
-    internal sealed class KillDeerNoBow : SingleAchievement {
+    internal sealed class KillDeerNoBow : SimpleAchieve {
         public KillDeerNoBow(string name, string description) : base(name, description) { }
         protected override void InitPatchers() {
 

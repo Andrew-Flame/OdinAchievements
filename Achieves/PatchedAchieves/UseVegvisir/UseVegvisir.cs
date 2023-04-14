@@ -1,6 +1,6 @@
 namespace AwesomeAchievements.Achieves.PatchedAchieves.UseVegvisir;
 
-internal sealed class UseVegvisir : SingleAchievement { 
+internal sealed class UseVegvisir : SimpleAchieve { 
     public UseVegvisir(string name, string description) : base(name, description) { }
     
     protected override void InitPatchers() => AddPatcher<VegvisirInteract>();
