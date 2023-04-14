@@ -113,7 +113,7 @@ internal static class PanelManager {
     /* Method for adding the achievement name text */
     private static void AddAchieveText() {
         const float offsetX = 1.115f,
-                    offsetY = 1.7f;
+                    offsetY = 1.75f;
         
         GameObject textObject = new GameObject("Achievement_Text", typeof(Text));  //Create a new game object
         textObject.transform.SetParent(_panel.transform);  //Set the achievement panel as the parent for this object
