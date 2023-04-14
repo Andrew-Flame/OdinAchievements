@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Text;
 using AwesomeAchievements.GameClasses;
 using AwesomeAchievements.Utility;
@@ -18,8 +18,8 @@ internal static class SaveManager {
     /* Method for getting the save directory
      * returns the directory info of the save directory */
     public static DirectoryInfo SaveDirectory() {
-        if (Directory.Exists(ConfigValues.SavePath))  //If there is a custom save path
-            return new DirectoryInfo(ConfigValues.SavePath);  //Get a custom save path
+        if (Directory.Exists(ConfigValues.CustomSavePath))  //If there is a custom save path
+            return new DirectoryInfo(ConfigValues.CustomSavePath);  //Get a custom save path
         else 
             return GamePlayerProfile.GetSaveDirectory();  //Else get the save directory where saves are stored
     }
