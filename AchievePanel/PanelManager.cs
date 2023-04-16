@@ -13,12 +13,15 @@ internal static class PanelManager {
     private static readonly List<string> Queue = new();
     private static RectTransform _panelRect;
     private static AchievePanel _panel;
-    private static Text _achievementText;
+    private static Text _achieveText;
     private static AudioClip _inSound, _outSound;
     private static AudioSource _audioSource;
 
     /* Method for initializing the panel object */
     public static void Init() {
+        /* If the panel is already initialized */
+        if (_panel != null) SafeClear();  //Safe clear game objects
+        
         /* Init the achievement panel game object */
         GameObject panel = new GameObject("Achievement_Panel", typeof(Image), typeof(AchievePanel));  //Create an achievement panel object
         panel.transform.SetParent(Hud.instance.transform.parent.transform);  //Set the hud root as the parent for the achievement panel
@@ -119,19 +122,19 @@ internal static class PanelManager {
         textObject.transform.SetParent(_panel.transform);  //Set the achievement panel as the parent for this object
         textObject.transform.localPosition = new Vector3(0f, 0f, 0f);  //Set local position of the text object
         
-        _achievementText = textObject.GetComponent<Text>();  //Get text component of this object
-        _achievementText.rectTransform.sizeDelta = _panelRect.sizeDelta / new Vector2(offsetX, offsetY);  //Set text size
-        _achievementText.rectTransform.position -= new Vector3(0f, _achievementText.rectTransform.sizeDelta.y / offsetY);  //Shift the text object
+        _achieveText = textObject.GetComponent<Text>();  //Get text component of this object
+        _achieveText.rectTransform.sizeDelta = _panelRect.sizeDelta / new Vector2(offsetX, offsetY);  //Set text size
+        _achieveText.rectTransform.position -= new Vector3(0f, _achieveText.rectTransform.sizeDelta.y / offsetY);  //Shift the text object
         AddOutline(textObject);  //Add the outline to the text
         
         /* Set text properties */
-        _achievementText.text = "null";
-        _achievementText.color = Color.white;
-        _achievementText.font = Fonts.AveriaSerifLibre;
-        _achievementText.fontStyle = FontStyle.Normal;
-        _achievementText.fontSize = 26;
-        _achievementText.alignment = TextAnchor.UpperLeft;
-        _achievementText.horizontalOverflow = HorizontalWrapMode.Overflow;
+        _achieveText.text = "null";
+        _achieveText.color = Color.white;
+        _achieveText.font = Fonts.AveriaSerifLibre;
+        _achieveText.fontStyle = FontStyle.Normal;
+        _achieveText.fontSize = 26;
+        _achieveText.alignment = TextAnchor.UpperLeft;
+        _achieveText.horizontalOverflow = HorizontalWrapMode.Overflow;
     }
     
     /* Method for adding the outline to Unity object
@@ -179,6 +182,12 @@ internal static class PanelManager {
         }
     }
 
+    /* Method for safe clearing game objects */
+    private static void SafeClear() {
+        Object.Destroy(_panel.gameObject);
+        Object.Destroy(_audioSource.gameObject);
+    }
+
     /* Method for playing the "panel appearing" sound */
     public static void PlayInSound() {
         _audioSource.clip = _inSound;
@@ -204,7 +213,7 @@ internal static class PanelManager {
             return;
         }
         
-        _achievementText.text = achievementName;
+        _achieveText.text = achievementName;
         _panel.Appear();
     }
 
