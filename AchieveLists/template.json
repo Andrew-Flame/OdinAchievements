@@ -149,6 +149,11 @@
             "description": "Survive the attack of the Eikthyr army"
         },
         {
+            "id": "LeatherArmor",
+            "name": "",
+            "description": "Wear a full set of leather armor"
+        },
+        {
             "id": "DefeatEikthyr",
             "name": "",
             "description": "Defeat Eikthyr"
