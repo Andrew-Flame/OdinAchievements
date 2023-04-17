@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
+using AwesomeAchievements.GameClasses;
 using AwesomeAchievements.Utility;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -13,8 +14,8 @@ internal static class PanelManager {
     private static readonly List<string> Queue = new();
     private static AchievePanel _panel;
     private static Text _achieveText;
-    private static AudioClip _inSound, _outSound;
     private static AudioSource _audioSource;
+    private static AudioClip _inSound, _outSound;
 
     /* Method for initializing the panel object */
     public static void Init() {
@@ -200,12 +201,17 @@ internal static class PanelManager {
     }
 
     /* Method for showing the achievement panel */
+    // ReSharper disable Unity.PerformanceAnalysis
     public static void ShowPanel(string achievementName) {
-        if (_panel.isBusy) {
-            Queue.Add(achievementName);
-            return;
+        if (GameScreen.ResolutionChanged()) //If the screen resolution has been changed
+            SetPanelPosition();  //Update the panel position
+        
+        if (_panel.isBusy) {  //If the panel is busy
+            Queue.Add(achievementName);  //Add the achievement name to the queue
+            return;  //And exit the method
         }
         
+        /* Else show the popup panel */
         _achieveText.text = achievementName;
         _panel.Appear();
     }

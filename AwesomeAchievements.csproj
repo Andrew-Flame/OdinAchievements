@@ -81,6 +81,7 @@
         <Compile Include="GameClasses\GameChat.cs" />
         <Compile Include="GameClasses\GameHud.cs" />
         <Compile Include="GameClasses\GamePlayerProfile.cs" />
+        <Compile Include="GameClasses\GameScreen.cs" />
         <Compile Include="GameClasses\GameTerminal.cs" />
         <Compile Include="ModInfo.cs" />
         <Compile Include="Master.cs" />
