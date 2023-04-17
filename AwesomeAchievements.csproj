@@ -82,7 +82,6 @@
         <Compile Include="GameClasses\GameHud.cs" />
         <Compile Include="GameClasses\GamePlayerProfile.cs" />
         <Compile Include="GameClasses\GameTerminal.cs" />
-        <Compile Include="GameClasses\GameScreen.cs" />
         <Compile Include="ModInfo.cs" />
         <Compile Include="Master.cs" />
         <Compile Include="Patch\AchievePatch.cs" />

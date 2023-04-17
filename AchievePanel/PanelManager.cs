@@ -44,6 +44,12 @@ internal static class PanelManager {
         
         LogInfo.Log("An achievement panel manager has been initialized");
     }
+    
+    /* Method for safe clearing game objects */
+    private static void SafeClear() {
+        Object.Destroy(_panel.gameObject);
+        Object.Destroy(_audioSource.gameObject);
+    }
 
     /* Method for setting the panel texture */
     private static void SetPanelTexture() {
@@ -68,19 +74,11 @@ internal static class PanelManager {
         _panel.rect.anchorMin = new Vector2(1f, 1f);
         _panel.rect.anchorMax = new Vector2(1f, 1f);
 
-        /* Get corners of the minimap object */
+        /* /* Set the new panel position */
         var minimapVectors = new Vector3[4];  //Init the array of minimap vectors
-        Minimap.instance.m_smallRoot.GetComponent<RectTransform>().GetWorldCorners(minimapVectors);  //Get corners coordinates
-
-        /* Set the new panel position */
-        Vector2 sizeDelta = _panel.rect.sizeDelta;
-        Vector3 rectSize = (Vector3)sizeDelta;
-        _panel.rect.position = new Vector3(Screen.width - 5f, minimapVectors[0].y) - rectSize / 2;
-
-        /* Set position to the component */
-        _panel.position = _panel.rect.position;
-        Vector3 offset = new Vector3(sizeDelta.x + 10f, 0f);
-        _panel.offsetPosition = _panel.position + offset;
+        Minimap.instance.m_smallRoot.GetComponent<RectTransform>().GetWorldCorners(minimapVectors);  //Get minimap corners coordinates
+        _panel.rect.pivot = new Vector2(1f, 1f);  //Set the pivot of the panel to top right corner
+        _panel.rect.position = new Vector3(Screen.width - 5f, minimapVectors[0].y);  //Set the correct panel position
     }
 
     /* Method for adding the header text */
@@ -91,6 +89,10 @@ internal static class PanelManager {
         GameObject textObject = new GameObject("Header_Text", typeof(Text));  //Create a new game object
         textObject.transform.SetParent(_panel.transform);  //Set the achievement panel as the parent for this object
         textObject.transform.localPosition = new Vector3(0f, 0f, 0f);  //Set local position of the text object
+        
+        /* Change the anchored position */
+        RectTransform textRect = textObject.GetComponent<RectTransform>();
+        textRect.anchoredPosition = new Vector2(0f, 0f);
         
         Text headerText = textObject.GetComponent<Text>();  //Get text component of this object
         headerText.rectTransform.sizeDelta = _panel.rect.sizeDelta / new Vector2(offsetX, offsetY);  //Set text size
@@ -120,6 +122,10 @@ internal static class PanelManager {
         GameObject textObject = new GameObject("Achievement_Text", typeof(Text));  //Create a new game object
         textObject.transform.SetParent(_panel.transform);  //Set the achievement panel as the parent for this object
         textObject.transform.localPosition = new Vector3(0f, 0f, 0f);  //Set local position of the text object
+        
+        /* Change the anchored position */
+        RectTransform textRect = textObject.GetComponent<RectTransform>();
+        textRect.anchoredPosition = new Vector2(0f, 0f);
         
         _achieveText = textObject.GetComponent<Text>();  //Get text component of this object
         _achieveText.rectTransform.sizeDelta = _panel.rect.sizeDelta / new Vector2(offsetX, offsetY);  //Set text size
@@ -179,12 +185,6 @@ internal static class PanelManager {
         void WaitForRequest() {
             while (!request.isDone) Thread.Sleep(100);
         }
-    }
-
-    /* Method for safe clearing game objects */
-    private static void SafeClear() {
-        Object.Destroy(_panel.gameObject);
-        Object.Destroy(_audioSource.gameObject);
     }
 
     /* Method for playing the "panel appearing" sound */
