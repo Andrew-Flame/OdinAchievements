@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.PatchedAchieves.Comfort5;
+namespace AwesomeAchievements.Achieves.Patched.Comfort5;
 
     internal sealed class Comfort5 : SimpleAchieve {
         public Comfort5(string name, string description) : base(name, description) { }

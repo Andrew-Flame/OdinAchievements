@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.PatchedAchieves.FirstDeath;
+namespace AwesomeAchievements.Achieves.Patched.FirstDeath;
 
     internal sealed class FirstDeath : SimpleAchieve {
         public FirstDeath(string name, string description) : base(name, description) { }

@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.PatchedAchieves.StarterKit;
+namespace AwesomeAchievements.Achieves.Patched.StarterKit;
 
     internal sealed class StarterKit : SimpleAchieve {
         public StarterKit(string name, string description) : base(name, description) { }

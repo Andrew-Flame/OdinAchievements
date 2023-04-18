@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.PatchedAchieves.UseVegvisir;
+namespace AwesomeAchievements.Achieves.Patched.UseVegvisir;
 
 internal sealed class UseVegvisir : SimpleAchieve { 
     public UseVegvisir(string name, string description) : base(name, description) { }

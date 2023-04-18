@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.PatchedAchieves.KillPlayer;
+namespace AwesomeAchievements.Achieves.Patched.KillPlayer;
 
     internal sealed class KillPlayer : SimpleAchieve {
         public KillPlayer(string name, string description) : base(name, description) { }

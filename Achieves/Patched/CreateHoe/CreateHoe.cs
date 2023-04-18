@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.PatchedAchieves.CreateHoe;
+namespace AwesomeAchievements.Achieves.Patched.CreateHoe;
 
     internal sealed class CreateHoe : SimpleAchieve {
         public CreateHoe(string name, string description) : base(name, description) { }

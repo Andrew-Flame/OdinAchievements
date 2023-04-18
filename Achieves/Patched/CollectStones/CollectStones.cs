@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.PatchedAchieves.CollectStones;
+namespace AwesomeAchievements.Achieves.Patched.CollectStones;
 
     internal sealed class CollectStones : SimpleAchieve {
         public CollectStones(string name, string description) : base(name, description) { }

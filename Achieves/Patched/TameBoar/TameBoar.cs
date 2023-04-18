@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.PatchedAchieves.TameBoar;
+namespace AwesomeAchievements.Achieves.Patched.TameBoar;
 
     internal sealed class TameBoar : SimpleAchieve {
         public TameBoar(string name, string description) : base(name, description) { }

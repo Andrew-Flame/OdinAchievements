@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.PatchedAchieves.FindDraugrVillage;
+namespace AwesomeAchievements.Achieves.Patched.FindDraugrVillage;
 
     internal sealed class FindDraugrVillage : SimpleAchieve {
         public FindDraugrVillage(string name, string description) : base(name, description) { }

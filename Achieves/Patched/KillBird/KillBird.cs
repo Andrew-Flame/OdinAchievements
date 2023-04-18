@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.PatchedAchieves.KillBird;
+namespace AwesomeAchievements.Achieves.Patched.KillBird;
 
     internal sealed class KillBird : SimpleAchieve {
         public KillBird(string name, string description) : base(name, description) { }

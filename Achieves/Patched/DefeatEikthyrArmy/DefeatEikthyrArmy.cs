@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.PatchedAchieves.DefeatEikthyrArmy;
+namespace AwesomeAchievements.Achieves.Patched.DefeatEikthyrArmy;
 
     internal sealed class DefeatEikthyrArmy : SimpleAchieve {
         public DefeatEikthyrArmy(string name, string description) : base(name, description) { }

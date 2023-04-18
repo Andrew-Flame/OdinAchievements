@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.PatchedAchieves.UseRaft;
+namespace AwesomeAchievements.Achieves.Patched.UseRaft;
 
     internal sealed class UseRaft : SimpleAchieve {
         public UseRaft(string name, string description) : base(name, description) { }

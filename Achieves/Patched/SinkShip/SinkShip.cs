@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.PatchedAchieves.SinkShip;
+namespace AwesomeAchievements.Achieves.Patched.SinkShip;
 
     internal sealed class SinkShip : SimpleAchieve {
         public SinkShip(string name, string description) : base(name, description) { }

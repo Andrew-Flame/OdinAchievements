@@ -1,4 +1,4 @@
-﻿namespace AwesomeAchievements.Achieves.PatchedAchieves.NotSleep;
+﻿namespace AwesomeAchievements.Achieves.Patched.NotSleep;
 
 internal sealed class NotSleep : SimpleAchieve {
     public NotSleep(string name, string description) : base(name, description) { }
