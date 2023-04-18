@@ -62,6 +62,7 @@
         <Compile Include="Achieves\Patched\KillDeerBow\KillDeerBow.cs" />
         <Compile Include="Achieves\Patched\KillDeerNoBow\KillDeerNoBow.cs" />
         <Compile Include="Achieves\Patched\KillPlayer\KillPlayer.cs" />
+        <Compile Include="Achieves\Patched\LeatherArmor\LeatherArmor.cs" />
         <Compile Include="Achieves\Patched\LoremasterMeadows\LoremasterMeadows.cs" />
         <Compile Include="Achieves\Patched\NotSleep\NotSleep.cs" />
         <Compile Include="Achieves\Patched\SinkShip\SinkShip.cs" />

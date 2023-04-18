@@ -17,7 +17,7 @@ internal static class AchievesContainer {
         if (_data != null) SafeClear();  //If the container has been initialized, safe clear it
         var achieveList = JsonAchieves(out int lenght);  //Get list of achievement json objects
         _data = new Achievement[lenght];  //Initialize an array of achievements
-        const string classesNamespace = "AwesomeAchievements.Achieves.PatchedAchieves";  //Namespace where classes contained
+        const string classesNamespace = "AwesomeAchievements.Achieves.Patched";  //Namespace where classes contained
 
         ushort counter = 0;  //Init the counter
         foreach (AchieveJson achieveJson in achieveList) {
