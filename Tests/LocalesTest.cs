@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using AwesomeAchievements.Utility;
+using VikingAchievements.Utility;
 
 namespace Tests; 
 
@@ -10,7 +10,7 @@ internal static class LocalesTest {
     public static void Run() {
         System.Console.WriteLine("Locales test:");
         
-        Assembly assembly = Assembly.GetAssembly(typeof(AwesomeAchievements.Master));
+        Assembly assembly = Assembly.GetAssembly(typeof(VikingAchievements.Master));
         const string localesNamespace = "Locales",
                      templateResource = $"{localesNamespace}.template.ini";
         

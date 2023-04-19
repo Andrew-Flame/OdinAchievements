@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.Patched.EatFoodMeadows;
+namespace VikingAchievements.Achieves.Patched.EatFoodMeadows;
 
     internal sealed class EatFoodMeadows : SimpleAchieve {
         public EatFoodMeadows(string name, string description) : base(name, description) { }

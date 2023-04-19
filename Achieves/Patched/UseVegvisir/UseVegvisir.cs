@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.Patched.UseVegvisir;
+namespace VikingAchievements.Achieves.Patched.UseVegvisir;
 
 internal sealed partial class UseVegvisir : SimpleAchieve { 
     public UseVegvisir(string name, string description) : base(name, description) { }

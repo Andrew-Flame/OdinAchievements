@@ -1,10 +1,10 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
 using System;
-using AwesomeAchievements.AchievePanel;
-using AwesomeAchievements.Patch;
-using AwesomeAchievements.Utility;
+using VikingAchievements.AchievePanel;
+using VikingAchievements.Patch;
+using VikingAchievements.Utility;
 
-namespace AwesomeAchievements.Achieves;
+namespace VikingAchievements.Achieves;
 
 internal abstract class Achievement {
     public string Id  => GetType().Name;

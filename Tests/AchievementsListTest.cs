@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using AwesomeAchievements.Utility;
+using VikingAchievements.Utility;
 
 namespace Tests; 
 
@@ -9,7 +9,7 @@ internal static class AchievementsListTest {
     public static void Run() {
         System.Console.WriteLine("Achievements list test:");
         
-        Assembly assembly = Assembly.GetAssembly(typeof(AwesomeAchievements.Master));
+        Assembly assembly = Assembly.GetAssembly(typeof(VikingAchievements.Master));
         const string resourceNamespace = "AchieveLists",
                      templateResourcePath = $"{resourceNamespace}.template.json";
 

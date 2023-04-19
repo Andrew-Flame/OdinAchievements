@@ -1,6 +1,6 @@
 ﻿using BepInEx.Logging;
 
-namespace AwesomeAchievements.Utility; 
+namespace VikingAchievements.Utility; 
 
 /* Class for work with info logging */
 internal static class LogInfo {

@@ -9,8 +9,8 @@
         <Platform>x64</Platform>
         <ProcessorArchitecture>x64</ProcessorArchitecture>
         <OutputType>Library</OutputType>
-        <RootNamespace>AwesomeAchievements</RootNamespace>
-        <AssemblyName>AwesomeAchievements</AssemblyName>
+        <RootNamespace>VikingAchievements</RootNamespace>
+        <AssemblyName>VikingAchievements</AssemblyName>
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
@@ -21,7 +21,7 @@
 
     <!-- Debug and Release assembly parameters -->
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <OutputPath>C:\SteamLibrary\steamapps\common\Valheim\BepInEx\plugins\AwesomeAchievements\</OutputPath>
+        <OutputPath>C:\SteamLibrary\steamapps\common\Valheim\BepInEx\plugins\VikingAchievements\</OutputPath>
         <DebugType>pdbonly</DebugType>
         <Optimize>false</Optimize>
     </PropertyGroup>

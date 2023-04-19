@@ -2,7 +2,7 @@
 using HarmonyLib;
 using UnityEngine;
 
-namespace AwesomeAchievements.Patch; 
+namespace VikingAchievements.Patch; 
 
 /* Class for work with achievement patches
  * it helps to patch and unpatch single harmony patches */

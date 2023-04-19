@@ -1,4 +1,4 @@
-﻿namespace AwesomeAchievements.Achieves; 
+﻿namespace VikingAchievements.Achieves; 
 
 internal abstract class HardAchieve : Achievement {
     protected HardAchieve(string name, string description) : base(name, description) { }

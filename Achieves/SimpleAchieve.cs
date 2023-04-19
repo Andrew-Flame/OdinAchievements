@@ -1,6 +1,6 @@
-﻿using AwesomeAchievements.Saving;
+﻿using VikingAchievements.Saving;
 
-namespace AwesomeAchievements.Achieves; 
+namespace VikingAchievements.Achieves; 
 
 internal abstract class SimpleAchieve : Achievement {
     protected SimpleAchieve(string name, string description) : base(name, description) { }

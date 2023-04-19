@@ -1,12 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using AwesomeAchievements.AchieveLists;
-using AwesomeAchievements.Achieves;
-using AwesomeAchievements.Utility;
-using static AwesomeAchievements.Saving.SaveManager;
+using VikingAchievements.AchieveLists;
+using VikingAchievements.Achieves;
+using VikingAchievements.Utility;
+using static VikingAchievements.Saving.SaveManager;
 
-namespace AwesomeAchievements.Saving; 
+namespace VikingAchievements.Saving; 
 
 /* Class for writing save files */
 internal static class SaveWriter {

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AwesomeAchievements.AchieveLists;
-using AwesomeAchievements.Achieves;
+using VikingAchievements.AchieveLists;
+using VikingAchievements.Achieves;
 using UnityEngine;
 
-namespace AwesomeAchievements.Utility; 
+namespace VikingAchievements.Utility; 
 
 /* Container realizing assess for all achievements patches */
 internal static class AchievesContainer {
@@ -17,7 +17,7 @@ internal static class AchievesContainer {
         if (_data != null) SafeClear();  //If the container has been initialized, safe clear it
         var achieveList = JsonAchieves(out int lenght);  //Get list of achievement json objects
         _data = new Achievement[lenght];  //Initialize an array of achievements
-        const string classesNamespace = "AwesomeAchievements.Achieves.Patched";  //Namespace where classes contained
+        const string classesNamespace = "VikingAchievements.Achieves.Patched";  //Namespace where classes contained
 
         ushort counter = 0;  //Init the counter
         foreach (AchieveJson achieveJson in achieveList) {

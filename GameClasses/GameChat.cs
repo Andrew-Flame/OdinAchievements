@@ -1,8 +1,8 @@
-﻿using AwesomeAchievements.Utility;
+﻿using VikingAchievements.Utility;
 using HarmonyLib;
 using static Chat;
 
-namespace AwesomeAchievements.GameClasses; 
+namespace VikingAchievements.GameClasses; 
 
 internal static class GameChat {
     /* A patch to redefine behavior of the chat when it getting a "completing an achievement" message */

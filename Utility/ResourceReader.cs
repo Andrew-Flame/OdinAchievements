@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 using UnityEngine;
 
-namespace AwesomeAchievements.Utility; 
+namespace VikingAchievements.Utility; 
 
 /* Class for work with embedded resources */
 internal class ResourceReader {

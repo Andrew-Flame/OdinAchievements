@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
-using AwesomeAchievements.GameClasses;
-using AwesomeAchievements.Utility;
+using VikingAchievements.GameClasses;
+using VikingAchievements.Utility;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-namespace AwesomeAchievements.AchievePanel; 
+namespace VikingAchievements.AchievePanel; 
 
 /* Class for work with the achievement panel */
 internal static class PanelManager {

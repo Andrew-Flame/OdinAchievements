@@ -1,6 +1,6 @@
-﻿using static AwesomeAchievements.Saving.SaveManager;
+﻿using static VikingAchievements.Saving.SaveManager;
 
-namespace AwesomeAchievements.Saving;
+namespace VikingAchievements.Saving;
 
 /* Class for reading save files */
 internal static class SaveReader {

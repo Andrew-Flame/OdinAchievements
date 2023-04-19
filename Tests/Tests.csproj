@@ -59,9 +59,9 @@
       </Reference>
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\AwesomeAchievements.csproj">
+      <ProjectReference Include="..\VikingAchievements.csproj">
         <Project>{b1ff7999-dfc1-43a9-a05e-810508dd171e}</Project>
-        <Name>AwesomeAchievements</Name>
+        <Name>VikingAchievements</Name>
       </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.Patched.FindVillage;
+namespace VikingAchievements.Achieves.Patched.FindVillage;
 
     internal sealed class FindVillage : SimpleAchieve {
         public FindVillage(string name, string description) : base(name, description) { }

@@ -1,9 +1,9 @@
 ﻿using System.IO;
-using AwesomeAchievements.Saving;
-using AwesomeAchievements.Utility;
+using VikingAchievements.Saving;
+using VikingAchievements.Utility;
 using HarmonyLib;
 
-namespace AwesomeAchievements.GameClasses; 
+namespace VikingAchievements.GameClasses; 
 
 internal static class GamePlayerProfile {
     private static string _playerFolder;

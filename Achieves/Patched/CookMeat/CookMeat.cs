@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.Patched.CookMeat;
+namespace VikingAchievements.Achieves.Patched.CookMeat;
 
     internal sealed class CookMeat : SimpleAchieve {
         public CookMeat(string name, string description) : base(name, description) { }

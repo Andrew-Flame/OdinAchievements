@@ -1,7 +1,7 @@
-﻿using AwesomeAchievements.Patch;
-using AwesomeAchievements.Utility;
+﻿using VikingAchievements.Patch;
+using VikingAchievements.Utility;
 
-namespace AwesomeAchievements.Achieves.Patched.UseVegvisir; 
+namespace VikingAchievements.Achieves.Patched.UseVegvisir; 
 
 internal sealed partial class UseVegvisir { 
     [AchievePatch(typeof(Vegvisir), "Interact")] 

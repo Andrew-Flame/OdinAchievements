@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using AwesomeAchievements.AchieveLists;
+using VikingAchievements.AchieveLists;
 using UnityEngine;
 
-namespace AwesomeAchievements.Utility; 
+namespace VikingAchievements.Utility; 
 
 /* Class for work with json achievement lists */
 internal sealed class JsonParser {

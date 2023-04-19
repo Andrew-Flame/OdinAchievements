@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.Patched.CookCoal;
+namespace VikingAchievements.Achieves.Patched.CookCoal;
 
     internal sealed class CookCoal : SimpleAchieve {
         public CookCoal(string name, string description) : base(name, description) { }

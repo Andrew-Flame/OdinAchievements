@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.Patched.VikingGraveyard;
+namespace VikingAchievements.Achieves.Patched.VikingGraveyard;
 
     internal sealed class VikingGraveyard : SimpleAchieve {
         public VikingGraveyard(string name, string description) : base(name, description) { }

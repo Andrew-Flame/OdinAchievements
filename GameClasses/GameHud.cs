@@ -1,8 +1,8 @@
-﻿using AwesomeAchievements.AchievePanel;
-using AwesomeAchievements.AchieveTab;
+﻿using VikingAchievements.AchievePanel;
+using VikingAchievements.AchieveTab;
 using HarmonyLib;
 
-namespace AwesomeAchievements.GameClasses; 
+namespace VikingAchievements.GameClasses; 
 
 internal static class GameHud {
     [HarmonyPatch(typeof(Hud), "Awake")]

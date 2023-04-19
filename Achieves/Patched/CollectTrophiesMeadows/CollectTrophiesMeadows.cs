@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.Patched.CollectTrophiesMeadows;
+namespace VikingAchievements.Achieves.Patched.CollectTrophiesMeadows;
 
     internal sealed class CollectTrophiesMeadows : SimpleAchieve {
         public CollectTrophiesMeadows(string name, string description) : base(name, description) { }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-namespace AwesomeAchievements.Utility; 
+namespace VikingAchievements.Utility; 
 
 /* Class for get all localizable texts for this mod */
 internal static class Localizer {
@@ -36,7 +36,7 @@ internal static class Localizer {
     /* Method fot getting a list of available languages */
     public static IEnumerable<string> AvailableLangs() {
         Assembly assembly = Assembly.GetExecutingAssembly();
-        const string localesNamespace = "AwesomeAchievements.Locales.";
+        const string localesNamespace = "VikingAchievements.Locales.";
 
         foreach (var locale in assembly.GetManifestResourceNames())
             if (locale.StartsWith(localesNamespace) && !locale.Contains("template"))

@@ -1,9 +1,9 @@
 ﻿// ReSharper disable ObjectCreationAsStatement
-using AwesomeAchievements.TerminalCommands;
+using VikingAchievements.TerminalCommands;
 using HarmonyLib;
 using static Terminal;
 
-namespace AwesomeAchievements.GameClasses; 
+namespace VikingAchievements.GameClasses; 
 
 internal static class GameTerminal {
     /* A patch to add new terminal commands */

@@ -1,9 +1,9 @@
 using System.IO;
 using System.Text;
-using AwesomeAchievements.GameClasses;
-using AwesomeAchievements.Utility;
+using VikingAchievements.GameClasses;
+using VikingAchievements.Utility;
 
-namespace AwesomeAchievements.Saving; 
+namespace VikingAchievements.Saving; 
 
 internal static class SaveManager {
     public const char COMPLETED = (char)0,

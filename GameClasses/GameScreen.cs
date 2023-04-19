@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using static UnityEngine.Screen;
 
-namespace AwesomeAchievements.GameClasses; 
+namespace VikingAchievements.GameClasses; 
 
 internal static class GameScreen {
     private static Resolution _lastRes;

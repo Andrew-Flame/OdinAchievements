@@ -1,7 +1,7 @@
-﻿using AwesomeAchievements.Utility;
+﻿using VikingAchievements.Utility;
 using static Terminal;
 
-namespace AwesomeAchievements.TerminalCommands; 
+namespace VikingAchievements.TerminalCommands; 
 
 /* Class for work with achievement-remove terminal commands */
 internal static class AchieveReset {

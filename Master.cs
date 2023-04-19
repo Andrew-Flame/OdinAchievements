@@ -1,8 +1,8 @@
-﻿using AwesomeAchievements.Utility;
+﻿using VikingAchievements.Utility;
 using BepInEx;
 using HarmonyLib;
 
-namespace AwesomeAchievements;
+namespace VikingAchievements;
 
 /* An entry point of this program */
 [BepInPlugin(ModInfo.GUID, ModInfo.TITLE, ModInfo.VERSION)]

@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.Patched.CollectMushrooms;
+namespace VikingAchievements.Achieves.Patched.CollectMushrooms;
 
     internal sealed class CollectMushrooms : SimpleAchieve {
         public CollectMushrooms(string name, string description) : base(name, description) { }

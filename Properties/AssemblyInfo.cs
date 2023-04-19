@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using AwesomeAchievements;
+using VikingAchievements;
 
 [assembly: InternalsVisibleTo("Tests")]
 [assembly: AssemblyTitle(ModInfo.TITLE)]

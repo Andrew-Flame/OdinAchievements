@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AwesomeAchievements.AchieveLists; 
+namespace VikingAchievements.AchieveLists; 
 
 /* Class describing a Json achievement object from lists */
 internal readonly struct AchieveJson {

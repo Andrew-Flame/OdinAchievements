@@ -1,4 +1,4 @@
-﻿namespace AwesomeAchievements.Utility; 
+﻿namespace VikingAchievements.Utility; 
 
 /* Class for the work with chat announcements */
 internal static class Announcer {

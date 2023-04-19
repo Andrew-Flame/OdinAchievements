@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using AwesomeAchievements.Achieves;
-using AwesomeAchievements.Utility;
+using VikingAchievements.Achieves;
+using VikingAchievements.Utility;
 using static Terminal;
 
-namespace AwesomeAchievements.TerminalCommands; 
+namespace VikingAchievements.TerminalCommands; 
 
 /* Class for work with achievement-unlock terminal commands */
 internal static class AchieveUnlock {

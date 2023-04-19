@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.Patched.KillDeerNoBow;
+namespace VikingAchievements.Achieves.Patched.KillDeerNoBow;
 
     internal sealed class KillDeerNoBow : SimpleAchieve {
         public KillDeerNoBow(string name, string description) : base(name, description) { }

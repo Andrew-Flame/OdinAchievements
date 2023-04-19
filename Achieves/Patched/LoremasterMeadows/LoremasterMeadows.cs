@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.Patched.LoremasterMeadows;
+namespace VikingAchievements.Achieves.Patched.LoremasterMeadows;
 
     internal sealed class LoremasterMeadows : SimpleAchieve {
         public LoremasterMeadows(string name, string description) : base(name, description) { }

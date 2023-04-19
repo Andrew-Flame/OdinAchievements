@@ -1,4 +1,4 @@
-namespace AwesomeAchievements.Achieves.Patched.HitWithClub;
+namespace VikingAchievements.Achieves.Patched.HitWithClub;
 
     internal sealed class HitWithClub : SimpleAchieve {
         public HitWithClub(string name, string description) : base(name, description) { }

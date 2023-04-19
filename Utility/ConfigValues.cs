@@ -1,6 +1,6 @@
 ﻿using BepInEx.Configuration;
 
-namespace AwesomeAchievements.Utility; 
+namespace VikingAchievements.Utility; 
 
 /* Class-container for BepInEx config values */
 internal static class ConfigValues {

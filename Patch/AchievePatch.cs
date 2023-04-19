@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace AwesomeAchievements.Patch; 
+namespace VikingAchievements.Patch; 
 
 /* Class-attribute for convenient work with patches */
 internal sealed class AchievePatch : Attribute {

@@ -1,8 +1,8 @@
-﻿using AwesomeAchievements.Utility;
+﻿using VikingAchievements.Utility;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AwesomeAchievements.AchieveTab; 
+namespace VikingAchievements.AchieveTab; 
 
 /* Class for work with achievement tab */  
 internal static class TabManager {

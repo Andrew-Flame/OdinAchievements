@@ -1,4 +1,4 @@
-﻿namespace AwesomeAchievements.Achieves.Patched.LeatherArmor; 
+﻿namespace VikingAchievements.Achieves.Patched.LeatherArmor; 
 
 internal sealed class LeatherArmor : SimpleAchieve {
     public LeatherArmor(string name, string description) : base(name, description) { }

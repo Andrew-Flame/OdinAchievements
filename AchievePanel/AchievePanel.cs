@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AwesomeAchievements.AchievePanel; 
+namespace VikingAchievements.AchievePanel; 
 
 /* A custom Unity component for showing the achievement panel */
 internal class AchievePanel : MonoBehaviour {
