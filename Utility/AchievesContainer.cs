@@ -22,7 +22,7 @@ internal static class AchievesContainer {
         ushort counter = 0;  //Init the counter
         foreach (AchieveJson achieveJson in achieveList) {
             Type achieveClass = Type.GetType($"{classesNamespace}.{achieveJson.Id}.{achieveJson.Id}"); //Get type of the achievement class
-            if (achieveClass == null) throw new UnityException("Class of the achievement \"" + achieveJson.Id + "\" not found");  //Check class for null
+            if (achieveClass == null) throw new UnityException($"Class of the achievement \"{achieveJson.Id}\" not found");  //Check class for null
             Achievement achievement = 
                 (Achievement)Activator.CreateInstance(achieveClass, achieveJson.Name, achieveJson.Description); //Get instance of the achievement class
             _data[counter++] = achievement;  //Add the achievement to array

@@ -28,10 +28,10 @@ internal static class LocalesTest {
             
             if (Eval(templateData, resourceData)) {
                 System.Console.ForegroundColor = ConsoleColor.Green;
-                System.Console.WriteLine("[✔] Test #" + (++counter) + $" ({resourcePath.Split('.')[2]}) passed");
+                System.Console.WriteLine($"[✔] Test #{(++counter).ToString()} ({resourcePath.Split('.')[2]}) passed");
             } else {
                 System.Console.ForegroundColor = ConsoleColor.Red;
-                System.Console.WriteLine("[ ] Test #" + (++counter) + $" ({resourcePath.Split('.')[2]}) failed");
+                System.Console.WriteLine($"[ ] Test #{(++counter).ToString()} ({resourcePath.Split('.')[2]}) failed");
             }
         }
     }

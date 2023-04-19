@@ -4,7 +4,7 @@
 internal static class Announcer {
     /* This alert will be shown to those who haven't installed the mod. It ends with a null character, therefore nothing after it will be displayed.
      * For those who have installed the modification, this part of the line is removed and a normal message is displayed.*/
-    public const string NOT_INSTALLED_ALERT = "This player completed the achievement. To learn more, install the \"" + ModInfo.TITLE + "\" mod\0";
+    public const string NOT_INSTALLED_ALERT = $"This player completed the achievement. To learn more, install the \"{ModInfo.TITLE}\" mod\0";
 
     /* Method for announce the achievement name in the game chat
      * achievementName - the name of the achievement for printing in the chat */
