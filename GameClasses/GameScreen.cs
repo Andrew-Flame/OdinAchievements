@@ -9,7 +9,8 @@ internal static class GameScreen {
     static GameScreen() => _lastRes = currentResolution;
 
     public static bool ResolutionChanged() {
-        if (_lastRes.width == currentResolution.width && _lastRes.height == currentResolution.height) return false;
+        if (_lastRes.width == currentResolution.width && _lastRes.height == currentResolution.height) 
+            return false;
         else {
             _lastRes = currentResolution;
             return true;

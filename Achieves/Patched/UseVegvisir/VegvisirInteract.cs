@@ -6,8 +6,6 @@ namespace VikingAchievements.Achieves.Patched.UseVegvisir;
 internal sealed partial class UseVegvisir { 
     [AchievePatch(typeof(Vegvisir), "Interact")] 
     private sealed class VegvisirInteract : Patcher {
-        public static void Postfix() {
-            AchievesContainer.Complete("UseVegvisir");
-        }
+        public static void Postfix() => AchievesContainer.Complete("UseVegvisir");
     }
 }
