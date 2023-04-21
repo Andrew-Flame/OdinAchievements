@@ -36,7 +36,7 @@
 
     <!-- Script files for compiling -->
     <ItemGroup>
-        <Compile Include="AchieveLists\AchieveJSON.cs" />
+        <Compile Include="Achieves\AchieveJSON.cs" />
         <Compile Include="Achieves\Achievement.cs" />
         <Compile Include="Achieves\LongAchieve.cs" />
         <Compile Include="Achieves\Patched\BeeGuard\BeeGuard.cs" />
@@ -107,6 +107,8 @@
 
     <!-- Lib files -->
     <ItemGroup>
+        <None Include="Achieves\Lists\eng.json" />
+        <None Include="Achieves\Lists\rus.json" />
         <None Include="Libs\BepInEx.dll" />
         <None Include="Libs\0Harmony.dll" />
         <None Include="Libs\UnityEngine.dll" />
@@ -123,6 +125,9 @@
     <!-- Asset files -->
     <ItemGroup>
         <!-- Textures -->
+        <EmbeddedResource Include="Achieves\Lists\eng.min.json" />
+        <EmbeddedResource Include="Achieves\Lists\rus.min.json" />
+        <EmbeddedResource Include="Achieves\Lists\template.json" />
         <EmbeddedResource Include="Assets\Textures\AchievementTabIcon.png" />
         <EmbeddedResource Include="Assets\Textures\AchievementPanel.png" />
         
@@ -135,15 +140,10 @@
     <ItemGroup>
         <!-- Template file -->
         <None Include="AchieveLists\template.json" Condition=" '$(Configuration)' == 'Release' " />
-        <EmbeddedResource Include="AchieveLists\template.json" Condition=" '$(Configuration)' != 'Release' " />
         
         <!-- Formatted json -->
-        <None Include="AchieveLists\eng.json" />
-        <None Include="AchieveLists\rus.json" />
         
         <!-- Compressed json -->
-        <EmbeddedResource Include="AchieveLists\eng.min.json" />
-        <EmbeddedResource Include="AchieveLists\rus.min.json" />
     </ItemGroup>
     
     <!-- Locales -->
