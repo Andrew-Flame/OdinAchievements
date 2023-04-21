@@ -151,6 +151,11 @@
             "description": "Defeat Eikthyr"
         },
         {
+            "id": "AntlerPickaxe",
+            "name": "A new era is beginning",
+            "description": "Craft an antler pickaxe"
+        },
+        {
             "id": "VikingGraveyard",
             "name": "Tomb raider",
             "description": "Plunder a viking graveyard in the meadows"

@@ -159,6 +159,11 @@
             "description": "Defeat Eikthyr"
         },
         {
+            "id": "AntlerPickaxe",
+            "name": "",
+            "description": "Craft an antler pickaxe"
+        },
+        {
             "id": "VikingGraveyard",
             "name": "",
             "description": "Plunder a viking graveyard in the meadows"
