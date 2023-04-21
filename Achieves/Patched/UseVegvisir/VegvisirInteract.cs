@@ -7,7 +7,7 @@ internal sealed partial class UseVegvisir {
     [AchievePatch(typeof(Vegvisir), "Interact")] 
     private sealed class VegvisirInteract : Patcher {
         public static void Postfix() {
-            AchievesContainer.Get("UseVegvisir").Complete();
+            AchievesContainer.Complete("UseVegvisir");
         }
     }
 }

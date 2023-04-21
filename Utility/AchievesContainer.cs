@@ -43,6 +43,10 @@ internal static class AchievesContainer {
         throw new UnityException("Error while getting achievement from container");
     }
 
+    /* Method for completing the achievement by its id
+     * id - the id of the achievement that we need to complete */
+    public static void Complete(string id) => Get(id).Complete();
+
     /* Method for deleting an achievement by its id from container
      * id - the id of the achievement that we need to delete
      * can throw an exception if there no achievement with the same id in the container */
