@@ -39,6 +39,7 @@
         <Compile Include="Achieves\AchieveJSON.cs" />
         <Compile Include="Achieves\Achievement.cs" />
         <Compile Include="Achieves\LongAchieve.cs" />
+        <Compile Include="Achieves\Patched\AntlerPickaxe\AntlerPickaxe.cs" />
         <Compile Include="Achieves\Patched\BeeGuard\BeeGuard.cs" />
         <Compile Include="Achieves\Patched\BuildBeehives\BuildBeehives.cs" />
         <Compile Include="Achieves\Patched\Campfire\Campfire.cs" />
@@ -107,12 +108,11 @@
 
     <!-- Lib files -->
     <ItemGroup>
-        <None Include="Achieves\Lists\eng.json" />
-        <None Include="Achieves\Lists\rus.json" />
         <None Include="Libs\BepInEx.dll" />
         <None Include="Libs\0Harmony.dll" />
         <None Include="Libs\UnityEngine.dll" />
         <None Include="Libs\UnityEngine.UI.dll" />
+        <None Include="Libs\assembly_utils.dll" />
         <None Include="Libs\assembly_valheim.dll" />
         <None Include="Libs\UnityEngine.CoreModule.dll" />
         <None Include="Libs\UnityEngine.AudioModule.dll" />
@@ -125,9 +125,6 @@
     <!-- Asset files -->
     <ItemGroup>
         <!-- Textures -->
-        <EmbeddedResource Include="Achieves\Lists\eng.min.json" />
-        <EmbeddedResource Include="Achieves\Lists\rus.min.json" />
-        <EmbeddedResource Include="Achieves\Lists\template.json" />
         <EmbeddedResource Include="Assets\Textures\AchievementTabIcon.png" />
         <EmbeddedResource Include="Assets\Textures\AchievementPanel.png" />
         
@@ -140,10 +137,15 @@
     <ItemGroup>
         <!-- Template file -->
         <None Include="AchieveLists\template.json" Condition=" '$(Configuration)' == 'Release' " />
+        <EmbeddedResource Include="Achieves\Lists\template.json" Condition=" '$(Configuration)' != 'Release' " />
         
         <!-- Formatted json -->
+        <None Include="Achieves\Lists\eng.json" />
+        <None Include="Achieves\Lists\rus.json" />
         
         <!-- Compressed json -->
+        <EmbeddedResource Include="Achieves\Lists\eng.min.json" />
+        <EmbeddedResource Include="Achieves\Lists\rus.min.json" />
     </ItemGroup>
     
     <!-- Locales -->
@@ -159,12 +161,11 @@
     
     <!-- References -->
     <ItemGroup>
+        <Reference Include="System" />
         <Reference Include="assembly_utils">
           <HintPath>Libs\assembly_utils.dll</HintPath>
           <Private>False</Private>
         </Reference>
-        <Reference Include="System" />
-        
         <Reference Include="0Harmony">
             <HintPath>libs\0Harmony.dll</HintPath>
             <Private>False</Private>
@@ -209,9 +210,6 @@
             <HintPath>libs\UnityEngine.UnityWebRequestModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
-    </ItemGroup>
-    <ItemGroup>
-      <None Include="Libs\assembly_utils.dll" />
     </ItemGroup>
     
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

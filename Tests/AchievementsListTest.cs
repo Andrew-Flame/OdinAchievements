@@ -10,7 +10,7 @@ internal static class AchievementsListTest {
         System.Console.WriteLine("Achievements list test:");
         
         Assembly assembly = Assembly.GetAssembly(typeof(VikingAchievements.Master));
-        const string resourceNamespace = "AchieveLists",
+        const string resourceNamespace = "Achieves.Lists",
                      templateResourcePath = $"{resourceNamespace}.template.json";
 
         var resources = from resource in assembly.GetManifestResourceNames()

@@ -90,7 +90,7 @@ internal static class AchievesContainer {
      * language - the language in which the achievements should be
      * returns the array with achievement json objects containing their ids, names and descriptions */
     public static IEnumerable<AchieveJson> JsonAchieves(out int lenght) {
-        string listPath = $"AchieveLists.{ConfigValues.Language}.min.json";  //Get a path of the list resource
+        string listPath = $"Achieves.Lists.{ConfigValues.Language}.min.json";  //Get a path of the list resource
         ResourceReader listReader = new ResourceReader(listPath);  //Create a resource reader for a json list
         var jsonParser = new JsonParser(listReader.ReadAllStrings());  //Create an instance of the JSON  parser
         lenght = jsonParser.AchievesCount;  //Get the lenght of the sequence
