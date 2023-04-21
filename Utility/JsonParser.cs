@@ -9,7 +9,7 @@ namespace VikingAchievements.Utility;
 internal sealed class JsonParser {
     private readonly string _data;
 
-    public int AchievesCount => Regex.Matches(_data, "id").Count;
+    public int AchievesCount => Regex.Matches(_data, "\"id\"").Count;
 
     /* Constructor for creating new parser instance
      * data - json string
