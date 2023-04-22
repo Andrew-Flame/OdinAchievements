@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using VikingAchievements.Utility;
 
-namespace VikingAchievements.UI.Tab; 
+namespace VikingAchievements.UI.Icon; 
 
 /* Class for work with achievement tab */  
 internal static class TabManager {
@@ -10,7 +10,6 @@ internal static class TabManager {
     /* Method for initializing this type */
     public static void Init() {
         /* Get required game objects */
-        GameObject rootInventory = InventoryGui.instance.gameObject;
         GameObject infoPanel = InventoryGui.instance.m_infoPanel.gameObject;
 
         /* Init the achievement tab icon */
@@ -18,11 +17,16 @@ internal static class TabManager {
         achieveIcon.transform.SetParent(infoPanel.transform);
         achieveIcon.transform.localPosition = new Vector3(0f, 0f);
 
+        SetTexture(achieveIcon);
+        
+
+        LogInfo.Log("An achievement tab manager has been initialized");
+    }
+
+    private static void SetTexture(GameObject achieveIcon) {
         ResourceReader iconReader = new ResourceReader("Assets.Textures.AchievementTabIcon.png");
         Image iconImage = achieveIcon.GetComponent<Image>();
         iconImage.sprite = iconReader.GetSprite();
         iconImage.mainTexture.wrapMode = TextureWrapMode.Clamp;
-
-        LogInfo.Log("An achievement tab manager has been initialized");
     }
 }
