@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
-using VikingAchievements.GameClasses;
 using VikingAchievements.Utility;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -25,7 +24,7 @@ internal static class PanelManager {
         /* Init the achievement panel game object */
         GameObject panel = new GameObject("Achievement_Panel", typeof(Image), typeof(AchievePanel));  //Create an achievement panel object
         panel.transform.SetParent(Hud.instance.transform.parent.transform);  //Set the hud root as the parent for the achievement panel
-        panel.SetActive(false);  //Hide the panel
+        //panel.SetActive(false);  //Hide the panel
         
         /* Get panel components */
         _panel = panel.GetComponent<AchievePanel>();  //Get the achieve panel component
@@ -75,7 +74,7 @@ internal static class PanelManager {
         _panel.rect.anchorMin = new Vector2(1f, 1f);
         _panel.rect.anchorMax = new Vector2(1f, 1f);
 
-        /* /* Set the new panel position */
+        /* Set the new panel position */
         var minimapVectors = new Vector3[4];  //Init the array of minimap vectors
         Minimap.instance.m_smallRoot.GetComponent<RectTransform>().GetWorldCorners(minimapVectors);  //Get minimap corners coordinates
         _panel.rect.pivot = new Vector2(1f, 1f);  //Set the pivot of the panel to top right corner
@@ -201,11 +200,7 @@ internal static class PanelManager {
     }
 
     /* Method for showing the achievement panel */
-    // ReSharper disable Unity.PerformanceAnalysis
     public static void ShowPanel(string achievementName) {
-        if (GameScreen.ResolutionChanged()) //If the screen resolution has been changed
-            SetPanelPosition();  //Update the panel position
-        
         if (_panel.isBusy) {  //If the panel is busy
             Queue.Add(achievementName);  //Add the achievement name to the queue
             return;  //And exit the method
