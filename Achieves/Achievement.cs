@@ -1,7 +1,7 @@
 ﻿// ReSharper disable VirtualMemberCallInConstructor
 using System;
-using VikingAchievements.AchievePanel;
 using VikingAchievements.Patch;
+using VikingAchievements.UI.Panel;
 using VikingAchievements.Utility;
 
 namespace VikingAchievements.Achieves;

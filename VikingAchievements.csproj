@@ -77,9 +77,6 @@
         <Compile Include="Achieves\Patched\VikingGraveyard\VikingGraveyard.cs" />
         <Compile Include="Achieves\SimpleAchieve.cs" />
         <Compile Include="Achieves\HardAchieve.cs" />
-        <Compile Include="AchievePanel\PanelManager.cs" />
-        <Compile Include="AchievePanel\AchievePanel.cs" />
-        <Compile Include="AchieveTab\TabManager.cs" />
         <Compile Include="GameClasses\GameChat.cs" />
         <Compile Include="GameClasses\GameHud.cs" />
         <Compile Include="GameClasses\GamePlayerProfile.cs" />
@@ -94,6 +91,9 @@
         <Compile Include="Saving\SaveManager.cs" />
         <Compile Include="TerminalCommands\AchieveReset.cs" />
         <Compile Include="TerminalCommands\AchieveUnlock.cs" />
+        <Compile Include="UI\Panel\AchievePanel.cs" />
+        <Compile Include="UI\Panel\PanelManager.cs" />
+        <Compile Include="UI\Tab\TabManager.cs" />
         <Compile Include="Utility\AchievesContainer.cs" />
         <Compile Include="Utility\Announcer.cs" />
         <Compile Include="Utility\ConfigValues.cs" />
@@ -209,6 +209,9 @@
             <HintPath>libs\UnityEngine.UnityWebRequestModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="UI\" />
     </ItemGroup>
     
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
-using VikingAchievements.Utility;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+using VikingAchievements.Utility;
 
-namespace VikingAchievements.AchievePanel; 
+namespace VikingAchievements.UI.Panel; 
 
 /* Class for work with the achievement panel */
 internal static class PanelManager {
     private const float ASPECT_RATIO = 704f / 174f;
     private static readonly List<string> Queue = new();
-    private static AchievePanel _panel;
+    private static UI.Panel.AchievePanel _panel;
     private static Text _achieveText;
     private static AudioSource _audioSource;
     private static AudioClip _inSound, _outSound;
@@ -22,12 +22,12 @@ internal static class PanelManager {
         if (_panel != null) SafeClear();  //Safe clear game objects
         
         /* Init the achievement panel game object */
-        GameObject panel = new GameObject("Achievement_Panel", typeof(Image), typeof(AchievePanel));  //Create an achievement panel object
+        GameObject panel = new GameObject("Achievement_Panel", typeof(Image), typeof(UI.Panel.AchievePanel));  //Create an achievement panel object
         panel.transform.SetParent(Hud.instance.transform.parent.transform);  //Set the hud root as the parent for the achievement panel
         //panel.SetActive(false);  //Hide the panel
         
         /* Get panel components */
-        _panel = panel.GetComponent<AchievePanel>();  //Get the achieve panel component
+        _panel = panel.GetComponent<UI.Panel.AchievePanel>();  //Get the achieve panel component
         _panel.rect = panel.GetComponent<RectTransform>();  //Get the achievement panel rect transform component
 
         /* Set achievement panel properties */

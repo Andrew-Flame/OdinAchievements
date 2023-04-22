@@ -1,6 +1,6 @@
-﻿using VikingAchievements.AchievePanel;
-using VikingAchievements.AchieveTab;
-using HarmonyLib;
+﻿using HarmonyLib;
+using VikingAchievements.UI.Panel;
+using VikingAchievements.UI.Tab;
 
 namespace VikingAchievements.GameClasses; 
 
