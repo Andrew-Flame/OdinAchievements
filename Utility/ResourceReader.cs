@@ -88,9 +88,10 @@ internal class ResourceReader {
 
     /* Method fot getting the sprite from the resource
      * return the sprite */
-    public Sprite GetSprite() {
+    public Sprite GetSprite(FilterMode filterMode = FilterMode.Bilinear) {
         Texture2D panelTexture = new Texture2D(0, 0);  //Init random texture (it will be resized)
         panelTexture.LoadImage(ReadAllBytes(), false);  //Load an image from resource
+        panelTexture.filterMode = filterMode;  //Set the filter mode
         return Sprite.Create(panelTexture, new Rect(0f, 0f, panelTexture.width, panelTexture.height), new Vector2(0f, 0f));  //Create a new sprite
     }
 }
