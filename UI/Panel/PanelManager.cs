@@ -54,7 +54,7 @@ internal static class PanelManager {
     /* Method for setting the panel texture */
     private static void SetPanelTexture() {
         Image panelImage = _panel.GetComponent<Image>();  //Get an image component from the achievement panel
-        ResourceReader resourceReader = new ResourceReader("Assets.Textures.AchievementPanel.png");  //Get a resource from assembly
+        ResourceReader resourceReader = new ResourceReader("Assets.Textures.PopupPanel.png");  //Get a resource from assembly
         panelImage.sprite = resourceReader.GetSprite();  //Set the new sprite
         panelImage.mainTexture.wrapMode = TextureWrapMode.Clamp;  //Set the wrap mode to clamp
     }

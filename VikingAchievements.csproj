@@ -93,6 +93,7 @@
         <Compile Include="TerminalCommands\AchieveUnlock.cs" />
         <Compile Include="UI\Panel\AchievePanel.cs" />
         <Compile Include="UI\Panel\PanelManager.cs" />
+        <Compile Include="UI\Icon\IconManager.cs" />
         <Compile Include="UI\Tab\TabManager.cs" />
         <Compile Include="Utility\AchievesContainer.cs" />
         <Compile Include="Utility\Announcer.cs" />
@@ -124,8 +125,9 @@
     <!-- Asset files -->
     <ItemGroup>
         <!-- Textures -->
-        <EmbeddedResource Include="Assets\Textures\AchievementTabIcon.png" />
-        <EmbeddedResource Include="Assets\Textures\AchievementPanel.png" />
+        <EmbeddedResource Include="Assets\Textures\PopupPanel.png" />
+        <EmbeddedResource Include="Assets\Textures\IconHovered.png" />
+        <EmbeddedResource Include="Assets\Textures\IconDefault.png" />
         
         <!-- Sounds -->
         <EmbeddedResource Include="Assets\Sounds\AchievementPanelIn.ogg" />
@@ -209,9 +211,6 @@
             <HintPath>libs\UnityEngine.UnityWebRequestModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
-    </ItemGroup>
-    <ItemGroup>
-      <Folder Include="UI\" />
     </ItemGroup>
     
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

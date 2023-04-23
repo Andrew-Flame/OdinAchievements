@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using VikingAchievements.UI.Icon;
 using VikingAchievements.UI.Panel;
 using VikingAchievements.UI.Tab;
 
@@ -10,7 +11,7 @@ internal static class GameHud {
     private static class HudAwake {
         private static void Postfix() {
             PanelManager.Init();
-            TabManager.Init();
+            IconManager.Init();
         }
     }
 }
