@@ -126,8 +126,7 @@
     <ItemGroup>
         <!-- Textures -->
         <EmbeddedResource Include="Assets\Textures\PopupPanel.png" />
-        <EmbeddedResource Include="Assets\Textures\IconHovered.png" />
-        <EmbeddedResource Include="Assets\Textures\IconDefault.png" />
+        <EmbeddedResource Include="Assets\Textures\Icon.png" />
         
         <!-- Sounds -->
         <EmbeddedResource Include="Assets\Sounds\AchievementPanelIn.ogg" />
