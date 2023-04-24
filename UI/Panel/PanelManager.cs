@@ -12,8 +12,6 @@ internal static class PanelManager {
     private const float ASPECT_RATIO = 704f / 174f;
     private static readonly List<string> Queue = new();
     private static AchievePanel _panel;
-    private static Text _achieveText;
-    private static AudioSource _audioSource;
     private static AudioClip _inSound, _outSound;
 
     /* Method for initializing the panel object */
@@ -48,7 +46,7 @@ internal static class PanelManager {
     /* Method for safe clearing game objects */
     private static void SafeClear() {
         Object.Destroy(_panel.gameObject);
-        Object.Destroy(_audioSource.gameObject);
+        Object.Destroy(_panel.audioSource.gameObject);
     }
 
     /* Method for setting the panel texture */
@@ -127,19 +125,19 @@ internal static class PanelManager {
         RectTransform textRect = textObject.GetComponent<RectTransform>();
         textRect.anchoredPosition = new Vector2(0f, 0f);
         
-        _achieveText = textObject.GetComponent<Text>();  //Get text component of this object
-        _achieveText.rectTransform.sizeDelta = _panel.rect.sizeDelta / new Vector2(offsetX, offsetY);  //Set text size
-        _achieveText.rectTransform.position -= new Vector3(0f, _achieveText.rectTransform.sizeDelta.y / offsetY);  //Shift the text object
+        _panel.text = textObject.GetComponent<Text>();  //Get text component of this object
+        _panel.text.rectTransform.sizeDelta = _panel.rect.sizeDelta / new Vector2(offsetX, offsetY);  //Set text size
+        _panel.text.rectTransform.position -= new Vector3(0f, _panel.text.rectTransform.sizeDelta.y / offsetY);  //Shift the text object
         AddOutline(textObject);  //Add the outline to the text
         
         /* Set text properties */
-        _achieveText.text = "null";
-        _achieveText.color = Color.white;
-        _achieveText.font = Fonts.AveriaSerifLibre;
-        _achieveText.fontStyle = FontStyle.Normal;
-        _achieveText.fontSize = 26;
-        _achieveText.alignment = TextAnchor.UpperLeft;
-        _achieveText.horizontalOverflow = HorizontalWrapMode.Overflow;
+        _panel.text.text = "null";
+        _panel.text.color = Color.white;
+        _panel.text.font = Fonts.AveriaSerifLibre;
+        _panel.text.fontStyle = FontStyle.Normal;
+        _panel.text.fontSize = 26;
+        _panel.text.alignment = TextAnchor.UpperLeft;
+        _panel.text.horizontalOverflow = HorizontalWrapMode.Overflow;
     }
     
     /* Method for adding the outline to Unity object
@@ -159,14 +157,14 @@ internal static class PanelManager {
         
         /* Init a new audio source */
         GameObject audioObject = new GameObject("AchievementSounds");  //Create a new object
-        _audioSource = audioObject.AddComponent<AudioSource>();  //Add an audio source component
+        _panel.audioSource = audioObject.AddComponent<AudioSource>();  //Add an audio source component
         audioObject.transform.parent = AudioMan.instance.transform;  //Set the audio manager as the parent object
         
         /* Setting the audio source */
-        _audioSource.volume = ConfigValues.Volume / 100f;
-        _audioSource.spatialize = false;
-        _audioSource.spatializePostEffects = false;
-        _audioSource.spatialBlend = 0f;
+        _panel.audioSource.volume = ConfigValues.Volume / 100f;
+        _panel.audioSource.spatialize = false;
+        _panel.audioSource.spatializePostEffects = false;
+        _panel.audioSource.spatialBlend = 0f;
         
         /* Get "in" panel sound */
         ResourceReader soundReader = new ResourceReader($"{mainNamespace}.{inSoundName}");
@@ -189,14 +187,14 @@ internal static class PanelManager {
 
     /* Method for playing the "panel appearing" sound */
     public static void PlayInSound() {
-        _audioSource.clip = _inSound;
-        _audioSource.Play();
+        _panel.audioSource.clip = _inSound;
+        _panel.audioSource.Play();
     }
 
     /* Method for playing the "panel disappearing" sound */
     public static void PlatOutSound() {
-        _audioSource.clip = _outSound;
-        _audioSource.Play();
+        _panel.audioSource.clip = _outSound;
+        _panel.audioSource.Play();
     }
 
     /* Method for showing the achievement panel */
@@ -207,7 +205,7 @@ internal static class PanelManager {
         }
         
         /* Else show the popup panel */
-        _achieveText.text = achievementName;
+        _panel.text.text = achievementName;
         _panel.Appear();
     }
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using VikingAchievements.UI.Icon;
 
 namespace VikingAchievements.UI.Tab; 
 
@@ -14,6 +15,6 @@ internal static class TabManager {
     }
 
     public static void Show() {
-        
+        IconManager.icon.SetFocused();
     }
 }

@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace VikingAchievements.UI.Panel; 
 
@@ -6,6 +8,8 @@ namespace VikingAchievements.UI.Panel;
 internal class AchievePanel : MonoBehaviour {
     public bool isBusy;
     public RectTransform rect;
+    public Text text;
+    public AudioSource audioSource;
     
     private const float TIME_OF_MOVE = 0.35f,
                         TIME_OF_WAITING = 4f;  //Time in seconds

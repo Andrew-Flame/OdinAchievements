@@ -90,12 +90,6 @@ internal static class IconManager {
     /* Method for setting the button component */
     private static void SetButton() {
         Button button = icon.GetComponent<Button>();
-        button.onClick.AddListener(OnClick);
-    }
-
-    /* Method for OnClick icon event */
-    private static void OnClick() {
-        icon.SetFocused();
-        TabManager.Show();
+        button.onClick.AddListener(TabManager.Show);
     }
 }
