@@ -154,8 +154,8 @@ internal static class PanelManager {
     /* Method for setting audio components */
     private static void SetAudioComponents() {
         const string mainNamespace = "Assets.Sounds",
-                     inSoundName = "AchievementPanelIn.ogg",
-                     outSoundName = "AchievementPanelOut.ogg";
+                     inSoundName = "In.ogg",
+                     outSoundName = "Out.ogg";
         
         /* Init a new audio source */
         GameObject audioObject = new GameObject("AchievementSounds");  //Create a new object

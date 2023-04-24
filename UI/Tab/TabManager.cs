@@ -12,4 +12,8 @@ internal static class TabManager {
         achievesTab.transform.SetParent(rootInventory.transform);
         achievesTab.transform.position = trophiesTab.transform.position;
     }
+
+    public static void Show() {
+        
+    }
 }

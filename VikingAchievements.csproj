@@ -81,6 +81,7 @@
         <Compile Include="GameClasses\GameHud.cs" />
         <Compile Include="GameClasses\GamePlayerProfile.cs" />
         <Compile Include="GameClasses\GameTerminal.cs" />
+        <Compile Include="GameClasses\IconPatches.cs" />
         <Compile Include="ModInfo.cs" />
         <Compile Include="Master.cs" />
         <Compile Include="Patch\AchievePatch.cs" />
@@ -91,6 +92,7 @@
         <Compile Include="Saving\SaveManager.cs" />
         <Compile Include="TerminalCommands\AchieveReset.cs" />
         <Compile Include="TerminalCommands\AchieveUnlock.cs" />
+        <Compile Include="UI\Icon\AchieveIcon.cs" />
         <Compile Include="UI\Panel\AchievePanel.cs" />
         <Compile Include="UI\Panel\PanelManager.cs" />
         <Compile Include="UI\Icon\IconManager.cs" />
