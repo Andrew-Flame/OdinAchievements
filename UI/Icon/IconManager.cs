@@ -20,6 +20,7 @@ internal static class IconManager {
         iconParent.transform.localPosition = new Vector3(0f, 0f);
         icon = iconParent.GetComponent<AchieveIcon>();
 
+        /* Set parameters */
         SetDarken();
         SetTexture();
         SetSize();
@@ -29,6 +30,7 @@ internal static class IconManager {
         LogInfo.Log("An achievement tab manager has been initialized");
     }
 
+    /* Method for setting the background shadow */
     private static void SetDarken() {
         /* Copy the background object */
         Transform infoPanel = InventoryGui.instance.m_infoPanel;
@@ -37,6 +39,7 @@ internal static class IconManager {
         darken.transform.localPosition = new Vector3(0f, 0f);
     }
     
+    /* Method for setting the icon texture */
     private static void SetTexture() {
         /* Create an image object */
         Transform iconImage = new GameObject("Icon", typeof(Image)).transform;
@@ -55,12 +58,14 @@ internal static class IconManager {
         icon.image.material = material;
     }
 
+    /* Method for setting the size of the icon */
     private static void SetSize() {
         const float sideSize = 58f;
         Vector2 size = new Vector2(sideSize, sideSize);
         icon.transform.Find("Icon").GetComponent<RectTransform>().sizeDelta = size;
     }
 
+    /* Method for setting the position of the icon */
     private static void SetPosition() {
         /* Get game objects */
         Transform infoPanel = InventoryGui.instance.m_infoPanel;
@@ -82,11 +87,13 @@ internal static class IconManager {
         icon.transform.localPosition = new Vector3(-offset, height);
     }
 
+    /* Method for setting the button component */
     private static void SetButton() {
         Button button = icon.GetComponent<Button>();
         button.onClick.AddListener(OnClick);
     }
 
+    /* Method for OnClick icon event */
     private static void OnClick() {
         icon.SetFocused();
         TabManager.Show();
