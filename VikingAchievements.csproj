@@ -129,8 +129,8 @@
         <EmbeddedResource Include="Assets\Textures\Icon.png" />
         
         <!-- Sounds -->
-        <EmbeddedResource Include="Assets\Sounds\AchievementPanelIn.ogg" />
-        <EmbeddedResource Include="Assets\Sounds\AchievementPanelOut.ogg" />
+        <EmbeddedResource Include="Assets\Sounds\In.ogg" />
+        <EmbeddedResource Include="Assets\Sounds\Out.ogg" />
     </ItemGroup>
     
     <!-- Achievement lists -->
