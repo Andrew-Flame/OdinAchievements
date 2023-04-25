@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using VikingAchievements.UI.Tab;
 
 namespace VikingAchievements.UI.Icon; 
 
@@ -11,9 +12,13 @@ internal sealed class AchieveIcon : MonoBehaviour, IPointerEnterHandler, IPointe
     
     public Image image;
 
-    public void OnPointerEnter(PointerEventData eventData) => SetHovered();
+    public void OnPointerEnter(PointerEventData eventData) {
+        if (!TabManager.isOpened) SetHovered();
+    }
 
-    public void OnPointerExit(PointerEventData eventData) => SetDefault();
+    public void OnPointerExit(PointerEventData eventData) {
+        if (!TabManager.isOpened) SetDefault();
+    }
 
     public void SetDefault() => image.color = DefaultColor;
     

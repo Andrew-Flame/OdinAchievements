@@ -1,20 +1,52 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using VikingAchievements.UI.Icon;
+using VikingAchievements.Utility;
 
 namespace VikingAchievements.UI.Tab; 
 
 internal static class TabManager {
+    public static bool isOpened;
+    
+    private static Transform _parent;
+    private static Transform _frame;
+    
     public static void Init() {
-        GameObject rootInventory = InventoryGui.instance.m_inventoryRoot.gameObject;
-        GameObject trophiesTab = rootInventory.transform.Find("Trophies").gameObject;
-        GameObject achievesTab = Object.Instantiate(trophiesTab).gameObject;
+        Transform rootInventory = InventoryGui.instance.m_inventoryRoot;
+        Transform trophiesTab = rootInventory.Find("Trophies");
+        _parent = Object.Instantiate(trophiesTab, rootInventory.transform, true);
+        _parent.name = "Achievements";
 
-        achievesTab.name = "Achievements";
-        achievesTab.transform.SetParent(rootInventory.transform);
-        achievesTab.transform.position = trophiesTab.transform.position;
+        RenameObjects();
+        RedefineCloseButtons();
+    }
+
+    private static void RenameObjects() {
+        _frame = _parent.transform.Find("TrophiesFrame");
+        Transform trophies = _frame.Find("Trophies");
+
+        _frame.name = "AchievementFrame";
+        trophies.name = "Achievements";
+        
+        _frame.Find("topic").GetComponent<Text>().text = Localizer.TabTopic;
+        trophies.Find("TrophyListScroll").name = "AchievementListScroll";
+        trophies.Find("TrophyList").name = "AchievementList";
+    }
+
+    private static void RedefineCloseButtons() {
+        _parent.Find("Closebutton").GetComponent<Button>().onClick.AddListener(Close);
+        _frame.Find("Closebutton").GetComponent<Button>().onClick.AddListener(Close);
     }
 
     public static void Show() {
         IconManager.icon.SetFocused();
+        isOpened = true;
+        _parent.gameObject.SetActive(true);
+    }
+
+    public static void Close() {
+        IconManager.icon.SetDefault();
+        isOpened = false;
+        _parent.gameObject.SetActive(false);
     }
 }
