@@ -12,6 +12,8 @@ internal static class Localizer {
     public static string AchievePanelHeader { get; private set; }
     public static string ChatMessage { get; private set; }
     
+    public static string TabTopic { get; private set; }
+    
     /* Method for initializing this type
      * can throw an exception if this mod doesn't support a language from the config file */
     public static void Init() {
