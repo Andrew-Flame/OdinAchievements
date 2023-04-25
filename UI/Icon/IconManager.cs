@@ -49,7 +49,7 @@ internal static class IconManager {
         /* Set the texture */
         ResourceReader iconReader = new ResourceReader("Assets.Textures.Icon.png");
         icon.image = iconImage.GetComponent<Image>();
-        icon.image.sprite = iconReader.GetSprite(FilterMode.Point);
+        icon.image.sprite = iconReader.GetSprite();
         icon.image.mainTexture.wrapMode = TextureWrapMode.Clamp;
         icon.SetDefault();
         
@@ -60,7 +60,7 @@ internal static class IconManager {
 
     /* Method for setting the size of the icon */
     private static void SetSize() {
-        const float sideSize = 58f;
+        const float sideSize = 64f;
         Vector2 size = new Vector2(sideSize, sideSize);
         icon.transform.Find("Icon").GetComponent<RectTransform>().sizeDelta = size;
     }
