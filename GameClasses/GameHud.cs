@@ -12,6 +12,7 @@ internal static class GameHud {
         private static void Postfix() {
             PanelManager.Init();
             IconManager.Init();
+            TabManager.Init();
         }
     }
 }
