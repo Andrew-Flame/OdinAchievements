@@ -163,6 +163,10 @@
     
     <!-- References -->
     <ItemGroup>
+        <Reference Include="assembly_guiutils">
+          <HintPath>Libs\assembly_guiutils.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="assembly_utils">
           <HintPath>Libs\assembly_utils.dll</HintPath>
@@ -212,6 +216,9 @@
             <HintPath>libs\UnityEngine.UnityWebRequestModule.dll</HintPath>
             <Private>False</Private>
         </Reference>
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="Libs\assembly_guiutils.dll" />
     </ItemGroup>
     
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

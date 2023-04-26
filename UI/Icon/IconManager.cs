@@ -15,7 +15,7 @@ internal static class IconManager {
         GameObject infoPanel = InventoryGui.instance.m_infoPanel.gameObject;
 
         /* Init the achievement tab icon */
-        GameObject iconParent = new GameObject("Achievements", typeof(AchieveIcon), typeof(Button));
+        GameObject iconParent = new GameObject("Achievements", typeof(AchieveIcon), typeof(Button), typeof(UITooltip));
         iconParent.transform.SetParent(infoPanel.transform);
         iconParent.transform.localPosition = new Vector3(0f, 0f);
         icon = iconParent.GetComponent<AchieveIcon>();
@@ -26,6 +26,7 @@ internal static class IconManager {
         SetSize();
         SetPosition();
         SetButton();
+        SetTooltip();
 
         LogInfo.Log("An achievement tab manager has been initialized");
     }
@@ -85,6 +86,15 @@ internal static class IconManager {
         trophies.localPosition = new Vector3(-offset * 3f, height);
         pvp.localPosition = new Vector3(-offset * 2f, height);
         icon.transform.localPosition = new Vector3(-offset, height);
+    }
+
+    /* Method for setting the tooltip for the icon */
+    private static void SetTooltip() {
+        GameObject tooltipPrefab = InventoryGui.instance.m_infoPanel.Find("Texts").GetComponent<UITooltip>().m_tooltipPrefab;
+        UITooltip tooltip = icon.GetComponent<UITooltip>();
+
+        tooltip.m_tooltipPrefab = tooltipPrefab;
+        tooltip.m_text = Localizer.TabTopic;
     }
 
     /* Method for setting the button component */
