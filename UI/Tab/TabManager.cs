@@ -16,21 +16,23 @@ internal static class TabManager {
         Transform trophiesTab = rootInventory.Find("Trophies");
         _parent = Object.Instantiate(trophiesTab, rootInventory.transform, true);
         _parent.name = "Achievements";
-
-        RenameObjects();
+        
+        RefactorObject();
         RedefineCloseButtons();
     }
 
-    private static void RenameObjects() {
+    private static void RefactorObject() {
         _frame = _parent.transform.Find("TrophiesFrame");
         Transform trophies = _frame.Find("Trophies");
 
         _frame.name = "AchievementFrame";
         trophies.name = "Achievements";
-        
+
         _frame.Find("topic").GetComponent<Text>().text = Localizer.TabTopic;
         trophies.Find("TrophyListScroll").name = "AchievementListScroll";
-        trophies.Find("TrophyList").name = "AchievementList";
+
+        trophies.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.65f);
+        Object.Destroy(trophies.Find("TrophyList").gameObject);
     }
 
     private static void RedefineCloseButtons() {
