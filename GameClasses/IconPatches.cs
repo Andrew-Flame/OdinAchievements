@@ -14,7 +14,7 @@ internal class IconPatches {
             yield return typeof(InventoryGui).GetMethod("OnOpenTrophies");
         }
 
-        private static void Postfix() => IconManager.icon.SetFocused();
+        private static void Postfix() => IconManager.Icon.SetFocused();
     }
     
     [HarmonyPatch]
@@ -25,6 +25,6 @@ internal class IconPatches {
             yield return typeof(InventoryGui).GetMethod("OnCloseTrophies");
         }
 
-        private static void Postfix() => IconManager.icon.SetDefault();
+        private static void Postfix() => IconManager.Icon.SetDefault();
     }
 }
