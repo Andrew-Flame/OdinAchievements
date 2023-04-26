@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace VikingAchievements.UI.Panel; 
 
 /* A custom Unity component for showing the achievement panel */
 internal class AchievePanel : MonoBehaviour {
-    public bool isBusy;
+    public bool IsBusy { get; private set; }
+    
     public RectTransform rect;
     public Text text;
     public AudioSource audioSource;
@@ -21,7 +21,7 @@ internal class AchievePanel : MonoBehaviour {
     private bool _isAppearing, _isWaiting, _isDisappearing;
 
     private void Update() {
-        if (!isBusy) return;  //If the panel isn't busy, exit the method
+        if (!IsBusy) return;  //If the panel isn't busy, exit the method
         
         if (_isAppearing) {  //If the panel is appearing
             float distCovered = (Time.time - _startTime) * _speed;  //Get a covered distance
@@ -49,7 +49,7 @@ internal class AchievePanel : MonoBehaviour {
 
             if (tmpPivot.x <= _hidePivot.x) {  //If the panel already disappeared
                 _isDisappearing = false;  //Make the panel not disappear
-                isBusy = false;  //Make the panel not busy
+                IsBusy = false;  //Make the panel not busy
                 gameObject.SetActive(false);  //Make the panel not active
                 PanelManager.NextPendedAction();  //Run the next pended action (if it exists)
             }
@@ -58,7 +58,7 @@ internal class AchievePanel : MonoBehaviour {
 
     /* Method for appearing the achievement panel and its disappearing */
     public void Appear() {
-        isBusy = true;  //Make the panel busy
+        IsBusy = true;  //Make the panel busy
         _isAppearing = true;  //Make the panel appear
         _distance = Vector2.Distance(_showPivot, _hidePivot);  //Eval the distance
         _speed = _distance / TIME_OF_MOVE;  //Set the speed

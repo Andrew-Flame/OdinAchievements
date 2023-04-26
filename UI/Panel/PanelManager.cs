@@ -199,7 +199,7 @@ internal static class PanelManager {
 
     /* Method for showing the achievement panel */
     public static void ShowPanel(string achievementName) {
-        if (_panel.isBusy) {  //If the panel is busy
+        if (_panel.IsBusy) {  //If the panel is busy
             Queue.Add(achievementName);  //Add the achievement name to the queue
             return;  //And exit the method
         }
@@ -212,7 +212,7 @@ internal static class PanelManager {
     /* Method for run the next pended action (if it exists)
      * (User can complete more than one achievement in a short time, so we need to pend the showing of the panel) */
     public static void NextPendedAction() {
-        if (_panel.isBusy) return;
+        if (_panel.IsBusy) return;
         if (Queue.Count == 0) return;
 
         string achievementName = Queue[0];
