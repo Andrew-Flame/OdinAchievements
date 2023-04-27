@@ -61,6 +61,11 @@
             "description": "Turn a piece of meat into coal"
         },
         {
+            "id": "Workbench",
+            "name": "Benchmarking",
+            "description": "Create a workbench"
+        },
+        {
             "id": "CreateHoe",
             "name": "Terraforming Basics",
             "description": "Create a hoe"

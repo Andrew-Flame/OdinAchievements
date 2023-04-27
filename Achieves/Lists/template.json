@@ -69,6 +69,11 @@
             "description": "Turn a piece of meat into coal"
         },
         {
+            "id": "Workbench",
+            "name": "",
+            "description": "Create a workbench"
+        },
+        {
             "id": "CreateHoe",
             "name": "",
             "description": "Create a hoe"
